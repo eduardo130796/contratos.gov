@@ -1,0 +1,8 @@
+CorrelationId: aa67134e-56d4-45d5-b7f6-e56d975ea0c3
+UTC DateTime: 02/05/2026 19:04:20
+
+The following files/folders have not been downloaded
+0. services/_init_.py
+1. processing/riscos.py
+2. ui/tabelas_alerta.py
+3. ingestion/_init_.py
