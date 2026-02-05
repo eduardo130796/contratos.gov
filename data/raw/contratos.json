@@ -3898,5 +3898,3905 @@
       "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/5701/terceirizados",
       "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/5701/arquivos"
     }
+  },
+  {
+    "id": 5702,
+    "receita_despesa": "Despesa",
+    "numero": "00054/2019",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "03.574.135/0001-59",
+      "nome": "EV LOCADORA LTDA"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": null,
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "Serviços",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.001609/2019-07",
+    "objeto": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA NA PRESTAÇÃO DE SERVIÇOS DE LOCAÇÃO DE VEÍCULOS PARA ATENDER A UNIDADE DPU/SÃO LUIS/MA.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "05",
+    "modalidade": "Pregão",
+    "unidade_compra": "290002",
+    "licitacao_numero": "00037/2019",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2019-09-27",
+    "data_publicacao": "2019-09-30",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2019-09-27",
+    "vigencia_fim": "2022-09-26",
+    "valor_inicial": "113.129,75",
+    "valor_global": "56.963,64",
+    "num_parcelas": 12,
+    "valor_parcela": "4.746,97",
+    "valor_acumulado": "287.842,89",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/5702/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/5702/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/5702/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/5702/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/5702/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/5702/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/5702/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/5702/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/5702/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/5702/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/5702/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/5702/arquivos"
+    }
+  },
+  {
+    "id": 5718,
+    "receita_despesa": "Despesa",
+    "numero": "00072/2019",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "04.816.857/0001-35",
+      "nome": "CARMAXX LOCACAO DE VEICULOS LTDA"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": null,
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "Serviços",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.001597/2019-11",
+    "objeto": "CONTRATAÇÃO DE SERVIÇOS DE LOCAÇÃO DE VEÍCULOS, PARA ATENDER AS NECESSIDADES DAS UNIDADES DA DEFENSORIA PÚBLICA DA UNIÃO NO ESTADO DO CEARÁ.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "05",
+    "modalidade": "Pregão",
+    "unidade_compra": "290002",
+    "licitacao_numero": "00039/2019",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2019-11-04",
+    "data_publicacao": "2019-11-06",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2019-11-04",
+    "vigencia_fim": "2022-11-03",
+    "valor_inicial": "154.347,63",
+    "valor_global": "39.902,64",
+    "num_parcelas": 12,
+    "valor_parcela": "3.325,22",
+    "valor_acumulado": "338.043,07",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/5718/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/5718/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/5718/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/5718/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/5718/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/5718/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/5718/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/5718/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/5718/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/5718/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/5718/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/5718/arquivos"
+    }
+  },
+  {
+    "id": 5721,
+    "receita_despesa": "Despesa",
+    "numero": "00010/2017",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "17.426.041/0001-47",
+      "nome": "ALSERVICE SERVICOS ESPECIALIZADOS LTDA"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": null,
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "Obras",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.009485/2016-57",
+    "objeto": "CONTRATO DE PRESTAÇÃO DE SERVIÇOS DE RECEPÇÃO PARA ATENDER A UNIDADE DPU/FORTALEZA/CE.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "05",
+    "modalidade": "Pregão",
+    "unidade_compra": "290002",
+    "licitacao_numero": "00142/2016",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2017-03-06",
+    "data_publicacao": "2017-03-08",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2017-03-06",
+    "vigencia_fim": "2022-06-30",
+    "valor_inicial": "121.846,00",
+    "valor_global": "152.443,68",
+    "num_parcelas": 12,
+    "valor_parcela": "12.703,64",
+    "valor_acumulado": "1.022.243,90",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/5721/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/5721/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/5721/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/5721/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/5721/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/5721/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/5721/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/5721/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/5721/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/5721/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/5721/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/5721/arquivos"
+    }
+  },
+  {
+    "id": 5722,
+    "receita_despesa": "Despesa",
+    "numero": "00039/2019",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "19.190.832/0001-46",
+      "nome": "BELEM SERVICOS EM PORTARIA E LIMPEZA LTDA"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": null,
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "Serviços",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.006390/2018-43",
+    "objeto": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA PRESTAÇÃO DE SERVIÇOS DE SECRETARIADO EXECUTIVO E TÉCNICO EM SECRETARIADO, EM ATENDIMENTO ÀS NECESSIDADES DA DEFENSORIA PÚBLICA DA UNIÃO EM FORTALEZA/CE.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "05",
+    "modalidade": "Pregão",
+    "unidade_compra": "290002",
+    "licitacao_numero": "00023/2019",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2019-07-01",
+    "data_publicacao": "2019-07-10",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2019-07-01",
+    "vigencia_fim": "2022-06-30",
+    "valor_inicial": "286.399,32",
+    "valor_global": "301.884,24",
+    "num_parcelas": 12,
+    "valor_parcela": "25.157,02",
+    "valor_acumulado": "914.673,95",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/5722/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/5722/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/5722/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/5722/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/5722/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/5722/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/5722/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/5722/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/5722/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/5722/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/5722/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/5722/arquivos"
+    }
+  },
+  {
+    "id": 5742,
+    "receita_despesa": "Despesa",
+    "numero": "00132/2020",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "08.857.869/0001-69",
+      "nome": "MASTEER TECNOLOGIA EM ELEVADORES LTDA"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": null,
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "Serviços",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.009157/2019-01",
+    "objeto": "CONTRATAÇÃO DE SERVIÇOS DE MANUTENÇÃO PREVENTIVA E CORRETIVA DE ELELADOR, A SEREM EXECUTADOS NA UNIDADE DA DEFENSORIA ´PÚBLICA DA UNIÃO EM FORTALEZA/CE.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "05",
+    "modalidade": "Pregão",
+    "unidade_compra": "290002",
+    "licitacao_numero": "00066/2020",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2020-07-29",
+    "data_publicacao": "2020-08-04",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2020-08-10",
+    "vigencia_fim": "2024-08-09",
+    "valor_inicial": "5.820,00",
+    "valor_global": "5.820,00",
+    "num_parcelas": 12,
+    "valor_parcela": "485,00",
+    "valor_acumulado": "11.640,00",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/5742/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/5742/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/5742/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/5742/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/5742/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/5742/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/5742/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/5742/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/5742/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/5742/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/5742/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/5742/arquivos"
+    }
+  },
+  {
+    "id": 5743,
+    "receita_despesa": "Despesa",
+    "numero": "00152/2020",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290521",
+          "nome_resumido": "DPU-FORTALEZA/CE",
+          "nome": "DEFENSORIA PUBLICA DA UNIAO FORTALEZA/CE",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "20.838.277/0001-03",
+      "nome": "3R COMERCIO E SERVICOS DE MAQUINAS LTDA"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": null,
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "Serviços",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08150.000045/2020-24",
+    "objeto": "MANUTENÇÃO DE AR CONDIONADO",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "05",
+    "modalidade": "Pregão",
+    "unidade_compra": null,
+    "licitacao_numero": "00087/2020",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2020-09-09",
+    "data_publicacao": "2020-09-11",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2020-09-21",
+    "vigencia_fim": "2021-09-20",
+    "valor_inicial": "122.884,73",
+    "valor_global": "122.884,73",
+    "num_parcelas": 12,
+    "valor_parcela": "10.240,39",
+    "valor_acumulado": "122.884,68",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/5743/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/5743/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/5743/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/5743/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/5743/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/5743/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/5743/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/5743/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/5743/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/5743/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/5743/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/5743/arquivos"
+    }
+  },
+  {
+    "id": 5744,
+    "receita_despesa": "Despesa",
+    "numero": "00026/2008",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "30000",
+        "nome": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
+        "unidade_gestora_origem": {
+          "codigo": "200140",
+          "nome_resumido": "DEFENS./PUBL./UNIAO",
+          "nome": "DEFENSORIA PUBLICA DA UNIAO",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "09.018.329/0001-54",
+      "nome": "RAIMUNDO GILMARIO EDUARDO BEZERRA & CIA LTDA"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": null,
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "Locação Imóveis",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.016371/2007-72",
+    "objeto": "LOCAÇÃO DO IMOVEL PARA ABRIGAR A DEFENSORIA PUBLICA DA UNIÃO EM FORTALEZA/CE.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "06",
+    "modalidade": "Dispensa",
+    "unidade_compra": "200140",
+    "licitacao_numero": "00259/2007",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2008-04-15",
+    "data_publicacao": "2008-06-04",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2008-04-15",
+    "vigencia_fim": "2028-04-14",
+    "valor_inicial": "233.510,16",
+    "valor_global": "444.000,00",
+    "num_parcelas": 12,
+    "valor_parcela": "37.000,00",
+    "valor_acumulado": "6.716.456,50",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/5744/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/5744/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/5744/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/5744/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/5744/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/5744/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/5744/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/5744/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/5744/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/5744/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/5744/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/5744/arquivos"
+    }
+  },
+  {
+    "id": 5746,
+    "receita_despesa": "Despesa",
+    "numero": "00060/2018",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "19.365.869/0001-68",
+      "nome": "PRISMA AR CONDICIONADO LTDA"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": null,
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "Serviços",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.000850/2018-20",
+    "objeto": "CONTRATO DE PRESTAÇÃO DE SERVIÇOS DE EMPRESA ESPECIALIZADA EM MANUTENÇÃO CORRETIVA E PREVENTIVA DE AR CONDICIONADO PARA ATENDER A UNIDADE DPU/CÁCERES/MT.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "05",
+    "modalidade": "Pregão",
+    "unidade_compra": "290002",
+    "licitacao_numero": "00001/2018",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2018-07-13",
+    "data_publicacao": "2018-07-19",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2018-07-13",
+    "vigencia_fim": "2021-07-16",
+    "valor_inicial": "22.744,80",
+    "valor_global": "22.744,80",
+    "num_parcelas": 1,
+    "valor_parcela": "0,00",
+    "valor_acumulado": "22.744,80",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/5746/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/5746/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/5746/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/5746/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/5746/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/5746/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/5746/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/5746/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/5746/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/5746/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/5746/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/5746/arquivos"
+    }
+  },
+  {
+    "id": 6253,
+    "receita_despesa": "Despesa",
+    "numero": "00097/2017",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "09.687.473/0001-83",
+      "nome": "PEX PARTICIPACOES LTDA"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": null,
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "Locação Imóveis",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.004223/2016-04",
+    "objeto": "CONTRATO DE LOCAÇÃO DE IMÓVEL DESTINADO A INSTALAÇÃO DA UNIDADE DPU/MANAUS/AM.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "06",
+    "modalidade": "Dispensa",
+    "unidade_compra": "290002",
+    "licitacao_numero": "00132/2017",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2017-07-18",
+    "data_publicacao": "2017-07-19",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2017-07-18",
+    "vigencia_fim": "2027-07-17",
+    "valor_inicial": "780.000,00",
+    "valor_global": "676.084,68",
+    "num_parcelas": 12,
+    "valor_parcela": "56.340,39",
+    "valor_acumulado": "4.866.401,04",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/6253/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/6253/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/6253/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/6253/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/6253/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/6253/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/6253/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/6253/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/6253/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/6253/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/6253/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/6253/arquivos"
+    }
+  },
+  {
+    "id": 6256,
+    "receita_despesa": "Despesa",
+    "numero": "00006/2019",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290533",
+          "nome_resumido": "DPU-MANAUS/AM",
+          "nome": "DEFENSORIA PUBLICA DA UNIAO MANAUS/AM",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "18.620.848/0001-89",
+      "nome": "LOK SERVICOS DE MAO DE OBRA LTDA"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": null,
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "Serviços",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.006301/2018-69",
+    "objeto": "RECEPÇÃO",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "05",
+    "modalidade": "Pregão",
+    "unidade_compra": null,
+    "licitacao_numero": "00005/2019",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2019-02-13",
+    "data_publicacao": "2019-02-15",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2019-02-13",
+    "vigencia_fim": "2020-02-12",
+    "valor_inicial": "123.886,25",
+    "valor_global": "123.886,25",
+    "num_parcelas": 12,
+    "valor_parcela": "10.323,85",
+    "valor_acumulado": "123.886,20",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/6256/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/6256/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/6256/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/6256/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/6256/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/6256/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/6256/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/6256/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/6256/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/6256/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/6256/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/6256/arquivos"
+    }
+  },
+  {
+    "id": 6257,
+    "receita_despesa": "Despesa",
+    "numero": "00025/2020",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "15.150.504/0001-65",
+      "nome": "LDS SERVICOS DE LIMPEZA LTDA EM RECUPERACAO JUDICIAL"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": null,
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "Serviços",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.009795/2016-71",
+    "objeto": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA PRESTAÇÃO DE SERVIÇOS NA ÁREA DE SECRETARIADO, EM ATENDIMENTO ÀS NECESSIDADES DA DEFENSORIA PÚBLICA DA UNIÃO EM MANAUS/AM.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "06",
+    "modalidade": "Dispensa",
+    "unidade_compra": "290002",
+    "licitacao_numero": "00031/2020",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2020-03-03",
+    "data_publicacao": "2020-03-11",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2020-03-03",
+    "vigencia_fim": "2022-06-30",
+    "valor_inicial": "191.842,80",
+    "valor_global": "247.150,92",
+    "num_parcelas": 12,
+    "valor_parcela": "20.595,91",
+    "valor_acumulado": "692.735,05",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/6257/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/6257/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/6257/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/6257/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/6257/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/6257/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/6257/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/6257/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/6257/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/6257/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/6257/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/6257/arquivos"
+    }
+  },
+  {
+    "id": 6258,
+    "receita_despesa": "Despesa",
+    "numero": "00091/2020",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "09.406.386/0001-00",
+      "nome": "TAWRUS SEGURANCA E VIGILANCIA LTDA"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": null,
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "Serviços",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.007202/2020-19",
+    "objeto": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA NA PRESTAÇÃO DE SERVIÇOS NA ÁREA DE VIGILÂNCIA PATRIMONIAL ARMADA, EM ATENDIMENTO ÀS NECESSIDADES DA DEFENSORIA PÚBLICA DA UNIÃO EM MANAUS/AM.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "05",
+    "modalidade": "Pregão",
+    "unidade_compra": "290002",
+    "licitacao_numero": "00025/2020",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2020-06-25",
+    "data_publicacao": "2020-07-01",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2020-06-25",
+    "vigencia_fim": "2025-06-24",
+    "valor_inicial": "119.579,52",
+    "valor_global": "144.442,80",
+    "num_parcelas": 12,
+    "valor_parcela": "12.036,90",
+    "valor_acumulado": "696.717,15",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/6258/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/6258/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/6258/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/6258/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/6258/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/6258/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/6258/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/6258/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/6258/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/6258/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/6258/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/6258/arquivos"
+    }
+  },
+  {
+    "id": 6274,
+    "receita_despesa": "Despesa",
+    "numero": "00049/2016",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "13.719.027/0001-80",
+      "nome": "R P PARTICIPACOES E EMPREENDIMENTOS LTDA"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": null,
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "Locação Imóveis",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.000825/2015-11",
+    "objeto": "LOCAÇÃO DE IMÓVEL PARA INSTALAÇÃO DA DEFENSORIA PUBLICA DA UNIÃO EM ARACAJÚ/SE.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "06",
+    "modalidade": "Dispensa",
+    "unidade_compra": "290002",
+    "licitacao_numero": "00001/2016",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2016-03-15",
+    "data_publicacao": "2016-03-18",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2016-03-15",
+    "vigencia_fim": "2031-03-14",
+    "valor_inicial": "744.000,00",
+    "valor_global": "588.857,40",
+    "num_parcelas": 12,
+    "valor_parcela": "49.071,45",
+    "valor_acumulado": "6.244.014,17",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/6274/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/6274/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/6274/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/6274/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/6274/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/6274/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/6274/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/6274/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/6274/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/6274/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/6274/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/6274/arquivos"
+    }
+  },
+  {
+    "id": 6330,
+    "receita_despesa": "Despesa",
+    "numero": "00068/2020",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "10.343.472/0001-09",
+      "nome": "LOKSERV SERVICOS DE LIMPEZA LTDA"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": null,
+    "situacao": "Ativo",
+    "justificativa_inativo": "Rescindido",
+    "categoria": "Serviços",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.009404/2019-61",
+    "objeto": "CONTRATAÇÃO DE SERVIÇOS DE LIMPEZA, PARA ATENDER À UNIDADE DA DEFENSORIA PUBLICA DA UNIÃO EM BOA VISTA/RR.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "05",
+    "modalidade": "Pregão",
+    "unidade_compra": "290002",
+    "licitacao_numero": "00008/2020",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2020-05-13",
+    "data_publicacao": "2020-05-19",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2020-05-13",
+    "vigencia_fim": "2025-08-04",
+    "valor_inicial": "39.898,63",
+    "valor_global": "48.741,84",
+    "num_parcelas": 12,
+    "valor_parcela": "4.061,82",
+    "valor_acumulado": "811.860,02",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/6330/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/6330/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/6330/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/6330/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/6330/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/6330/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/6330/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/6330/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/6330/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/6330/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/6330/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/6330/arquivos"
+    }
+  },
+  {
+    "id": 6333,
+    "receita_despesa": "Despesa",
+    "numero": "00002/2014",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290508",
+          "nome_resumido": "DPU-BOA VISTA/RR",
+          "nome": "DEFENSORIA PUBLICA DA UNIAO BOA VISTA RORAIMA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "25.278.459/0005-06",
+      "nome": "SEGURPRO VIGILANCIA PATRIMONIAL S.A."
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": null,
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "Serviços",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.009415/2013-56",
+    "objeto": "VIGILANCIA",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "05",
+    "modalidade": "Pregão",
+    "unidade_compra": null,
+    "licitacao_numero": "00065/2013",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2014-04-17",
+    "data_publicacao": "2014-04-27",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2019-04-17",
+    "vigencia_fim": "2020-04-16",
+    "valor_inicial": "145.640,16",
+    "valor_global": "195.314,64",
+    "num_parcelas": 12,
+    "valor_parcela": "16.276,22",
+    "valor_acumulado": "1.168.432,19",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/6333/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/6333/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/6333/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/6333/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/6333/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/6333/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/6333/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/6333/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/6333/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/6333/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/6333/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/6333/arquivos"
+    }
+  },
+  {
+    "id": 6334,
+    "receita_despesa": "Despesa",
+    "numero": "00082/2020",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "12.159.225/0002-55",
+      "nome": "FBX - SERVICOS DE SEGURANCA LTDA"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": null,
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "Serviços",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.006078/2020-74",
+    "objeto": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA NA PRESTAÇÃO DE SERVIÇOS NA ÁREA DE VIGILÂNCIA PATRIMONIAL ARMADA, EM ATENDIMENTO ÀS NECESSIDADES DA DEFENSORIA PÚBLICA DA UNIÃO EM BOA VISTA/RR.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "05",
+    "modalidade": "Pregão",
+    "unidade_compra": "290002",
+    "licitacao_numero": "00029/2020",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2020-06-17",
+    "data_publicacao": "2020-06-24",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2020-06-17",
+    "vigencia_fim": "2023-08-16",
+    "valor_inicial": "87.780,00",
+    "valor_global": "112.492,80",
+    "num_parcelas": 12,
+    "valor_parcela": "9.374,40",
+    "valor_acumulado": "329.668,05",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/6334/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/6334/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/6334/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/6334/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/6334/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/6334/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/6334/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/6334/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/6334/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/6334/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/6334/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/6334/arquivos"
+    }
+  },
+  {
+    "id": 6336,
+    "receita_despesa": "Despesa",
+    "numero": "00180/2015",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290508",
+          "nome_resumido": "DPU-BOA VISTA/RR",
+          "nome": "DEFENSORIA PUBLICA DA UNIAO BOA VISTA RORAIMA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "08.272.297/0001-56",
+      "nome": "MIX COMERCIO E SERVICOS LTDA"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": null,
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "Serviços",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.007414/2015-39",
+    "objeto": "AR CONDICIONADO",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "05",
+    "modalidade": "Pregão",
+    "unidade_compra": null,
+    "licitacao_numero": "00092/2015",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2015-12-14",
+    "data_publicacao": "2015-12-15",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2015-12-14",
+    "vigencia_fim": "2016-12-13",
+    "valor_inicial": "47.999,00",
+    "valor_global": "47.999,00",
+    "num_parcelas": 12,
+    "valor_parcela": "3.999,91",
+    "valor_acumulado": "47.998,92",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/6336/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/6336/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/6336/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/6336/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/6336/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/6336/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/6336/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/6336/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/6336/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/6336/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/6336/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/6336/arquivos"
+    }
+  },
+  {
+    "id": 6339,
+    "receita_despesa": "Despesa",
+    "numero": "00130/2013",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "30000",
+        "nome": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
+        "unidade_gestora_origem": {
+          "codigo": "200140",
+          "nome_resumido": "DEFENS./PUBL./UNIAO",
+          "nome": "DEFENSORIA PUBLICA DA UNIAO",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "23.068.307/0001-20",
+      "nome": "M. G. SOUZA ROCHA LTDA"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": null,
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "Locação Imóveis",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.013942/2013-65",
+    "objeto": "LOCAÇÃO DE IMÓVEL PARA INSTALAÇÃO DA DEFENSORIA PÚBLICA DA UNIÃO EM MACAPÁ/AP.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "06",
+    "modalidade": "Dispensa",
+    "unidade_compra": "200140",
+    "licitacao_numero": "00322/2013",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2013-10-02",
+    "data_publicacao": "2013-10-03",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2013-10-02",
+    "vigencia_fim": "2028-10-01",
+    "valor_inicial": "360.000,00",
+    "valor_global": "1.728.000,00",
+    "num_parcelas": 60,
+    "valor_parcela": "28.800,00",
+    "valor_acumulado": "3.448.083,58",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/6339/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/6339/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/6339/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/6339/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/6339/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/6339/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/6339/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/6339/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/6339/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/6339/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/6339/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/6339/arquivos"
+    }
+  },
+  {
+    "id": 6340,
+    "receita_despesa": "Despesa",
+    "numero": "00030/2020",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "14.487.384/0001-23",
+      "nome": "CAPIM DOURADO RENT A CAR LTDA"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": null,
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "Serviços",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.001197/2019-05",
+    "objeto": "LOCAÇÃO DE VEÍCULOS",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "05",
+    "modalidade": "Pregão",
+    "unidade_compra": "290002",
+    "licitacao_numero": "00099/2019",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2020-03-24",
+    "data_publicacao": "2020-03-31",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2020-03-24",
+    "vigencia_fim": "2021-10-04",
+    "valor_inicial": "740.999,00",
+    "valor_global": "733.751,04",
+    "num_parcelas": 12,
+    "valor_parcela": "61.145,92",
+    "valor_acumulado": "1.021.464,72",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/6340/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/6340/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/6340/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/6340/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/6340/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/6340/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/6340/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/6340/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/6340/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/6340/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/6340/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/6340/arquivos"
+    }
+  },
+  {
+    "id": 6437,
+    "receita_despesa": "Despesa",
+    "numero": "00226/2016",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "19.007.136/0001-51",
+      "nome": "LUCRAFE COMERCIO E SERVICOS LTDA"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": null,
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "Serviços",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.007414/2015-39",
+    "objeto": "PRESTAÇÃO DE SERVIÇOS TÉCNICOS DE MANUTENÇÃO PREVENTIVA E CORRETIVA EM APARELHOS DE AR-CONDICIONADO SPLIT EXISTENTES NA UNIDADE DA DEFENSORIA PÚBLICA DA UNIÃO EM BOA VISTA/RR.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "06",
+    "modalidade": "Dispensa",
+    "unidade_compra": "290002",
+    "licitacao_numero": "00318/2016",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2016-12-14",
+    "data_publicacao": "2016-12-20",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2016-12-14",
+    "vigencia_fim": "2020-12-13",
+    "valor_inicial": "47.998,92",
+    "valor_global": "47.998,92",
+    "num_parcelas": 1,
+    "valor_parcela": "0,00",
+    "valor_acumulado": "47.998,92",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/6437/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/6437/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/6437/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/6437/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/6437/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/6437/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/6437/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/6437/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/6437/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/6437/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/6437/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/6437/arquivos"
+    }
+  },
+  {
+    "id": 6454,
+    "receita_despesa": "Despesa",
+    "numero": "00067/2013",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "30000",
+        "nome": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
+        "unidade_gestora_origem": {
+          "codigo": "200140",
+          "nome_resumido": "DEFENS./PUBL./UNIAO",
+          "nome": "DEFENSORIA PUBLICA DA UNIAO",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "13.938.116/0001-18",
+      "nome": "ANCAR - ADMINISTRADORES DE IMOVEIS E DE CONDOMINIOS LTDA"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": null,
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "Locação Imóveis",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.013492/2013-19",
+    "objeto": "LOCAÇÃO DE IMÓVEL PARA INSTALAÇÃO DA DEFENSORIA PÚBLICA DA UNIÃO EM MACEIÓ/AL.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "06",
+    "modalidade": "Dispensa",
+    "unidade_compra": "200140",
+    "licitacao_numero": "00001/2013",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2013-10-17",
+    "data_publicacao": "2013-10-18",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2013-10-17",
+    "vigencia_fim": "2023-10-16",
+    "valor_inicial": "290.059,92",
+    "valor_global": "290.059,92",
+    "num_parcelas": 1,
+    "valor_parcela": "0,00",
+    "valor_acumulado": "278.532,36",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/6454/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/6454/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/6454/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/6454/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/6454/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/6454/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/6454/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/6454/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/6454/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/6454/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/6454/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/6454/arquivos"
+    }
+  },
+  {
+    "id": 6458,
+    "receita_despesa": "Despesa",
+    "numero": "00075/2019",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "03.574.135/0001-59",
+      "nome": "EV LOCADORA LTDA"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": null,
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "Serviços",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.001578/2019-86",
+    "objeto": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA NA PRESTAÇÃO DE SERVIÇOS DE LOCAÇÃO DE VEÍCULOS PARA ATENDER AS UNIDADES DA DEFENSORIA PÚBLICA DA UNIÃO NO ESTADO DE ALAGOAS.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "05",
+    "modalidade": "Pregão",
+    "unidade_compra": "290002",
+    "licitacao_numero": "00002/2019",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2019-09-27",
+    "data_publicacao": "2019-09-30",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2019-09-27",
+    "vigencia_fim": "2022-11-26",
+    "valor_inicial": "115.199,78",
+    "valor_global": "12.423,02",
+    "num_parcelas": 2,
+    "valor_parcela": "6.211,51",
+    "valor_acumulado": "246.140,66",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/6458/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/6458/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/6458/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/6458/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/6458/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/6458/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/6458/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/6458/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/6458/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/6458/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/6458/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/6458/arquivos"
+    }
+  },
+  {
+    "id": 6588,
+    "receita_despesa": "Despesa",
+    "numero": "00029/2008",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "30000",
+        "nome": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
+        "unidade_gestora_origem": {
+          "codigo": "200140",
+          "nome_resumido": "DEFENS./PUBL./UNIAO",
+          "nome": "DEFENSORIA PUBLICA DA UNIAO",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "81.547.614/0001-90",
+      "nome": "GIACOMELLI IMOVEIS LTDA."
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": null,
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "A definir",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.018400/2007-31",
+    "objeto": "LOCACAO DE IMOVEL PARA ATENDER A DEFENSORIA PUBLICA DA UNIAO EM SANTA CATARINA",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "06",
+    "modalidade": "Dispensa",
+    "unidade_compra": "200140",
+    "licitacao_numero": "00089/2008",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2008-07-25",
+    "data_publicacao": "2008-08-04",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2008-07-25",
+    "vigencia_fim": "2025-07-24",
+    "valor_inicial": "255.600,00",
+    "valor_global": "255.600,00",
+    "num_parcelas": 1,
+    "valor_parcela": "0,00",
+    "valor_acumulado": "255.600,00",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/6588/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/6588/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/6588/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/6588/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/6588/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/6588/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/6588/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/6588/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/6588/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/6588/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/6588/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/6588/arquivos"
+    }
+  },
+  {
+    "id": 7420,
+    "receita_despesa": "Despesa",
+    "numero": "00068/2013",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "30000",
+        "nome": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
+        "unidade_gestora_origem": {
+          "codigo": "200140",
+          "nome_resumido": "DEFENS./PUBL./UNIAO",
+          "nome": "DEFENSORIA PUBLICA DA UNIAO",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "18.301.356/0001-20",
+      "nome": "LOCARE - ADMINISTRADORES DE PATRIMONIO NO BRASIL LTDA"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": null,
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "A definir",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.013494/2013-16",
+    "objeto": "LOCAÇÃO DE IMÓVEL PARA INSTALAÇÃO DA UNIDADE DA DEFENSORIA PÚÚBLICA DA UNIÃO EM MACEIÓ/AL.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "06",
+    "modalidade": "Dispensa",
+    "unidade_compra": "200140",
+    "licitacao_numero": "00134/2013",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2013-10-17",
+    "data_publicacao": "2013-10-18",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2013-10-17",
+    "vigencia_fim": "2023-10-16",
+    "valor_inicial": "217.784,76",
+    "valor_global": "217.784,76",
+    "num_parcelas": 1,
+    "valor_parcela": "0,00",
+    "valor_acumulado": "217.784,76",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/7420/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/7420/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/7420/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/7420/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/7420/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/7420/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/7420/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/7420/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/7420/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/7420/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/7420/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/7420/arquivos"
+    }
+  },
+  {
+    "id": 7421,
+    "receita_despesa": "Despesa",
+    "numero": "00018/2014",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "07.016.941/0001-62",
+      "nome": "ORTOCENTER ORTODONTIA E ORTOPEDIA FACIAL LTDA"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": "Não",
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "Serviços",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.023293/2013-19",
+    "objeto": "LOCAÇÃO DE IMÓVEL PARA FINS DE INSTALAÇÃO DA DEFENSORIA PÚBLICA DA UNIÃO EM MOSSORÓ/RN.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "06",
+    "modalidade": "Dispensa",
+    "unidade_compra": "200140",
+    "licitacao_numero": "00438/2013",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2014-02-13",
+    "data_publicacao": "2014-02-17",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2014-02-13",
+    "vigencia_fim": "2029-02-12",
+    "valor_inicial": "126.000,00",
+    "valor_global": "162.808,32",
+    "num_parcelas": 1,
+    "valor_parcela": "162.808,32",
+    "valor_acumulado": "11.407.191,12",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/7421/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/7421/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/7421/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/7421/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/7421/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/7421/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/7421/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/7421/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/7421/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/7421/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/7421/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/7421/arquivos"
+    }
+  },
+  {
+    "id": 7458,
+    "receita_despesa": "Despesa",
+    "numero": "00129/2013",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "30000",
+        "nome": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
+        "unidade_gestora_origem": {
+          "codigo": "200140",
+          "nome_resumido": "DEFENS./PUBL./UNIAO",
+          "nome": "DEFENSORIA PUBLICA DA UNIAO",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "03.267.672/0001-56",
+      "nome": "R & M CLINICA ODONTOLOGICA LTDA"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": null,
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "A definir",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.035838/2012-41",
+    "objeto": "LOCAÇÃO DE IMÓVEL, PARA FINS DE INSTALAÇÃO DA DEFENSORIA PÚBLICA DA UNIÃO EM FEIRA DESANTANA/BA.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "06",
+    "modalidade": "Dispensa",
+    "unidade_compra": "200140",
+    "licitacao_numero": "00270/2013",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2013-09-10",
+    "data_publicacao": "2013-09-11",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2013-09-10",
+    "vigencia_fim": "2028-09-09",
+    "valor_inicial": "128.115,96",
+    "valor_global": "128.303,28",
+    "num_parcelas": 12,
+    "valor_parcela": "10.691,94",
+    "valor_acumulado": "1.461.571,81",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/7458/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/7458/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/7458/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/7458/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/7458/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/7458/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/7458/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/7458/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/7458/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/7458/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/7458/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/7458/arquivos"
+    }
+  },
+  {
+    "id": 7459,
+    "receita_despesa": "Despesa",
+    "numero": "00019/2014",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "FISICA",
+      "cnpj_cpf_idgener": "050.841.642-68",
+      "nome": "ADINOR BATISTA DOS SANTOS"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": "Sim",
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "Serviços",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.022701/2013-15",
+    "objeto": "LOCAÇÃO DE IMÓVEL, PARA INSTALAÇÃO DA DEFENSORIA PÚBLICA DA UNIÃO EM SABTARÉM/PA.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "06",
+    "modalidade": "Dispensa",
+    "unidade_compra": "200140",
+    "licitacao_numero": "00439/2013",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2014-02-17",
+    "data_publicacao": "2014-02-18",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2014-02-17",
+    "vigencia_fim": "2027-02-16",
+    "valor_inicial": "156.000,00",
+    "valor_global": "271.107,00",
+    "num_parcelas": 12,
+    "valor_parcela": "22.592,25",
+    "valor_acumulado": "2.326.982,24",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/7459/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/7459/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/7459/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/7459/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/7459/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/7459/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/7459/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/7459/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/7459/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/7459/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/7459/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/7459/arquivos"
+    }
+  },
+  {
+    "id": 8437,
+    "receita_despesa": "Despesa",
+    "numero": "00005/2015",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "06.352.011/0001-17",
+      "nome": "M.S.V. SISTEMAS DE SEGURANCA LTDA FALIDO"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": null,
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "A definir",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.006344/2014-11",
+    "objeto": "PRESTAÇÃO DE SERVIÇOS DE SECRETARIADO,EM ATENDIMENTO ÀS NECESSIDADES DA DPU EM URURGUAIANA/RS.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "05",
+    "modalidade": "Pregão",
+    "unidade_compra": "290002",
+    "licitacao_numero": "00085/2014",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2015-03-03",
+    "data_publicacao": "2015-03-05",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2015-03-03",
+    "vigencia_fim": "2021-03-02",
+    "valor_inicial": "113.429,52",
+    "valor_global": "113.429,52",
+    "num_parcelas": 1,
+    "valor_parcela": "0,00",
+    "valor_acumulado": "113.429,52",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/8437/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/8437/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/8437/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/8437/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/8437/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/8437/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/8437/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/8437/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/8437/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/8437/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/8437/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/8437/arquivos"
+    }
+  },
+  {
+    "id": 8438,
+    "receita_despesa": "Despesa",
+    "numero": "00046/2014",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "80.371.370/0001-74",
+      "nome": "FITO PARTICIPACOES EMPRESARIAIS LTDA."
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": null,
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "Locação Imóveis",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08188.000062/2013-13",
+    "objeto": "LOCAÇÃO DE IMÓVEL PARA INSTALAÇÃO DE SEDE DA DEFENSORIA PÚBLICA DA UNIÃO EM UMUARAMA/PR.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "06",
+    "modalidade": "Dispensa",
+    "unidade_compra": "290002",
+    "licitacao_numero": "00115/2014",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2014-05-21",
+    "data_publicacao": "2014-05-22",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2014-05-21",
+    "vigencia_fim": "2029-05-20",
+    "valor_inicial": "84.000,00",
+    "valor_global": "113.193,24",
+    "num_parcelas": 12,
+    "valor_parcela": "9.432,77",
+    "valor_acumulado": "954.171,66",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/8438/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/8438/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/8438/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/8438/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/8438/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/8438/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/8438/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/8438/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/8438/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/8438/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/8438/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/8438/arquivos"
+    }
+  },
+  {
+    "id": 8440,
+    "receita_despesa": "Despesa",
+    "numero": "00148/2014",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "FISICA",
+      "cnpj_cpf_idgener": "003.023.414-04",
+      "nome": "CLEODON DE VASCONCELOS LEITE DA SILVA"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": null,
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "A definir",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.006130/2014-44",
+    "objeto": "LOCAÇÃO DE IMÓVEL, PARA A INSTALAÇÃO DA DEFENSORIA PÚBLICA DA UNIÃO EM CARUARU/PE.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "06",
+    "modalidade": "Dispensa",
+    "unidade_compra": "290002",
+    "licitacao_numero": "00316/2014",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2014-11-25",
+    "data_publicacao": "2014-11-26",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2014-11-25",
+    "vigencia_fim": "2029-11-24",
+    "valor_inicial": "90.000,00",
+    "valor_global": "146.019,48",
+    "num_parcelas": 1,
+    "valor_parcela": "146.019,48",
+    "valor_acumulado": "13.462.701,06",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/8440/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/8440/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/8440/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/8440/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/8440/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/8440/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/8440/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/8440/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/8440/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/8440/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/8440/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/8440/arquivos"
+    }
+  },
+  {
+    "id": 8518,
+    "receita_despesa": "Despesa",
+    "numero": "00073/2014",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "FISICA",
+      "cnpj_cpf_idgener": "507.201.980-20",
+      "nome": "ANA MARIA GONCALVES BORDIGNON"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": null,
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "Locação Imóveis",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.023469/2013-24",
+    "objeto": "LOCAÇÃO DE IMÓVEL, PARA INSTALAÇÃO DA DEFENSORIA PÚBLICA DA UNIÃO EM URUGUAIANA/RS.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "06",
+    "modalidade": "Dispensa",
+    "unidade_compra": "290002",
+    "licitacao_numero": "00301/2014",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2014-10-24",
+    "data_publicacao": "2014-10-27",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2014-10-24",
+    "vigencia_fim": "2029-10-23",
+    "valor_inicial": "63.600,00",
+    "valor_global": "83.779,92",
+    "num_parcelas": 12,
+    "valor_parcela": "6.981,66",
+    "valor_acumulado": "749.950,74",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/8518/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/8518/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/8518/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/8518/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/8518/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/8518/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/8518/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/8518/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/8518/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/8518/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/8518/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/8518/arquivos"
+    }
+  },
+  {
+    "id": 8639,
+    "receita_despesa": "Despesa",
+    "numero": "00034/2014",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "FISICA",
+      "cnpj_cpf_idgener": "104.806.254-68",
+      "nome": "IVANILDO PEREIRA DE ARAUJO"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": null,
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "A definir",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.021505/2013-15",
+    "objeto": "LOCAÇÃO DO IMÓVEL PARA INSTALAÇÃO DA UNIDADE DA DEFENSORIA PÚBLICA DA UNIÃO EM PETROLINA/PE.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "06",
+    "modalidade": "Dispensa",
+    "unidade_compra": "290002",
+    "licitacao_numero": "00068/2014",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2014-04-14",
+    "data_publicacao": "2014-04-16",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2014-04-14",
+    "vigencia_fim": "2029-04-13",
+    "valor_inicial": "180.000,00",
+    "valor_global": "120.203,28",
+    "num_parcelas": 12,
+    "valor_parcela": "10.016,94",
+    "valor_acumulado": "540.914,76",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/8639/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/8639/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/8639/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/8639/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/8639/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/8639/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/8639/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/8639/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/8639/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/8639/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/8639/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/8639/arquivos"
+    }
+  },
+  {
+    "id": 8709,
+    "receita_despesa": "Despesa",
+    "numero": "00150/2014",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "02.282.245/0001-84",
+      "nome": "PRESTA CONSTRUTORA E SERVICOS GERAIS LTDA"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": null,
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "A definir",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.011984/2014-42",
+    "objeto": "PRESTAÇÃO DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO COM FORNECIMENTO DE MATERIAL E EQUIPAMENTOS, EM REGIME DE EMPREITADA POR PREÇO GLOBAL, PARA ATENDER A DEFENSORIA PÚBLICA DA UNIÃO EM PORTO VELHO/RO",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "05",
+    "modalidade": "Pregão",
+    "unidade_compra": "290002",
+    "licitacao_numero": "00056/2014",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2014-11-26",
+    "data_publicacao": "2014-11-28",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2014-11-26",
+    "vigencia_fim": "2020-11-25",
+    "valor_inicial": "91.957,94",
+    "valor_global": "91.957,92",
+    "num_parcelas": 1,
+    "valor_parcela": "0,00",
+    "valor_acumulado": "91.957,92",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/8709/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/8709/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/8709/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/8709/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/8709/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/8709/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/8709/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/8709/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/8709/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/8709/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/8709/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/8709/arquivos"
+    }
+  },
+  {
+    "id": 8711,
+    "receita_despesa": "Despesa",
+    "numero": "00029/2014",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "FISICA",
+      "cnpj_cpf_idgener": "788.140.817-00",
+      "nome": "JOSIANE DALL ORTO DALVI ALVES"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": "Sim",
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "Locação Imóveis",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.025685/2013-12",
+    "objeto": "LOCAÇÃO DE IMÓVEL PARA FINS DE INSTALAÇÃO DE SEDE DA DEFENSORIA PÚBLICA DA UNIÃO EM LINHARES/ES.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "06",
+    "modalidade": "Dispensa",
+    "unidade_compra": "290002",
+    "licitacao_numero": "00033/2014",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2014-03-26",
+    "data_publicacao": "2014-03-27",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2014-03-26",
+    "vigencia_fim": "2029-03-25",
+    "valor_inicial": "489.000,00",
+    "valor_global": "600.545,40",
+    "num_parcelas": 60,
+    "valor_parcela": "10.009,09",
+    "valor_acumulado": "1.314.090,71",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/8711/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/8711/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/8711/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/8711/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/8711/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/8711/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/8711/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/8711/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/8711/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/8711/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/8711/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/8711/arquivos"
+    }
+  },
+  {
+    "id": 8712,
+    "receita_despesa": "Despesa",
+    "numero": "00169/2014",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "21.869.728/0001-24",
+      "nome": "M A F LAMAR LTDA"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": "Sim",
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "Serviços",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.011093/2014-96",
+    "objeto": "LOCAÇÃO DE IMÓVEL PARA FINS DE INSTALAÇÃO DA DEFENSORIA PÚBLICA DA UNIÃO EM PORTO VELHO/RO.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "06",
+    "modalidade": "Dispensa",
+    "unidade_compra": "290002",
+    "licitacao_numero": "00325/2014",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2014-12-29",
+    "data_publicacao": "2014-12-31",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2014-12-29",
+    "vigencia_fim": "2029-12-28",
+    "valor_inicial": "432.000,00",
+    "valor_global": "370.881,96",
+    "num_parcelas": 12,
+    "valor_parcela": "30.906,83",
+    "valor_acumulado": "2.201.534,88",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/8712/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/8712/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/8712/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/8712/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/8712/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/8712/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/8712/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/8712/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/8712/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/8712/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/8712/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/8712/arquivos"
+    }
+  },
+  {
+    "id": 10566,
+    "receita_despesa": "Despesa",
+    "numero": "00079/2015",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "10.818.525/0001-92",
+      "nome": "JUDIMAR REALTY ESTATE LTDA."
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": "Sim",
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "Locação Imóveis",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.003719/2010-67",
+    "objeto": "LOCAÇÃO DE IMÓVEL PARA A INSTALAÇÃO EDE DA DEFENSORIA PÚBLICA DA UNIÃO EM SOROCABA/SP.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "06",
+    "modalidade": "Dispensa",
+    "unidade_compra": "290002",
+    "licitacao_numero": "00090/2015",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2015-08-13",
+    "data_publicacao": "2015-08-17",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2015-08-13",
+    "vigencia_fim": "2026-02-12",
+    "valor_inicial": "826.200,00",
+    "valor_global": "664.002,72",
+    "num_parcelas": 36,
+    "valor_parcela": "18.444,52",
+    "valor_acumulado": "2.432.111,54",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/10566/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/10566/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/10566/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/10566/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/10566/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/10566/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/10566/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/10566/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/10566/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/10566/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/10566/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/10566/arquivos"
+    }
+  },
+  {
+    "id": 10625,
+    "receita_despesa": "Despesa",
+    "numero": "00071/2015",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "61.886.255/0001-98",
+      "nome": "ASSOCIACAO DESPORTIVA CLASSISTA DOS SERVIDORES DO C T A"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": "Não",
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "Locação Imóveis",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.008940/2014-35",
+    "objeto": "LOCAÇÃO DE IMÓVEL PARA INSTALAÇÃO DA DEFENSORIA PÚBLICA DA UNIÃO EM SÃO JOSÉ DOS CAMPOS/SP",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "06",
+    "modalidade": "Dispensa",
+    "unidade_compra": "290002",
+    "licitacao_numero": "00097/2015",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2015-06-15",
+    "data_publicacao": "2015-06-30",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2015-06-15",
+    "vigencia_fim": "2025-12-12",
+    "valor_inicial": "1.080.000,00",
+    "valor_global": "1.293.325,20",
+    "num_parcelas": 60,
+    "valor_parcela": "21.555,42",
+    "valor_acumulado": "16.375.971,56",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/10625/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/10625/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/10625/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/10625/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/10625/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/10625/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/10625/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/10625/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/10625/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/10625/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/10625/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/10625/arquivos"
+    }
+  },
+  {
+    "id": 10688,
+    "receita_despesa": "Despesa",
+    "numero": "00116/2015",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "16.777.024/0001-91",
+      "nome": "NAVEGA ADMINISTRACAO E PARTICIPACOES LTDA."
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": "Não",
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "Locação Imóveis",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.012040/2014-92",
+    "objeto": "LOCAÇÃO DO IMÓVEL SITUADO NA RUA LEMOSDA CUNHA, Nº 359 - ICARAÍ - NITERÓI, PARA USO DA DPU EM NITERÓI/RJ.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "06",
+    "modalidade": "Dispensa",
+    "unidade_compra": "290002",
+    "licitacao_numero": "00166/2015",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2015-08-04",
+    "data_publicacao": "2015-08-10",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2015-08-04",
+    "vigencia_fim": "2030-08-03",
+    "valor_inicial": "2.970.000,00",
+    "valor_global": "1.380.000,00",
+    "num_parcelas": 60,
+    "valor_parcela": "23.000,00",
+    "valor_acumulado": "6.351.230,93",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/10688/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/10688/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/10688/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/10688/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/10688/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/10688/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/10688/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/10688/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/10688/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/10688/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/10688/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/10688/arquivos"
+    }
+  },
+  {
+    "id": 10737,
+    "receita_despesa": "Despesa",
+    "numero": "00014/2017",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "04.610.386/0001-04",
+      "nome": "WORK LINK INFORMATICA LTDA"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": null,
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "A definir",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.009959/2016-61",
+    "objeto": "AQUISIÇÃO DE SOLUÇÃO DE INTEGRAÇÃO DASREDES, CORE E DATA CENTER, DA DPGU, COMPOSTA POR EQUIPAMENTOS DE COMUNICAÇÃO DE DADOS, COM GARANTIA E SUPORTE TÉCNICO, E SERVIÇOS PROFISSIONAIS DE PLANEJAMENTO TÉCNICO, INSTALAÇÃO, TREINAMENTO, CONFIGURAÇÃO E OPERAÇÃO ASSISTIDA, DE ACORDO COM O TERMO DE REFERÊNCIA.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "05",
+    "modalidade": "Pregão",
+    "unidade_compra": "160091",
+    "licitacao_numero": "00012/2015",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2017-02-14",
+    "data_publicacao": "2017-02-21",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2017-02-14",
+    "vigencia_fim": "2021-02-13",
+    "valor_inicial": "3.539.467,21",
+    "valor_global": "9.709.258,51",
+    "num_parcelas": 1,
+    "valor_parcela": "3.539.467,21",
+    "valor_acumulado": "3.539.467,21",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/10737/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/10737/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/10737/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/10737/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/10737/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/10737/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/10737/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/10737/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/10737/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/10737/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/10737/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/10737/arquivos"
+    }
+  },
+  {
+    "id": 10770,
+    "receita_despesa": "Despesa",
+    "numero": "00159/2015",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "52.686.927/0001-20",
+      "nome": "MAIA E OLIVEIRA IMOVEIS LTDA"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": "Sim",
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "Serviços",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.005643/2015-19",
+    "objeto": "LOCAÇÃO DE IMÓVEL PARA INTALAÇÃO DA UNIDADE DA DEFENSORIA PUBLICA DA UNIÃO EM ALTAMIRA/PA.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "06",
+    "modalidade": "Dispensa",
+    "unidade_compra": "290002",
+    "licitacao_numero": "00302/2015",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2015-10-26",
+    "data_publicacao": "2015-11-04",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2015-10-26",
+    "vigencia_fim": "2030-10-25",
+    "valor_inicial": "534.628,60",
+    "valor_global": "126.628,60",
+    "num_parcelas": 12,
+    "valor_parcela": "10.552,38",
+    "valor_acumulado": "0,00",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/10770/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/10770/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/10770/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/10770/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/10770/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/10770/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/10770/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/10770/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/10770/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/10770/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/10770/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/10770/arquivos"
+    }
+  },
+  {
+    "id": 11044,
+    "receita_despesa": "Despesa",
+    "numero": "00017/2016",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "04.809.727/0001-75",
+      "nome": "AGIL - AGILIDADE COMERCIAL, REPRESENTACOES E PARTICIPACOES S/A"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": null,
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "A definir",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.005414/2015-02",
+    "objeto": "LOCAÇÃO DO IMÓVEL NA RUA DO PROGRESSO Nº 255 - BLOCO B - BOA VISTA - RECIFE/PE.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "06",
+    "modalidade": "Dispensa",
+    "unidade_compra": "290002",
+    "licitacao_numero": "00378/2015",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2016-01-15",
+    "data_publicacao": "2016-02-05",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2016-01-15",
+    "vigencia_fim": "2031-01-14",
+    "valor_inicial": "2.640.000,00",
+    "valor_global": "886.438,56",
+    "num_parcelas": 12,
+    "valor_parcela": "73.869,88",
+    "valor_acumulado": "8.450.456,59",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/11044/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/11044/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/11044/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/11044/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/11044/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/11044/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/11044/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/11044/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/11044/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/11044/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/11044/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/11044/arquivos"
+    }
+  },
+  {
+    "id": 11099,
+    "receita_despesa": "Despesa",
+    "numero": "00149/2015",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "08.787.861/0001-73",
+      "nome": "ELEVADORES ALCER LTDA"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": null,
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "A definir",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.004591/2015-63",
+    "objeto": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA EM SERVIÇOS DE MANUTENÇÃO PREVENTIVA E CORRETIVADE DOIS ELEVADORES COM FORNECIMENTO DE PEÇAS ESERVIÇOS, A SER EXECUTADO NA UNIDADE DA DEFENSORIA PÚBLICA DA UNIÃO EM PORTO ALEGRE/RS.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "05",
+    "modalidade": "Pregão",
+    "unidade_compra": "290002",
+    "licitacao_numero": "00074/2015",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2015-11-03",
+    "data_publicacao": "2015-11-06",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2015-11-03",
+    "vigencia_fim": "2020-11-02",
+    "valor_inicial": "17.037,96",
+    "valor_global": "17.037,96",
+    "num_parcelas": 1,
+    "valor_parcela": "0,00",
+    "valor_acumulado": "17.037,96",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/11099/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/11099/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/11099/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/11099/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/11099/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/11099/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/11099/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/11099/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/11099/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/11099/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/11099/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/11099/arquivos"
+    }
+  },
+  {
+    "id": 11100,
+    "receita_despesa": "Despesa",
+    "numero": "00014/2016",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "20.399.839/0001-51",
+      "nome": "CAJ SISTEMAS DE CLIMATIZACAO LTDA"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": null,
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "A definir",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.008899/2014-13",
+    "objeto": "PRESTAÇÃO DE SERVIÇO DE MANUNTENÇÃO DEAR CONDICINADO NA DPU EM UMUARAMA/PR.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "05",
+    "modalidade": "Pregão",
+    "unidade_compra": "290002",
+    "licitacao_numero": "00105/2015",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2016-02-01",
+    "data_publicacao": "2016-02-05",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2016-02-01",
+    "vigencia_fim": "2021-01-31",
+    "valor_inicial": "11.799,96",
+    "valor_global": "11.799,96",
+    "num_parcelas": 1,
+    "valor_parcela": "0,00",
+    "valor_acumulado": "11.799,96",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/11100/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/11100/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/11100/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/11100/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/11100/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/11100/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/11100/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/11100/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/11100/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/11100/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/11100/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/11100/arquivos"
+    }
+  },
+  {
+    "id": 11101,
+    "receita_despesa": "Despesa",
+    "numero": "00067/2015",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "06.039.438/0001-60",
+      "nome": "DINAMICA DISTRIBUIDOR LTDA"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": null,
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "A definir",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.008591/2014-51",
+    "objeto": "LOCAÇÃO DE IMÓVEL PARA ATENDER A DPU EM ARAPIRACA/AL.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "06",
+    "modalidade": "Dispensa",
+    "unidade_compra": "290002",
+    "licitacao_numero": "00091/2015",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2015-05-27",
+    "data_publicacao": "2015-06-01",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2015-05-27",
+    "vigencia_fim": "2030-05-26",
+    "valor_inicial": "186.000,00",
+    "valor_global": "126.000,00",
+    "num_parcelas": 12,
+    "valor_parcela": "10.500,00",
+    "valor_acumulado": "1.099.000,00",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/11101/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/11101/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/11101/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/11101/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/11101/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/11101/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/11101/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/11101/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/11101/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/11101/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/11101/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/11101/arquivos"
+    }
+  },
+  {
+    "id": 11169,
+    "receita_despesa": "Despesa",
+    "numero": "00179/2015",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "20.399.839/0001-51",
+      "nome": "CAJ SISTEMAS DE CLIMATIZACAO LTDA"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": null,
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "A definir",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.009022/2015-12",
+    "objeto": "PRESTAÇÃO DE SERVIÇOS DE MANUTENÇÃO PREVENTIVA E CORRETIVA EM APARALHOS DE AR-CONDICIONADO EXISTENTE NA UNIDADE DA DEFENSORIA PÚBLICA DA UNIÃO EM LONDRINA/PR.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "05",
+    "modalidade": "Pregão",
+    "unidade_compra": "290002",
+    "licitacao_numero": "00082/2015",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2016-02-24",
+    "data_publicacao": "2016-03-01",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2016-02-24",
+    "vigencia_fim": "2021-02-23",
+    "valor_inicial": "45.900,00",
+    "valor_global": "45.900,00",
+    "num_parcelas": 1,
+    "valor_parcela": "0,00",
+    "valor_acumulado": "45.900,00",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/11169/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/11169/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/11169/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/11169/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/11169/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/11169/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/11169/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/11169/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/11169/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/11169/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/11169/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/11169/arquivos"
+    }
+  },
+  {
+    "id": 14716,
+    "receita_despesa": "Despesa",
+    "numero": "00089/2016",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "03.360.551/0001-54",
+      "nome": "INTERSEPT TERCEIRIZACAO DE SERVICOS LTDA"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": null,
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "A definir",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.004183/2016-92",
+    "objeto": "PRESTAÇÃO DE SERVIÇOS DE TÉCNICO EM SECRETARIADO, EM ATENDIMENTO ÀS NECESSIDADES DA DEFENSORIA PÚBLICA DA UNIÃO EM JOINVILLE/SC.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "05",
+    "modalidade": "Pregão",
+    "unidade_compra": "290002",
+    "licitacao_numero": "00014/2016",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2016-06-14",
+    "data_publicacao": "2016-06-15",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2016-06-14",
+    "vigencia_fim": "2021-06-13",
+    "valor_inicial": "102.710,00",
+    "valor_global": "102.709,92",
+    "num_parcelas": 1,
+    "valor_parcela": "0,00",
+    "valor_acumulado": "102.710,00",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/14716/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/14716/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/14716/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/14716/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/14716/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/14716/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/14716/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/14716/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/14716/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/14716/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/14716/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/14716/arquivos"
+    }
+  },
+  {
+    "id": 14791,
+    "receita_despesa": "Despesa",
+    "numero": "00101/2016",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "FISICA",
+      "cnpj_cpf_idgener": "765.534.508-20",
+      "nome": "JOSE CARLOS CHACON"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": "Não",
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "Locação Imóveis",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.007555/2015-51",
+    "objeto": "LOCAÇÃO DE IMÓVEL PARA INSTALAÇÃO DA UNIDADE DA DEFENSORIA PÚBLICA DA UNIÃO EM MOGI DAS CRUZES/SP.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "06",
+    "modalidade": "Dispensa",
+    "unidade_compra": "290002",
+    "licitacao_numero": "00084/2016",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2016-06-21",
+    "data_publicacao": "2016-06-24",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2016-06-21",
+    "vigencia_fim": "2026-06-20",
+    "valor_inicial": "827.570,70",
+    "valor_global": "1.124.512,50",
+    "num_parcelas": 60,
+    "valor_parcela": "18.741,88",
+    "valor_acumulado": "2.195.728,24",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/14791/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/14791/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/14791/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/14791/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/14791/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/14791/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/14791/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/14791/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/14791/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/14791/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/14791/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/14791/arquivos"
+    }
+  },
+  {
+    "id": 15067,
+    "receita_despesa": "Despesa",
+    "numero": "00036/2016",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "08.906.544/0001-29",
+      "nome": "VIVENDAS NEGOCIOS IMOBILIARIOS LTDA"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": "Sim",
+    "situacao": "Ativo",
+    "justificativa_inativo": "Rescindido",
+    "categoria": "Locação Imóveis",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.007111/2015-16",
+    "objeto": "LOCAÇÃO DE IMÓVEL PARA ATENDER A DEFENSORIA PÚBLICA DA UNIÃO EM MONTES CLAROS/MG.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "06",
+    "modalidade": "Dispensa",
+    "unidade_compra": "290002",
+    "licitacao_numero": "00008/2016",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2016-03-16",
+    "data_publicacao": "2016-03-31",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2016-03-16",
+    "vigencia_fim": "2025-05-23",
+    "valor_inicial": "840.000,00",
+    "valor_global": "1.105.823,40",
+    "num_parcelas": 60,
+    "valor_parcela": "18.430,39",
+    "valor_acumulado": "3.321.703,64",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/15067/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/15067/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/15067/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/15067/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/15067/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/15067/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/15067/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/15067/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/15067/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/15067/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/15067/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/15067/arquivos"
+    }
+  },
+  {
+    "id": 15116,
+    "receita_despesa": "Despesa",
+    "numero": "00009/2017",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "FISICA",
+      "cnpj_cpf_idgener": "017.877.637-81",
+      "nome": "ANDREIA MARTINS MENENGUCI TEIXEIRA"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": "Sim",
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "Locação Imóveis",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.008399/2015-46",
+    "objeto": "LOCAÇÃO DE IMÓVEL, PARA INSTALAÇÃO DA DEFENSORIA PÚBLICA DA UNIÃO EM VOLTA REDONDA/RJ.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "06",
+    "modalidade": "Dispensa",
+    "unidade_compra": "290002",
+    "licitacao_numero": "00218/2016",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2017-02-13",
+    "data_publicacao": "2017-02-16",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2017-02-13",
+    "vigencia_fim": "2027-02-12",
+    "valor_inicial": "2.069.447,40",
+    "valor_global": "1.721.447,40",
+    "num_parcelas": 60,
+    "valor_parcela": "28.690,79",
+    "valor_acumulado": "4.368.261,89",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/15116/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/15116/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/15116/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/15116/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/15116/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/15116/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/15116/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/15116/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/15116/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/15116/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/15116/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/15116/arquivos"
+    }
+  },
+  {
+    "id": 15209,
+    "receita_despesa": "Despesa",
+    "numero": "00123/2016",
+    "contratante": {
+      "orgao_origem": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora_origem": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      },
+      "orgao": {
+        "codigo": "29000",
+        "nome": "DEFENSORIA PUBLICA DA UNIAO",
+        "unidade_gestora": {
+          "codigo": "290002",
+          "nome_resumido": "SEOF - DPU",
+          "nome": "DPU-SECRETARIA DE EXECUCAO ORCAM. FINANCEIRA",
+          "sisg": "Não",
+          "utiliza_siafi": "Sim",
+          "utiliza_antecipagov": "Não"
+        }
+      }
+    },
+    "fornecedor": {
+      "tipo": "JURIDICA",
+      "cnpj_cpf_idgener": "72.203.144/0001-56",
+      "nome": "PLANEJAR IMOVEIS E PROPAGANDA LTDA"
+    },
+    "codigo_tipo": "50",
+    "tipo": "Contrato",
+    "subtipo": null,
+    "prorrogavel": null,
+    "situacao": "Ativo",
+    "justificativa_inativo": null,
+    "categoria": "Locação Imóveis",
+    "subcategoria": null,
+    "unidades_requisitantes": null,
+    "processo": "08038.008400/2015-32",
+    "objeto": "LOCAÇÃO DE IMÓVEL, PARA INSTALAÇÃO DA DEFENSORIA PÚBLICA DA UNIÃO EM CANOAS/RS.",
+    "amparo_legal": "",
+    "informacao_complementar": null,
+    "codigo_modalidade": "06",
+    "modalidade": "Dispensa",
+    "unidade_compra": "290002",
+    "licitacao_numero": "00137/2016",
+    "sistema_origem_licitacao": null,
+    "data_assinatura": "2016-07-07",
+    "data_publicacao": "2016-07-11",
+    "data_proposta_comercial": null,
+    "vigencia_inicio": "2016-07-07",
+    "vigencia_fim": "2026-07-06",
+    "valor_inicial": "180.000,00",
+    "valor_global": "247.176,60",
+    "num_parcelas": 12,
+    "valor_parcela": "20.598,05",
+    "valor_acumulado": "783.142,80",
+    "links": {
+      "historico": "https://contratos.comprasnet.gov.br/api/contrato/15209/historico",
+      "empenhos": "https://contratos.comprasnet.gov.br/api/contrato/15209/empenhos",
+      "cronograma": "https://contratos.comprasnet.gov.br/api/contrato/15209/cronograma",
+      "garantias": "https://contratos.comprasnet.gov.br/api/contrato/15209/garantias",
+      "itens": "https://contratos.comprasnet.gov.br/api/contrato/15209/itens",
+      "prepostos": "https://contratos.comprasnet.gov.br/api/contrato/15209/prepostos",
+      "responsaveis": "https://contratos.comprasnet.gov.br/api/contrato/15209/responsaveis",
+      "despesas_acessorias": "https://contratos.comprasnet.gov.br/api/contrato/15209/despesas_acessorias",
+      "faturas": "https://contratos.comprasnet.gov.br/api/contrato/15209/faturas",
+      "ocorrencias": "https://contratos.comprasnet.gov.br/api/contrato/15209/ocorrencias",
+      "terceirizados": "https://contratos.comprasnet.gov.br/api/contrato/15209/terceirizados",
+      "arquivos": "https://contratos.comprasnet.gov.br/api/contrato/15209/arquivos"
+    }
   }
 ]
