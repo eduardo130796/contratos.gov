@@ -3,7 +3,8 @@ from datetime import date
 
 from processing.calculo_exercicio import calcular_valor_exercicio
 from processing.calculo_exercicio import parse_data
-
+from processing.historico import houve_repactuacao_no_ano
+from processing.financeiro import obter_empenhos_str_por_ano
 
 def parse_valor(v):
     if not v:
@@ -40,6 +41,20 @@ def somar_empenhos_do_ano(empenhos, ano):
         total_aliquidar
     )
 
+def moeda_para_float(valor):
+    """
+    Converte string monetária brasileira para float.
+    Ex: '73.895,79' -> 73895.79
+    """
+    if valor is None:
+        return 0.0
+
+    if isinstance(valor, (int, float)):
+        return float(valor)
+
+    return float(
+        valor.replace(".", "").replace(",", ".")
+    )
 
 # -------------------------------------------------
 # TABELA PRINCIPAL
@@ -79,6 +94,23 @@ def montar_tabela_contratos(
             ano
         )
 
+        repactuado = houve_repactuacao_no_ano(
+            contrato_id=c["id"],
+            historicos=historicos,
+            ano=ano
+        )
+
+
+        empenhos_str = obter_empenhos_str_por_ano(
+            empenho,
+            ano
+        )
+
+        valor_parcela_float = moeda_para_float(c.get("valor_parcela"))
+        valor_anual = valor_parcela_float * 12
+
+
+
         empenhado, pago_liq, aliquidar = somar_empenhos_do_ano(
             empenho,
             ano
@@ -94,17 +126,27 @@ def montar_tabela_contratos(
             status = "🟢 OK"
 
         linhas.append({
+            "ID": c["id"], 
             "Contrato": c["numero"],
             "Categoria": c["categoria"],
             "Objeto": c["objeto"],
+            "Processo": c["processo"],
             "Fornecedor": c["fornecedor"]["nome"],
+            "Cnpj": c["fornecedor"]["cnpj_cpf_idgener"],
+            "Vigência inicio": c["vigencia_inicio"],
             "Vigência fim": c["vigencia_fim"],
+            "Valor global": c["valor_global"],
+            "modalidade": c["modalidade"],
+            "valor_parcela": c["valor_parcela"],
+            "Valor anual": valor_anual,
+            "Nota(s) de empenho": empenhos_str if empenhos_str else "—",
             "Valor exercício": valor_exercicio,
             "Empenhado": empenhado,
             "Liquidado + Pago": pago_liq,
             "A liquidar": aliquidar,
             "Gap": gap,
-            "Situação": status
+            "Situação": status,
+            "Repactuação/Reajuste": "Sim" if repactuado else "Não",
         })
 
     df = pd.DataFrame(linhas)
