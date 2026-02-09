@@ -492,8 +492,8 @@ def modal_contrato(contrato_row):
     st.divider()
 
     # ================= ABAS =================
-    tab_resumo, tab_faturas, tab_evolucao, tab_historico = st.tabs(
-        ["📌 Resumo", "📄 Faturas", "📈 Evolução", "🕓 Histórico"]
+    tab_resumo, tab_faturas, tab_historico = st.tabs(
+        ["📌 Resumo", "📄 Faturas", "🕓 Histórico"]
     )
 
     # =========================================================
@@ -749,32 +749,192 @@ def modal_contrato(contrato_row):
 
 
     # =========================================================
-    # 📈 ABA 3 — EVOLUÇÃO
-    # =========================================================
-    with tab_evolucao:
-        st.markdown("### Evolução financeira no exercício")
-
-        st.info(
-            "Esta aba exibirá a evolução mensal do contrato "
-            "comparando empenho, liquidação e pagamento."
-        )
-
-        # Exemplo futuro:
-        # st.line_chart(df_evolucao)
-
-    # =========================================================
     # 🕓 ABA 4 — HISTÓRICO
     # =========================================================
     with tab_historico:
+        
         df_hist = obter_historico_local(
-        contrato_row["ID"],
-        historicos
+            contrato_row["ID"],
+            historicos
         )
 
         if df_hist.empty:
             st.info("Nenhum histórico registrado para este contrato.")
-        else:
-            st.dataframe(df_hist, use_container_width=True)
+            st.stop()
+
+        df_hist["data_evento"] = pd.to_datetime(
+        df_hist.get("data_assinatura", df_hist.get("data_publicacao")),
+        errors="coerce"
+        )
+
+        # ==============================
+        # NORMALIZAÇÃO
+        # ==============================
+
+        df_hist["ano"] = df_hist["data_evento"].dt.year
+        df_hist["tipo_evento"] = df_hist["tipo"].fillna("Outro")
+
+        df_hist = df_hist.sort_values("data_evento" , ascending=False)
+
+        tipos = ["Todos"] + sorted(df_hist["tipo_evento"].unique().tolist())
+
+        tipo_sel = st.selectbox(
+            "Filtrar por tipo de evento",
+            tipos
+        )
+
+        df_sint = df_hist.copy()
+        if tipo_sel != "Todos":
+            df_sint = df_sint[df_sint["tipo_evento"] == tipo_sel]
+
+        # ==============================
+        # LINHA DO TEMPO AGRUPADA POR ANO
+        # ==============================
+        tab_sintetica, tab_analitica = st.tabs(
+            ["🧭 Linha do tempo", "📚 Detalhada"]
+        )
+
+        with tab_sintetica:
+            st.markdown("### 🧭 Linha do tempo contratual (síntese)")
+
+            st.markdown("---")
+            anos_ordenados = sorted(df_sint["ano"].dropna().unique(), reverse=True)
+
+            # 🔹 AGRUPAMENTO POR ANO
+            for ano in anos_ordenados:
+                st.markdown(f"## 🗓️ {int(ano)}")
+                grupo_ano = df_sint[df_sint["ano"] == ano]
+                for _, h in grupo_ano.iterrows():
+                    data_fmt = (
+                        h["data_evento"].strftime("%d/%m/%Y")
+                        if not pd.isna(h["data_evento"])
+                        else "—"
+                    )
+
+                    # Valor de impacto (se houver)
+                    valor = "—"
+                    if h.get("novo_valor_global") and h["novo_valor_global"] != "0,00":
+                        valor = h["novo_valor_global"]
+                    elif h.get("valor_global") and h["valor_global"] != "0,00":
+                        valor = h["valor_global"]
+
+                    badge_impacto = ""
+                    if valor != "—":
+                        badge_impacto = """
+        <span style="
+            background:#fee2e2;
+            color:#991b1b;
+            padding:3px 8px;
+            border-radius:6px;
+            font-size:0.7rem;
+            font-weight:600;
+        ">
+            Impacto financeiro
+        </span>
+        """
+
+                    st.markdown(
+        f"""
+        <div style="
+            display:grid;
+            grid-template-columns: 110px 180px 1fr auto;
+            gap:12px;
+            padding:8px 0;
+            border-bottom:1px solid #e5e7eb;
+            align-items:center;
+        ">
+            <div><strong>{data_fmt}</strong></div>
+            <div>{h["tipo_evento"]}</div>
+            <div>{badge_impacto}</div>
+            <div><strong>{valor}</strong></div>
+        </div>
+        """,
+                        unsafe_allow_html=True
+                    )
+
+
+
+        with tab_analitica:
+            st.markdown("### 📚 Histórico detalhado")
+            anos_ordenados = sorted(df_sint["ano"].dropna().unique(), reverse=True)
+
+            for ano in anos_ordenados:
+                st.markdown(f"## 🗓️ {int(ano)}")
+                grupo_ano = df_sint[df_sint["ano"] == ano]
+                for _, h in grupo_ano.iterrows():
+                    data_fmt = (
+                        h["data_evento"].strftime("%d/%m/%Y")
+                        if not pd.isna(h["data_evento"])
+                        else "—"
+                    )
+
+                    # BADGES DE CONTEXTO
+                    badge_tipo = f"""
+                    <span style="
+                        background:#e5e7eb;
+                        padding:3px 8px;
+                        border-radius:6px;
+                        font-size:0.75rem;
+                        font-weight:600;
+                    ">
+                        {h['tipo_evento']}
+                    </span>
+                    """
+
+                    badge_impacto = ""
+                    if h.get("novo_valor_global") and h["novo_valor_global"] != "0,00":
+                        badge_impacto = """
+                    <span style="
+                        background:#fee2e2;
+                        color:#991b1b;
+                        padding:3px 8px;
+                        border-radius:6px;
+                        font-size:0.75rem;
+                        font-weight:600;
+                    ">
+                        Impacto financeiro
+                    </span>
+                    """
+
+                    st.markdown(
+                    f"""
+                    <div style="margin-bottom:10px;">
+                        <strong>{data_fmt}</strong>
+                        {badge_tipo}
+                        {badge_impacto}
+                    </div>
+                    """,
+                        unsafe_allow_html=True
+                    )
+
+                    with st.container(border=True):
+                        st.markdown(f"""
+                        **Documento:** {h.get("numero", "—")}  
+                        **Resumo:** {h.get("observacao", "—")[:200]}{'...' if h.get("observacao") and len(h.get("observacao")) > 200 else ''}
+                        """)
+
+                        with st.expander("🔍 Ver detalhes completos"):
+                            col1, col2 = st.columns(2)
+
+                            with col1:
+                                st.markdown(f"""
+                                **Tipo:** {h.get("tipo", "—")}  
+                                **Assinatura:** {fmt_data(h.get("data_assinatura"))}  
+                                **Publicação:** {fmt_data(h.get("data_publicacao"))}  
+                                """)
+
+                            with col2:
+                                st.markdown(f"""
+                                **Valor inicial:** {h.get("valor_inicial", "—")}  
+                                **Valor global:** {h.get("valor_global", "—")}  
+                                **Novo valor:** {h.get("novo_valor_global", "—")}  
+                                **Vigência fim:** {fmt_data(h.get("vigencia_fim"))}  
+                                """)
+
+                            if h.get("observacao"):
+                                st.markdown("**Observação completa:**")
+                                st.write(h["observacao"])
+
 
     # ================= FOOTER =================
     st.divider()
