@@ -1,4 +1,5 @@
 from datetime import datetime
+import pandas as pd
 
 
 def _parse_data(data):
@@ -63,3 +64,38 @@ def normalizar_historico(eventos):
         ordem += 1
 
     return registros
+
+
+def houve_repactuacao_no_ano(
+    contrato_id: int,
+    historicos: dict,
+    ano: int
+) -> bool:
+    """
+    Verifica se houve repactuação/reajuste no exercício informado,
+    com base em Termo de Apostilamento ou Termo Aditivo com REAJUSTE.
+    """
+
+    eventos = historicos.get(str(contrato_id), [])
+
+    if not eventos:
+        return False
+
+    for ev in eventos:
+        # -------- DATA DO EVENTO --------
+        data_evento = ev.get("data_assinatura") or ev.get("data_publicacao")
+
+        try:
+            if pd.to_datetime(data_evento).year != ano:
+                continue
+        except Exception:
+            continue
+
+        tipo = (ev.get("tipo") or "").lower()
+
+        # -------- REGRA 1: APOSTILAMENTO --------
+        if "apostilamento" in tipo:
+            return True
+
+
+    return False

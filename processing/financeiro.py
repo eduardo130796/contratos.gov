@@ -35,3 +35,25 @@ def consolidar_empenhos(empenhos, ano_referencia):
         total_pago += parse_valor(e.get("pago"))
 
     return total_empenhado, total_aliquidar, total_liquidado, total_pago
+
+def obter_empenhos_str_por_ano(empenhos_contrato: list, ano: int) -> str:
+    """
+    Retorna os números das notas de empenho do ano,
+    concatenados por ' / '.
+    """
+
+    numeros = []
+
+    for e in empenhos_contrato:
+        numero = e.get("numero")
+
+        if not numero:
+            continue
+
+        # filtra pelo ano (ex: 2019NE...)
+        if not numero.startswith(str(ano)):
+            continue
+
+        numeros.append(numero)
+
+    return " / ".join(sorted(set(numeros)))
