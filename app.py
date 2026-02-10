@@ -349,14 +349,15 @@ def card_impacto_orcamentario_md(valor_exercicio, empenhado):
             f"""
             <div style="
                 background-color:#fde2e2;
-                padding:16px;
-                border-radius:8px;
-                border-left:6px solid #dc2626;
+                padding:14px;
+                border-radius:6px;
+                border-left:4px solid #dc2626;
+                text-align:center;
             ">
-                <div style="font-size:18px; font-weight:600; color:#7f1d1d;">
+                <div style="font-size:14px; font-weight:600; color:#7f1d1d;">
                     🚨 Reforço necessário
                 </div>
-                <div style="font-size:28px; font-weight:700; margin-top:8px; color:#7f1d1d;">
+                <div style="font-size:20px; font-weight:700; margin-top:4px; color:#7f1d1d;">
                     {formatar(diferenca)}
                 </div>
             </div>
@@ -371,15 +372,24 @@ def card_impacto_orcamentario_md(valor_exercicio, empenhado):
         st.markdown(
             f"""
             <div style="
-                background-color:#dcfce7;
-                padding:16px;
-                border-radius:8px;
-                border-left:6px solid #16a34a;
+                background-color:#ecfdf5;
+                padding:12px;
+                border-radius:6px;
+                border-left:4px solid #16a34a;
             ">
-                <div style="font-size:18px; font-weight:600; color:#065f46;">
+                <div style="
+                    font-size:14px;
+                    font-weight:600;
+                    color:#065f46;
+                ">
                     🟢 Anulação possível
                 </div>
-                <div style="font-size:28px; font-weight:700; margin-top:8px; color:#065f46;">
+                <div style="
+                    font-size:20px;
+                    font-weight:700;
+                    margin-top:4px;
+                    color:#065f46;
+                ">
                     {formatar(abs(diferenca))}
                 </div>
             </div>
@@ -394,23 +404,31 @@ def card_impacto_orcamentario_md(valor_exercicio, empenhado):
     else:
         st.markdown(
         """
-        <div style="
-            background-color:#f3f4f6;
-            padding:16px;
-            border-radius:8px;
-            border-left:6px solid #6b7280;
-        ">
-            <div style="font-size:18px; font-weight:600;">
-                ⚪ Execução equilibrada
+            <div style="
+                background-color:#f9fafb;
+                padding:12px;
+                border-radius:6px;
+                border-left:4px solid #9ca3af;
+            ">
+                <div style="
+                    font-size:14px;
+                    font-weight:600;
+                    color:#374151;
+                ">
+                    ⚪ Execução equilibrada
+                </div>
+                <div style="
+                    font-size:18px;
+                    font-weight:700;
+                    margin-top:4px;
+                    color:#374151;
+                ">
+                    R$ 0,00
+                </div>
             </div>
-            <div style="font-size:24px; font-weight:700; margin-top:8px;">
-                R$ 0,00
-            </div>
-        </div>
-        """,
-        unsafe_allow_html=True
+            """,
+            unsafe_allow_html=True
         )
-
 
 def fmt_data(data):
     if not data:
@@ -451,6 +469,61 @@ def competencia_fatura(f):
         if not pd.isna(dt):
             return dt.strftime("%m/%Y")
     return "—"
+
+def card_financeiro(titulo, valor, subtitulo=None):
+    with st.container(border=True):
+        st.markdown(
+            f"""
+            <div style="line-height:1.25;text-align:center;">
+                <div style="
+                    font-size:12px;
+                    font-weight:600;
+                    color:#4b5563;
+                ">
+                    {titulo}
+                </div>
+                <div style="
+                    font-size:17px;
+                    font-weight:650;
+                    margin-top:2px;
+                    color:#111827;
+                    margin-bottom:5px;
+                ">{formatar(valor)}</div></div>""",
+            unsafe_allow_html=True
+        )
+
+def card_contador(titulo, valor):
+    """
+    Card compacto para contadores e quantidades.
+    Não formata como valor monetário.
+    """
+
+    with st.container(border=True):
+        st.markdown(
+            f"""
+            <div style="line-height:1.25; text-align:center;">
+                <div style="
+                    font-size:12px;
+                    font-weight:600;
+                    color:#4b5563;
+                ">
+                    {titulo}
+                </div>
+                <div style="
+                    font-size:17px;
+                    font-weight:650;
+                    margin-top:2px;
+                    margin-bottom:5px;
+                    color:#111827;
+                ">
+                    {valor}
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+
+
 
 
 @st.dialog("📄 Contrato — Visão detalhada", width="large")
@@ -541,30 +614,57 @@ def modal_contrato(contrato_row):
         # 🔹 CARDS — VISÃO FINANCEIRA
         # =====================================================
         st.markdown("### 💰 Visão financeira consolidada")
+        
+        # =========================
+        # 💰 VISÃO FINANCEIRA (HIERÁRQUICA)
+        # =========================
 
-        c1, c2, c3, c4, c5 = st.columns(5)
+        # 🔹 Linha 1 — Comparação principal
+        c1, c2 = st.columns(2)
 
         with c1:
-            st.metric("Valor do Exercício", formatar(contrato_row["Valor exercício"]))
-
-        with c2:
-            st.metric("Empenhado", formatar(contrato_row["Empenhado"]))
-
-        with c3:
-            st.metric("A Liquidar", formatar(contrato_row["A liquidar"]))
-
-        with c4:
-            st.metric("Pago", formatar(contrato_row["Liquidado + Pago"]))
-        
-        with c5:
-            card_impacto_orcamentario_md(
+            card_financeiro(
+                "Valor do exercício",
                 contrato_row["Valor exercício"],
-                contrato_row["Empenhado"]
+                "Impacto estimado no ano"
             )
 
+        with c2:
+            card_financeiro(
+                "Empenhado",
+                contrato_row["Empenhado"],
+                "Total empenhado no exercício"
+            )
+
+        # 🔹 Linha 2 — Execução
+        c3, c4 = st.columns(2)
+
+        with c3:
+            card_financeiro(
+                "Pago",
+                contrato_row["Liquidado + Pago"],
+                "Execução financeira realizada"
+            )
+
+        with c4:
+            card_financeiro(
+                "A liquidar",
+                contrato_row["A liquidar"],
+                "Pendência de liquidação"
+            )
+
+        # 🔹 Linha 3 — Decisão (CENTRAL)
+        c_left, c_center, c_right = st.columns([1, 2, 1])
+
+        with c_center:
+            with st.container():
+                card_impacto_orcamentario_md(
+                    contrato_row["Valor exercício"],
+                    contrato_row["Empenhado"]
+                )
 
 
-            
+
 
         st.markdown("### 📄 Notas de empenho")
 
@@ -634,11 +734,32 @@ def modal_contrato(contrato_row):
         total_glosa = df_faturas["glosa_float"].sum()
         qtd_repact = (df_faturas["repactuacao"] == "Sim").sum()
 
-        c1, c2, c3, c4 = st.columns(4)
-        c1.metric("Qtd. faturas", total_faturas)
-        c2.metric("Valor líquido", formatar(total_liquido))
-        c3.metric("Glosas", formatar(total_glosa))
-        c4.metric("Repactuadas", qtd_repact)
+        # =========================
+        # 📊 RESUMO DAS FATURAS
+        # =========================
+
+        r1, r2 = st.columns(2)
+
+        with r1:
+            card_contador("Qtd. faturas", total_faturas)
+
+        with r2:
+            card_financeiro(
+                "Valor líquido",
+                total_liquido,""
+            )
+
+        r3, r4 = st.columns(2)
+
+        with r3:
+            card_financeiro(
+                "Glosas",
+                total_glosa,""
+            )
+
+        with r4:
+            card_contador("Repactuadas", qtd_repact)
+
 
         st.markdown("---")
 
@@ -821,36 +942,58 @@ def modal_contrato(contrato_row):
                     badge_impacto = ""
                     if valor != "—":
                         badge_impacto = """
-        <span style="
-            background:#fee2e2;
-            color:#991b1b;
-            padding:3px 8px;
-            border-radius:6px;
-            font-size:0.7rem;
-            font-weight:600;
-        ">
-            Impacto financeiro
-        </span>
-        """
+                        <span style="
+                            background:#fee2e2;
+                            color:#991b1b;
+                            padding:3px 8px;
+                            border-radius:6px;
+                            font-size:0.7rem;
+                            font-weight:600;
+                        ">
+                            Impacto financeiro
+                        </span>
+                        """
 
-                    st.markdown(
-        f"""
-        <div style="
-            display:grid;
-            grid-template-columns: 110px 180px 1fr auto;
-            gap:12px;
-            padding:8px 0;
-            border-bottom:1px solid #e5e7eb;
-            align-items:center;
-        ">
-            <div><strong>{data_fmt}</strong></div>
-            <div>{h["tipo_evento"]}</div>
-            <div>{badge_impacto}</div>
-            <div><strong>{valor}</strong></div>
-        </div>
-        """,
+                        st.markdown(
+                        f"""
+                        <style>
+                        /* Layout padrão (desktop) */
+                        .linha-timeline {{
+                            display: grid;
+                            grid-template-columns: 110px 160px 1fr auto;
+                            gap: 12px;
+                            padding: 8px 0;
+                            border-bottom: 1px solid #e5e7eb;
+                            align-items: center;
+                        }}
+
+                        /* Ajuste para telas pequenas */
+                        @media (max-width: 768px) {{
+                            .linha-timeline {{
+                                grid-template-columns: 1fr;
+                                gap: 4px;
+                            }}
+
+                            .linha-timeline div {{
+                                font-size: 0.85rem;
+                            }}
+
+                            .linha-timeline .valor {{
+                                font-weight: 600;
+                            }}
+                        }}
+                        </style>
+
+                        <div class="linha-timeline">
+                            <div><strong>{data_fmt}</strong></div>
+                            <div>{h["tipo_evento"]}</div>
+                            <div>{badge_impacto}</div>
+                            <div class="valor"><strong>{valor}</strong></div>
+                        </div>
+                        """,
                         unsafe_allow_html=True
                     )
+
 
 
 
