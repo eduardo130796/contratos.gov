@@ -11,7 +11,21 @@ from st_aggrid import AgGrid, GridOptionsBuilder, GridUpdateMode, JsCode
 from services.contratos import ContratosService
 from services.api_client import APIClient
 
+st.markdown("""
+<style>
+/* Desktop: >= 900px */
+@media (min-width: 900px) {
+  .desktop-only { display: block; }
+  .mobile-only { display: none; }
+}
 
+/* Mobile / Tablet */
+@media (max-width: 899px) {
+  .desktop-only { display: none; }
+  .mobile-only { display: block; }
+}
+</style>
+""", unsafe_allow_html=True)
 
 
 
@@ -1115,24 +1129,6 @@ for col in [
 ]:
     df_exibicao[col] = df_exibicao[col].apply(formatar)
 
-st.markdown("""
-<style>
-/* Desktop: >= 900px */
-@media (min-width: 900px) {
-  .desktop-only { display: block; }
-  .mobile-only { display: none; }
-}
-
-/* Mobile / Tablet */
-@media (max-width: 899px) {
-  .desktop-only { display: none; }
-  .mobile-only { display: block; }
-}
-</style>
-""", unsafe_allow_html=True)
-
-st.markdown('<div class="desktop-only">', unsafe_allow_html=True)
-
 gb = GridOptionsBuilder.from_dataframe(df_exibicao)
 
 gb.configure_default_column(
@@ -1145,12 +1141,14 @@ gb.configure_column("Fornecedor", pinned="left", width=260)
 gb.configure_column("Categoria", width=160)
 gb.configure_column("Nota(s) de empenho", width=220, autoHeight=True)
 gb.configure_column("Valor exercício", width=150)
+gb.configure_column("Valor exercício", width=150)
 gb.configure_column("Empenhado", width=140)
 gb.configure_column("Liquidado + Pago", width=160)
 gb.configure_column("Situação", width=160)
 gb.configure_column("Gap", width=120)
 gb.configure_column("Repactuação/Reajuste", width=160)
 gb.configure_column("ID", hide=True)
+
 
 gb.configure_selection(
     selection_mode="single",
@@ -1159,10 +1157,9 @@ gb.configure_selection(
 
 gb.configure_grid_options(
     rowHeight=42,
-    headerHeight=45,
-    sortModel=[{"colId": "Gap", "sort": "asc"}]
+    headerHeight=45
 )
-
+# Destaque visual sutil para risco
 gb.configure_column(
     "Gap",
     cellStyle=JsCode("""
@@ -1174,43 +1171,28 @@ gb.configure_column(
     """)
 )
 
+# Ordenação automática por risco (Gap)
+gb.configure_grid_options(
+    suppressSizeToFit=True,          # 🔑 ESSENCIAL p/ mobile
+    suppressHorizontalScroll=False,  # permite scroll lateral
+    headerHeight=40,
+    rowHeight=38
+)
+
+
+grid_options = gb.build()
+
+
+
 grid_response = AgGrid(
     df_exibicao,
-    gridOptions=gb.build(),
+    gridOptions=grid_options,
     update_mode=GridUpdateMode.SELECTION_CHANGED,
     theme="alpine",
     height=520,
-    fit_columns_on_grid_load=True,
-    allow_unsafe_jscode=True
+    fit_columns_on_grid_load=False,
+    allow_unsafe_jscode=True   # 👈 ESSENCIAL
 )
-
-st.markdown('</div>', unsafe_allow_html=True)
-
-st.markdown('<div class="mobile-only">', unsafe_allow_html=True)
-
-for _, row in df_exibicao.iterrows():
-    with st.container(border=True):
-        st.markdown(f"""
-        **Contrato:** {row["Contrato"]}  
-        **Fornecedor:** {row["Fornecedor"]}  
-        **Categoria:** {row["Categoria"]}
-
-        ---
-        **Valor exercício:** {row["Valor exercício"]}  
-        **Empenhado:** {row["Empenhado"]}  
-        **Liquidado + Pago:** {row["Liquidado + Pago"]}  
-        **Gap:** {row["Gap"]}
-
-        **Situação:** {row["Situação"]}  
-        **Repactuação:** {row["Repactuação/Reajuste"]}
-        """)
-
-        if st.button("🔍 Ver detalhes", key=f"mob_{row['ID']}"):
-            st.session_state["contrato_row"] = df_base[df_base["ID"] == row["ID"]].iloc[0]
-            st.session_state["abrir_modal"] = True
-
-st.markdown('</div>', unsafe_allow_html=True)
-
 
 selected = grid_response.get("selected_rows")
 
