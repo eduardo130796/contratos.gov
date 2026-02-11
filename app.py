@@ -11,23 +11,6 @@ from st_aggrid import AgGrid, GridOptionsBuilder, GridUpdateMode, JsCode
 from services.contratos import ContratosService
 from services.api_client import APIClient
 
-st.markdown("""
-<style>
-/* Desktop: >= 900px */
-@media (min-width: 900px) {
-  .desktop-only { display: block; }
-  .mobile-only { display: none; }
-}
-
-/* Mobile / Tablet */
-@media (max-width: 899px) {
-  .desktop-only { display: none; }
-  .mobile-only { display: block; }
-}
-</style>
-""", unsafe_allow_html=True)
-
-
 
 st.set_page_config(
     page_title="Dashboard Gerencial de Contratos",
