@@ -3,7 +3,7 @@ from datetime import date
 
 from processing.calculo_exercicio import calcular_valor_exercicio
 from processing.calculo_exercicio import parse_data
-from processing.historico import houve_repactuacao_no_ano
+from processing.historico import houve_repactuacao_no_ano, dias_para_encerrar
 from processing.financeiro import obter_empenhos_str_por_ano
 
 def parse_valor(v):
@@ -109,6 +109,17 @@ def montar_tabela_contratos(
         valor_parcela_float = moeda_para_float(c.get("valor_parcela"))
         valor_anual = valor_parcela_float * 12
 
+        dias_encerrar = dias_para_encerrar(c.get("vigencia_fim"))
+        if dias_encerrar is None:
+            risco_vigencia = "—"
+        elif dias_encerrar <= 30:
+            risco_vigencia = "🔴 Crítico"
+        elif dias_encerrar <= 60:
+            risco_vigencia = "🟡 Atenção"
+        elif dias_encerrar <= 90:
+            risco_vigencia = "🔵 Monitorar"
+        else:
+            risco_vigencia = "🟢 Regular"
 
 
         empenhado, pago_liq, aliquidar = somar_empenhos_do_ano(
@@ -116,14 +127,20 @@ def montar_tabela_contratos(
             ano
         )
 
-        gap = valor_exercicio - empenhado
+        diferenca = valor_exercicio - empenhado
 
-        if gap > 1:
-            status = "🔴 Reforçar"
-        elif gap < -1:
-            status = "🟡 Anular"
+        if diferenca > 1:
+            reforco = diferenca
+            saldo_anulavel = 0
+            situacao_orcamentaria = "🔴 Reforçar"
+        elif diferenca < -1:
+            reforco = 0
+            saldo_anulavel = abs(diferenca)
+            situacao_orcamentaria = "🟢 Anular"
         else:
-            status = "🟢 OK"
+            reforco = 0
+            saldo_anulavel = 0
+            situacao_orcamentaria = "⚪ OK"
 
         linhas.append({
             "ID": c["id"], 
@@ -144,8 +161,12 @@ def montar_tabela_contratos(
             "Empenhado": empenhado,
             "Liquidado + Pago": pago_liq,
             "A liquidar": aliquidar,
-            "Gap": gap,
-            "Situação": status,
+            "Reforco": reforco,
+            "Anulavel": saldo_anulavel,
+            "Diferenca": diferenca,
+            "Situação": situacao_orcamentaria,
+            "Dias para encerrar": dias_encerrar,
+            "Risco Vigência": risco_vigencia,
             "Repactuação/Reajuste": "Sim" if repactuado else "Não",
         })
 
