@@ -99,3 +99,16 @@ def houve_repactuacao_no_ano(
 
 
     return False
+
+
+def dias_para_encerrar(data_fim):
+    if not data_fim:
+        return None
+    
+    try:
+        data = datetime.strptime(data_fim, "%Y-%m-%d").date()
+    except:
+        return None
+
+    hoje = datetime.today().date()
+    return (data - hoje).days
