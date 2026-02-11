@@ -469,15 +469,19 @@ def competencia_fatura(f):
             return dt.strftime("%m/%Y")
     return "—"
 
-def card_financeiro(titulo, valor, subtitulo=None):
+def card_financeiro(titulo, valor):
     with st.container(border=True):
         st.markdown(
             f"""
-            <div style="line-height:1.25;text-align:center;">
+            <div style="
+                line-height:1.25;
+                text-align:center;
+                color: var(--text-color);
+            ">
                 <div style="
                     font-size:12px;
                     font-weight:600;
-                    color:#4b5563;
+                    color: var(--secondary-text-color);
                 ">
                     {titulo}
                 </div>
@@ -485,26 +489,30 @@ def card_financeiro(titulo, valor, subtitulo=None):
                     font-size:17px;
                     font-weight:650;
                     margin-top:2px;
-                    color:#111827;
                     margin-bottom:5px;
-                ">{formatar(valor)}</div></div>""",
+                    color: var(--text-color);
+                ">
+                    {formatar(valor)}
+                </div>
+            </div>
+            """,
             unsafe_allow_html=True
         )
 
-def card_contador(titulo, valor):
-    """
-    Card compacto para contadores e quantidades.
-    Não formata como valor monetário.
-    """
 
+def card_contador(titulo, valor):
     with st.container(border=True):
         st.markdown(
             f"""
-            <div style="line-height:1.25; text-align:center;">
+            <div style="
+                line-height:1.25;
+                text-align:center;
+                color: var(--text-color);
+            ">
                 <div style="
                     font-size:12px;
                     font-weight:600;
-                    color:#4b5563;
+                    color: var(--secondary-text-color);
                 ">
                     {titulo}
                 </div>
@@ -513,7 +521,7 @@ def card_contador(titulo, valor):
                     font-weight:650;
                     margin-top:2px;
                     margin-bottom:5px;
-                    color:#111827;
+                    color: var(--text-color);
                 ">
                     {valor}
                 </div>
@@ -521,6 +529,7 @@ def card_contador(titulo, valor):
             """,
             unsafe_allow_html=True
         )
+
 
 
 @st.dialog("📄 Contrato — Visão detalhada", width="large")
@@ -623,14 +632,12 @@ def modal_contrato(contrato_row):
             card_financeiro(
                 "Valor do exercício",
                 contrato_row["Valor exercício"],
-                "Impacto estimado no ano"
             )
 
         with c2:
             card_financeiro(
                 "Empenhado",
                 contrato_row["Empenhado"],
-                "Total empenhado no exercício"
             )
 
         # 🔹 Linha 2 — Execução
@@ -640,14 +647,12 @@ def modal_contrato(contrato_row):
             card_financeiro(
                 "Pago",
                 contrato_row["Liquidado + Pago"],
-                "Execução financeira realizada"
             )
 
         with c4:
             card_financeiro(
                 "A liquidar",
                 contrato_row["A liquidar"],
-                "Pendência de liquidação"
             )
 
         # 🔹 Linha 3 — Decisão (CENTRAL)
@@ -743,7 +748,7 @@ def modal_contrato(contrato_row):
         with r2:
             card_financeiro(
                 "Valor líquido",
-                total_liquido,""
+                total_liquido
             )
 
         r3, r4 = st.columns(2)
@@ -751,7 +756,7 @@ def modal_contrato(contrato_row):
         with r3:
             card_financeiro(
                 "Glosas",
-                total_glosa,""
+                total_glosa
             )
 
         with r4:
@@ -1009,7 +1014,8 @@ def modal_contrato(contrato_row):
                     # BADGES DE CONTEXTO
                     badge_tipo = f"""
                     <span style="
-                        background:#e5e7eb;
+                        background-color: rgba(59, 130, 246, 0.15);
+                        color: var(--text-color);
                         padding:3px 8px;
                         border-radius:6px;
                         font-size:0.75rem;
@@ -1023,8 +1029,8 @@ def modal_contrato(contrato_row):
                     if h.get("novo_valor_global") and h["novo_valor_global"] != "0,00":
                         badge_impacto = """
                     <span style="
-                        background:#fee2e2;
-                        color:#991b1b;
+                        background-color: rgba(239, 68, 68, 0.15);
+                        color: var(--text-color);
                         padding:3px 8px;
                         border-radius:6px;
                         font-size:0.75rem;
