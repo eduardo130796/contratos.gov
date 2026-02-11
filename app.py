@@ -1117,7 +1117,8 @@ gb = GridOptionsBuilder.from_dataframe(df_exibicao)
 gb.configure_default_column(
     sortable=True,
     filter=True,
-    resizable=True
+    resizable=True,
+    minWidth=120
 )
 gb.configure_column("Contrato", pinned="left", width=150)
 gb.configure_column("Fornecedor", pinned="left", width=260)
