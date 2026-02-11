@@ -30,127 +30,409 @@ with open("data/raw/empenhos.json", encoding="utf-8") as f:
 with open("data/raw/historicos.json", encoding="utf-8") as f:
     historicos = json.load(f)
 
-# ================= NORMALIZAÇÃO =================
 
-registros = []
-
-for c in contratos:
-    dias = dias_para_encerrar(c.get("vigencia_fim"))
-    empenhos_contrato = empenhos_base.get(str(c["id"]), [])
-
-    valor_empenhado, valor_aliquidar, valor_liquidado, valor_pago = consolidar_empenhos(
-        empenhos_contrato,
+@st.cache_data(show_spinner=False)
+def carregar_df_base():
+    return montar_tabela_contratos(
+        contratos,
+        historicos,
+        empenhos_base,
         ano_referencia
     )
 
-    historico_contrato = historicos.get(str(c["id"]), [])
+df_base = carregar_df_base()
 
-    valor_exercicio = calcular_valor_exercicio(
-        c,
-        historico_contrato,
-        ano_referencia
+@st.cache_data(show_spinner=False)
+def carregar_df_base_anterior():
+    return montar_tabela_contratos(
+        contratos,
+        historicos,
+        empenhos_base,
+        ano_referencia-1
     )
 
-    registros.append({
-        "ID": c["id"],
-        "Contrato": c["numero"],
-        "Fornecedor": c["fornecedor"]["nome"],
-        "Categoria": c.get("categoria", "Não informada"),
-        "Situação": c.get("situacao"),
-        "Dias para encerrar": dias,
-        "Valor Global": (
-            float(c["valor_global"].replace(".", "").replace(",", "."))
-            if c.get("valor_global") else 0
-        ),
-        # financeiro do ano
-        "Empenhado (Ano)": valor_empenhado,
-        "A liquidar (Ano)": valor_aliquidar,
-        "Liquidado (Ano)": valor_liquidado,
-        "Pago (Ano)": valor_pago,
-        # NOVO: valor do exercício
-        "Valor Exercício": valor_exercicio,
-    })
+df_base_anterior = carregar_df_base_anterior()
 
-df = pd.DataFrame(registros)
 
 # ================= KPIs =================
+df = df_base.copy()
 
-total = len(df)
-ativos = df[df["Situação"] == "Ativo"]
-ativos = df[
-    df["Dias para encerrar"].notnull() &
-    (df["Dias para encerrar"] >= 0)
-]
-vencidos = df[
-    df["Dias para encerrar"].notnull() &
-    (df["Dias para encerrar"] < 0)
-]
+valor_empenhado_total = df["Empenhado"].sum()
+valor_liquidado_total = df["Liquidado + Pago"].sum()
+valor_aliquidar_total = df["A liquidar"].sum()
+valor_exercicio_total = df["Valor exercício"].sum()
 
-criticos = ativos[
-    ativos["Dias para encerrar"] <= 30
-]
-
-alerta = ativos[
-    (ativos["Dias para encerrar"] > 30) &
-    (ativos["Dias para encerrar"] <= 60)
-]
-
-
-valor_empenhado_total = ativos["Empenhado (Ano)"].sum()
-valor_liquidado_total = ativos["Liquidado (Ano)"].sum()
-valor_aliquidar_total = ativos["A liquidar (Ano)"].sum()
-valor_exercicio_total = ativos["Valor Exercício"].sum()
-
-gap_total = valor_exercicio_total - valor_empenhado_total
-
-valor_pago_total = ativos["Pago (Ano)"].sum()
 
 percentual_execucao = (
-    ((valor_pago_total+valor_liquidado_total) / valor_empenhado_total) * 100
+    (valor_liquidado_total / valor_empenhado_total) * 100
     if valor_empenhado_total > 0 else 0
 )
 
-# ================= HEADER =================
+# ===============================
+# 🔍 MÉTRICAS DE RISCO
+# ===============================
 
-st.title("📊 Dashboard Gerencial de Contratos")
+valor_reforco_total = df["Reforco"].sum()
+valor_anulacao_total = df["Anulavel"].sum()
+df_reforco = df[df["Situação"] == "🔴 Reforçar"]
+df_anulacao = df[df["Situação"] == "🟢 Anular"]
 
-st.subheader("Contratos")
-c1, c2, c3, c4, c5 = st.columns(5)
-c1.metric("Total de contratos", total)
-c2.metric("Contratos ativos", len(ativos))
-c3.metric("Vencidos", len(vencidos))
-c4.metric("Críticos (≤30 dias)", len(criticos))
-c5.metric("Alerta (≤60 dias)", len(alerta))
+# ===============================
+# 🔎 ANÁLISE DE VIGÊNCIA
+# ===============================
 
-st.divider()
+contratos_vencidos = df[df["Dias para encerrar"] < 0]
 
-st.subheader("Orçamentário")
-c6, c7, c8, c9, c10 = st.columns(5)
-c6.metric("Empenhado (Ano)", formatar(valor_empenhado_total))
-c7.metric("A liquidar (Ano)", formatar(valor_aliquidar_total))
-c8.metric("Liquidado/Pago (Ano)", formatar(valor_liquidado_total+valor_pago_total))
-c9.metric("Execução (%)", f"{percentual_execucao:.1f}%")
-
-st.divider()
-
-st.subheader("Impacto Orçamentário")
-c11, c12, c13 = st.columns(3)
-c11.metric("Impacto contratual no exercício", formatar(valor_exercicio_total))
-c12.metric("Empenhado no exercício", formatar(valor_empenhado_total))
-c13.metric("Gap contratual", formatar(gap_total))
-
-sem_empenho = ativos[
-    ativos["Empenhado (Ano)"] == 0
+contratos_criticos = df[
+    (df["Dias para encerrar"] >= 0) &
+    (df["Dias para encerrar"] <= 30)
 ]
 
-if not sem_empenho.empty:
-    st.warning(
-        f"⚠️ {len(sem_empenho)} contratos vigentes sem empenho no exercício {ano_referencia}."
+contratos_alerta = df[
+    (df["Dias para encerrar"] > 30) &
+    (df["Dias para encerrar"] <= 60)
+]
+
+qtd_repactuados = df[df["Repactuação/Reajuste"] == "Sim"].shape[0]
+qtd_sem_empenho = df[df["Empenhado"] == 0].shape[0]
+
+
+# ================= HEADER =================
+def card_institucional(titulo, valor, delta=None, delta_label=None, cor="#1f3c88"):
+    delta_html = ""
+    if delta is not None:
+        seta = "▲" if delta > 0 else "▼"
+        cor_delta = "#16a34a" if delta > 0 else "#dc2626"
+        delta_html = f"""
+        <div style="
+            font-size:12px;
+            margin-top:4px;
+            color:{cor_delta};
+            font-weight:600;">
+            {seta} {abs(delta):.1f}% {delta_label if delta_label else ""}</div>
+        """
+
+    st.markdown(
+        f"""
+        <div style="
+            background:white;
+            padding:18px;
+            border-radius:10px;
+            border-top:5px solid {cor};
+            box-shadow:0 2px 6px rgba(0,0,0,0.05);
+        ">
+            <div style="
+                font-size:13px;
+                color:#6b7280;
+                font-weight:600;
+            ">
+                {titulo}
+            </div><div style="
+                font-size:24px;
+                font-weight:700;
+                margin-top:6px;
+                color:#111827;
+            ">{valor}</div>{delta_html}
+        </div>""",
+        unsafe_allow_html=True
     )
+
+
+def card_impacto_orcamentario_md(valor_exercicio, empenhado):
+    diferenca = valor_exercicio - empenhado
+
+    # ============================
+    # 🔴 REFORÇO NECESSÁRIO
+    # ============================
+    if diferenca > 0:
+        st.markdown(
+            f"""
+            <div style="
+                background-color:#fde2e2;
+                padding:14px;
+                border-radius:6px;
+                border-left:4px solid #dc2626;
+                text-align:center;
+            ">
+                <div style="font-size:14px; font-weight:600; color:#7f1d1d;">
+                    🚨 Reforço necessário
+                </div>
+                <div style="font-size:20px; font-weight:700; margin-top:4px; color:#7f1d1d;">
+                    {formatar(diferenca)}
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+
+    # ============================
+    # 🟢 ANULAÇÃO POSSÍVEL
+    # ============================
+    elif diferenca < 0:
+        st.markdown(
+            f"""
+            <div style="
+                background-color:#ecfdf5;
+                padding:12px;
+                border-radius:6px;
+                border-left:4px solid #16a34a;
+            ">
+                <div style="
+                    font-size:14px;
+                    font-weight:600;
+                    color:#065f46;
+                ">
+                    🟢 Anulação possível
+                </div>
+                <div style="
+                    font-size:20px;
+                    font-weight:700;
+                    margin-top:4px;
+                    color:#065f46;
+                ">
+                    {formatar(abs(diferenca))}
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+
+
+    # ============================
+    # ⚪ EQUILÍBRIO
+    # ============================
+    else:
+        st.markdown(
+        """
+            <div style="
+                background-color:#f9fafb;
+                padding:12px;
+                border-radius:6px;
+                border-left:4px solid #9ca3af;
+            ">
+                <div style="
+                    font-size:14px;
+                    font-weight:600;
+                    color:#374151;
+                ">
+                    ⚪ Execução equilibrada
+                </div>
+                <div style="
+                    font-size:18px;
+                    font-weight:700;
+                    margin-top:4px;
+                    color:#374151;
+                ">
+                    R$ 0,00
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+def card_situacao_orcamentaria(valor_exercicio, empenhado):
+    diferenca = valor_exercicio - empenhado
+
+    if diferenca > 0:
+        titulo = "Reforço necessário"
+        valor = formatar(diferenca)
+        cor = "#dc2626"
+    elif diferenca < 0:
+        titulo = "Saldo passível de anulação"
+        valor = formatar(abs(diferenca))
+        cor = "#16a34a"
+    else:
+        titulo = "Execução equilibrada"
+        valor = "R$ 0,00"
+        cor = "#6b7280"
+
+    st.markdown(
+        f"""
+        <div style="
+            background:#f9fafb;
+            padding:14px;
+            border-radius:8px;
+            border-left:5px solid {cor};
+            text-align:center;
+        ">
+            <div style="font-size:14px; font-weight:600;">
+                {titulo}
+            </div>
+            <div style="font-size:22px; font-weight:700; margin-top:4px;">
+                {valor}
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+
+valor_empenhado_total = df_base["Empenhado"].sum()
+valor_empenhado_anterior = df_base_anterior["Empenhado"].sum()
+
+if valor_empenhado_anterior > 0:
+    tendencia_execucao = (
+        (valor_empenhado_total - valor_empenhado_anterior)
+        / valor_empenhado_anterior
+    ) * 100
 else:
-    st.success("🟢 Todos os conratos vigentes estão com empenho no momento.")
+    tendencia_execucao = 0
+
+
+st.markdown(f"# 📊 Painel Estratégico de Contratos")
+st.markdown(f"### Exercício {ano_referencia}")
 
 st.divider()
+
+# =========================================================
+# 1️⃣ PANORAMA GERAL
+# =========================================================
+st.markdown("## 🔷 Panorama Geral")
+
+p1, p2, p3, p4 = st.columns(4)
+
+with p1:
+    card_institucional(
+        "Contratos Ativos",
+        len(df),
+        cor="#1f3c88"
+    )
+
+with p2:
+    card_institucional(
+        "Impacto Contratual no Exercício",
+        formatar(valor_exercicio_total),
+        cor="#1e40af"
+    )
+
+with p3:
+    card_institucional(
+        "Empenhado no Exercício",
+        formatar(valor_empenhado_total),
+        cor="#2563eb"
+    )
+
+with p4:
+    card_institucional(
+        "Execução Financeira",
+        f"{percentual_execucao:.1f}%",
+        cor="#0f766e"
+    )
+
+st.divider()
+
+# =========================================================
+# 2️⃣ SITUAÇÃO ORÇAMENTÁRIA
+# =========================================================
+st.markdown("## 💰 Situação Orçamentária")
+
+o1, o2 = st.columns([2, 1])
+
+with o1:
+    card_situacao_orcamentaria(
+        valor_exercicio_total,
+        valor_empenhado_total
+    )
+
+with o2:
+    card_institucional(
+        "Saldo Total Anulável",
+        formatar(valor_anulacao_total),
+        cor="#16a34a"
+    )
+
+st.divider()
+
+# =========================================================
+# 3️⃣ RISCO ORÇAMENTÁRIO
+# =========================================================
+st.markdown("## ⚠️ Risco Orçamentário")
+
+r1, r2 = st.columns(2)
+
+with r1:
+    card_institucional(
+        "Contratos com necessidade de reforço",
+        len(df_reforco),
+        cor="#dc2626"
+    )
+    st.caption(f"Valor necessário: {formatar(valor_reforco_total)}")
+
+with r2:
+    card_institucional(
+        "Contratos com saldo anulável",
+        len(df_anulacao),
+        cor="#16a34a"
+    )
+    st.caption(f"Valor possível de realocação: {formatar(valor_anulacao_total)}")
+
+st.divider()
+
+# =========================================================
+# 4️⃣ DINÂMICA CONTRATUAL
+# =========================================================
+st.markdown("## 🔄 Dinâmica Contratual do Exercício")
+
+d1, d2, d3 = st.columns(3)
+
+with d1:
+    card_institucional(
+        "Contratos Repactuados",
+        qtd_repactuados,
+        cor="#b45309"
+    )
+
+with d2:
+    card_institucional(
+        "Contratos sem empenho",
+        qtd_sem_empenho,
+        cor="#991b1b"
+    )
+
+with d3:
+    card_institucional(
+        "Contratos vencidos",
+        len(contratos_vencidos),
+        cor="#6b7280"
+    )
+
+st.divider()
+
+# =========================================================
+# 5️⃣ GESTÃO DE VIGÊNCIA
+# =========================================================
+st.markdown("## 📅 Gestão de Vigência")
+
+v1, v2 = st.columns(2)
+
+with v1:
+    card_institucional(
+        "Críticos (≤ 30 dias)",
+        len(contratos_criticos),
+        cor="#f59e0b"
+    )
+
+with v2:
+    card_institucional(
+        "Alerta (≤ 60 dias)",
+        len(contratos_alerta),
+        cor="#2563eb"
+    )
+
+if len(contratos_criticos) > 0:
+    st.error(
+        f"🚨 {len(contratos_criticos)} contrato(s) encerram em até 30 dias."
+    )
+
+elif len(contratos_alerta) > 0:
+    st.warning(
+        f"⚠️ {len(contratos_alerta)} contrato(s) encerram em até 60 dias."
+    )
+
+else:
+    st.success("🟢 Nenhum contrato com risco imediato de vencimento.")
+
+
+
 # ================= TABELA =================
 def obter_historico_local(contrato_id, historicos):
     """
@@ -336,97 +618,7 @@ def card_empenho(e):
             if link:
                 st.link_button("🔗 Ver ordem bancária", link)
 
-def card_impacto_orcamentario_md(valor_exercicio, empenhado):
-    diferenca = valor_exercicio - empenhado
 
-    # ============================
-    # 🔴 REFORÇO NECESSÁRIO
-    # ============================
-    if diferenca > 0:
-        st.markdown(
-            f"""
-            <div style="
-                background-color:#fde2e2;
-                padding:14px;
-                border-radius:6px;
-                border-left:4px solid #dc2626;
-                text-align:center;
-            ">
-                <div style="font-size:14px; font-weight:600; color:#7f1d1d;">
-                    🚨 Reforço necessário
-                </div>
-                <div style="font-size:20px; font-weight:700; margin-top:4px; color:#7f1d1d;">
-                    {formatar(diferenca)}
-                </div>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
-
-    # ============================
-    # 🟢 ANULAÇÃO POSSÍVEL
-    # ============================
-    elif diferenca < 0:
-        st.markdown(
-            f"""
-            <div style="
-                background-color:#ecfdf5;
-                padding:12px;
-                border-radius:6px;
-                border-left:4px solid #16a34a;
-            ">
-                <div style="
-                    font-size:14px;
-                    font-weight:600;
-                    color:#065f46;
-                ">
-                    🟢 Anulação possível
-                </div>
-                <div style="
-                    font-size:20px;
-                    font-weight:700;
-                    margin-top:4px;
-                    color:#065f46;
-                ">
-                    {formatar(abs(diferenca))}
-                </div>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
-
-
-    # ============================
-    # ⚪ EQUILÍBRIO
-    # ============================
-    else:
-        st.markdown(
-        """
-            <div style="
-                background-color:#f9fafb;
-                padding:12px;
-                border-radius:6px;
-                border-left:4px solid #9ca3af;
-            ">
-                <div style="
-                    font-size:14px;
-                    font-weight:600;
-                    color:#374151;
-                ">
-                    ⚪ Execução equilibrada
-                </div>
-                <div style="
-                    font-size:18px;
-                    font-weight:700;
-                    margin-top:4px;
-                    color:#374151;
-                ">
-                    R$ 0,00
-                </div>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
 
 
 def fmt_data(data):
@@ -802,7 +994,7 @@ def modal_contrato(contrato_row):
                     st.markdown(f"""<div style="
                             display:flex;
                             align-items:center;
-                            gap:8px;
+                            diferenca:8px;
                             margin-bottom:6px;
                         "><strong>Competência:</strong>
                             <span>{competencia}</span>
@@ -962,7 +1154,7 @@ def modal_contrato(contrato_row):
                         .linha-timeline {{
                             display: grid;
                             grid-template-columns: 110px 160px 1fr auto;
-                            gap: 12px;
+                            diferenca: 12px;
                             padding: 8px 0;
                             border-bottom: 1px solid #e5e7eb;
                             align-items: center;
@@ -972,7 +1164,7 @@ def modal_contrato(contrato_row):
                         @media (max-width: 768px) {{
                             .linha-timeline {{
                                 grid-template-columns: 1fr;
-                                gap: 4px;
+                                diferenca: 4px;
                             }}
 
                             .linha-timeline div {{
@@ -1085,16 +1277,7 @@ def modal_contrato(contrato_row):
 
 
 
-@st.cache_data(show_spinner=False)
-def carregar_df_base():
-    return montar_tabela_contratos(
-        contratos,
-        historicos,
-        empenhos_base,
-        ano_referencia
-    )
 
-df_base = carregar_df_base()
 
 
 st.subheader("📑 Visão financeira dos contratos")
@@ -1103,7 +1286,7 @@ col_f1, col_f2 = st.columns(2)
 
 filtro_risco = col_f1.selectbox(
     "Filtro rápido",
-    ["Todos", "Com Gap negativo", "Sem empenho"]
+    ["Todos", "Com diferenca negativo", "Sem empenho"]
 )
 
 filtro_fornecedor = col_f2.text_input(
@@ -1115,39 +1298,28 @@ filtro_fornecedor = col_f2.text_input(
 
 df_filtrado = df_base.copy()
 
-faixa_gap = col_f1.selectbox(
-    "Faixa de Gap",
+faixa_diferenca = col_f1.selectbox(
+    "Faixa de diferenca",
     [
         "Todos",
-        "Gap negativo",
-        "Gap até R$ 10 mil",
-        "Gap acima de R$ 50 mil"
+        "diferenca negativo",
+        "diferenca até R$ 10 mil",
+        "diferenca acima de R$ 50 mil"
     ]
 )
 
-if faixa_gap == "Gap negativo":
-    df_filtrado = df_filtrado[df_filtrado["Gap"] < 0]
+if faixa_diferenca == "diferenca negativo":
+    df_filtrado = df_filtrado[df_filtrado["Diferenca"] < 0]
 
-elif faixa_gap == "Gap até R$ 10 mil":
+elif faixa_diferenca == "diferenca até R$ 10 mil":
     df_filtrado = df_filtrado[
-        (df_filtrado["Gap"] < 0) &
-        (df_filtrado["Gap"] >= -10_000)
+        (df_filtrado["Diferenca"] < 0) &
+        (df_filtrado["Diferenca"] >= -10_000)
     ]
 
-elif faixa_gap == "Gap acima de R$ 50 mil":
-    df_filtrado = df_filtrado[df_filtrado["Gap"] < -50_000]
+elif faixa_diferenca == "diferenca acima de R$ 50 mil":
+    df_filtrado = df_filtrado[df_filtrado["Diferenca"] < -50_000]
 
-valor_min, valor_max = col_f2.slider(
-    "Valor do exercício (R$)",
-    min_value=0,
-    max_value=int(df_base["Valor exercício"].max()),
-    value=(0, int(df_base["Valor exercício"].max()))
-)
-
-df_filtrado = df_filtrado[
-    (df_filtrado["Valor exercício"] >= valor_min) &
-    (df_filtrado["Valor exercício"] <= valor_max)
-]
 
 tipo_execucao = st.multiselect(
     "Situação financeira",
@@ -1166,8 +1338,8 @@ if "Totalmente pago" in tipo_execucao:
     ]
 
 
-if filtro_risco == "Com Gap negativo":
-    df_filtrado = df_filtrado[df_filtrado["Gap"] < 0]
+if filtro_risco == "Com diferenca negativo":
+    df_filtrado = df_filtrado[df_filtrado["Diferenca"] < 0]
 
 elif filtro_risco == "Sem empenho":
     df_filtrado = df_filtrado[df_filtrado["Empenhado"] == 0]
@@ -1191,8 +1363,8 @@ COLUNAS_TABELA_PRINCIPAL = [
     "Valor exercício",
     "Empenhado",
     "Liquidado + Pago",
-    "Gap",
     "Situação",
+    "Diferenca",
     "Repactuação/Reajuste",
 ]
 
@@ -1204,7 +1376,7 @@ for col in [
     "Valor exercício",
     "Empenhado",
     "Liquidado + Pago",
-    "Gap"
+    "Diferenca"
 ]:
     df_exibicao[col] = df_exibicao[col].apply(formatar)
 
@@ -1225,7 +1397,7 @@ gb.configure_column("Valor exercício", width=150)
 gb.configure_column("Empenhado", width=140)
 gb.configure_column("Liquidado + Pago", width=160)
 gb.configure_column("Situação", width=160)
-gb.configure_column("Gap", width=120)
+gb.configure_column("Diferença", width=120)
 gb.configure_column("Repactuação/Reajuste", width=160)
 gb.configure_column("ID", hide=True)
 
@@ -1241,7 +1413,7 @@ gb.configure_grid_options(
 )
 # Destaque visual sutil para risco
 gb.configure_column(
-    "Gap",
+    "Diferenca",
     cellStyle=JsCode("""
         function(params) {
             if (params.value && params.value.startsWith("R$ -")) {
@@ -1251,7 +1423,7 @@ gb.configure_column(
     """)
 )
 
-# Ordenação automática por risco (Gap)
+# Ordenação automática por risco (diferenca)
 gb.configure_grid_options(
     suppressSizeToFit=True,          # 🔑 ESSENCIAL p/ mobile
     suppressHorizontalScroll=False,  # permite scroll lateral
@@ -1263,15 +1435,29 @@ gb.configure_grid_options(
 grid_options = gb.build()
 
 
+st.markdown("""
+<style>
+/* Fundo do container do Streamlit que envolve o AgGrid */
+div[data-testid="stAgGrid"] {
+    background-color: var(--background-color) !important;
+}
+
+/* Fundo real do grid */
+.ag-root-wrapper {
+    background-color: var(--background-color) !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
 
 grid_response = AgGrid(
     df_exibicao,
     gridOptions=grid_options,
     update_mode=GridUpdateMode.SELECTION_CHANGED,
-    theme="alpine",
+    theme="alpine",  
     height=520,
     fit_columns_on_grid_load=False,
-    allow_unsafe_jscode=True   # 👈 ESSENCIAL
+    allow_unsafe_jscode=True,   # 👈 ESSENCIAL
 )
 
 selected = grid_response.get("selected_rows")
@@ -1300,9 +1486,9 @@ if st.session_state.get("abrir_modal"):
 
 st.subheader("⏳ Contratos que exigem ação")
 
-df_risco = ativos[
-    ativos["Dias para encerrar"].notnull() &
-    (ativos["Dias para encerrar"] <= 60)
+df_risco = df[
+    df["Dias para encerrar"].notnull() &
+    (df["Dias para encerrar"] <= 60)
 ].sort_values("Dias para encerrar")
 
 if df_risco.empty:
@@ -1330,27 +1516,17 @@ col1, col2 = st.columns(2)
 with col1:
     st.caption("Contratos ativos por categoria")
     st.bar_chart(
-        ativos.groupby("Categoria").size().sort_values(ascending=False)
+        df.groupby("Categoria").size().sort_values(ascending=False)
     )
 
 with col2:
     st.caption("Top 10 fornecedores (contratos ativos)")
     st.bar_chart(
-        ativos.groupby("Fornecedor").size().sort_values(ascending=False).head(10)
+        df.groupby("Fornecedor").size().sort_values(ascending=False).head(10)
     )
 
 st.divider()
 
-# ================= ACESSO AO CONTRATO =================
 
-st.subheader("🔍 Análise individual de contrato")
 
-contrato_id = st.selectbox(
-    "Selecione o contrato",
-    ativos.sort_values("Dias para encerrar")["ID"]
-)
-
-if st.button("Abrir contrato"):
-    st.session_state["contrato_id"] = contrato_id
-    st.switch_page("pages/contrato.py")
 
