@@ -10,6 +10,7 @@ from processing.visao_contratos import montar_tabela_contratos
 from st_aggrid import AgGrid, GridOptionsBuilder, GridUpdateMode, JsCode
 from services.contratos import ContratosService
 from services.api_client import APIClient
+import plotly.express as px
 
 
 st.set_page_config(
@@ -17,8 +18,81 @@ st.set_page_config(
     layout="wide"
 )
 
+PRIMARY = "#1f3c88"
+SIDEBAR_BG = "#0f172a"
+SIDEBAR_TEXT = "#e2e8f0"
+
+def aplicar_layout_ministerial():
+    st.markdown(f"""
+    <style>
+
+    /* Sidebar */
+    section[data-testid="stSidebar"] {{
+        background-color: {SIDEBAR_BG};
+        padding-top: 20px;
+    }}
+
+    section[data-testid="stSidebar"] * {{
+        color: {SIDEBAR_TEXT} !important;
+    }}
+
+    section[data-testid="stSidebar"] h1 {{
+        font-size: 18px;
+        font-weight: 700;
+    }}
+
+    /* Títulos */
+    h1, h2, h3 {{
+        font-weight: 700;
+        color: #111827;
+    }}
+
+    /* Container principal */
+    .block-container {{
+        padding-top: 2rem;
+        padding-bottom: 3rem;
+        max-width: 1500px;
+    }}
+
+    /* Cards */
+    .card-ministerial {{
+        background-color: white;
+        border-radius: 14px;
+        padding: 22px;
+        border: 1px solid #e5e7eb;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }}
+
+    </style>
+    """, unsafe_allow_html=True)
+
+aplicar_layout_ministerial()
+
+
 ano_referencia = datetime.now().year
 #ano_referencia = 2025
+
+with st.sidebar:
+
+    st.markdown("## 🏛 Gestão Contratual")
+    st.markdown(f"Exercício {ano_referencia}")
+    st.markdown("---")
+
+    pagina = st.radio(
+    "Navegação",
+    [
+        "📊 Painel Executivo",
+        "💰 Orçamento e Prioridades",
+        "⚠️ Riscos e Continuidade",
+        "📄 Carteira Detalhada",
+        "📈 Inteligência e Tendências",
+    ]
+)
+
+
+    st.markdown("---")
+    st.caption("Sistema Gerencial Institucional")
+
 # ================= CARREGAMENTO =================
 
 with open("data/raw/contratos.json", encoding="utf-8") as f:
@@ -97,170 +171,114 @@ qtd_repactuados = df[df["Repactuação/Reajuste"] == "Sim"].shape[0]
 qtd_sem_empenho = df[df["Empenhado"] == 0].shape[0]
 
 
+
 # ================= HEADER =================
-def card_institucional(titulo, valor, delta=None, delta_label=None, cor="#1f3c88"):
+def card_institucional(
+    titulo,
+    valor,
+    delta=None,
+    delta_label=None,
+    cor="#1f3c88"
+):
+
     delta_html = ""
+
     if delta is not None:
         seta = "▲" if delta > 0 else "▼"
         cor_delta = "#16a34a" if delta > 0 else "#dc2626"
+
         delta_html = f"""
         <div style="
-            font-size:12px;
-            margin-top:4px;
+            margin-top:10px;
+            font-size:13px;
+            font-weight:600;
             color:{cor_delta};
-            font-weight:600;">
-            {seta} {abs(delta):.1f}% {delta_label if delta_label else ""}</div>
+        ">
+            {seta} {abs(delta):.1f}% {delta_label if delta_label else ""}
+        </div>
         """
 
     st.markdown(
-        f"""
-        <div style="
+        f"""<div style="
             background:white;
-            padding:18px;
-            border-radius:10px;
-            border-top:5px solid {cor};
-            box-shadow:0 2px 6px rgba(0,0,0,0.05);
-        ">
-            <div style="
-                font-size:13px;
+            padding:26px 20px;
+            border-radius:14px;
+            border:1px solid #e5e7eb;
+            box-shadow:0 4px 14px rgba(0,0,0,0.04);
+            text-align:center;
+            transition: all 0.2s ease;"><div style="
+                font-size:12px;
+                text-transform:uppercase;
+                letter-spacing:0.6px;
                 color:#6b7280;
                 font-weight:600;
-            ">
-                {titulo}
-            </div><div style="
-                font-size:24px;
-                font-weight:700;
-                margin-top:6px;
+                margin-bottom:8px;">{titulo}</div><div style="
+                font-size:32px;
+                font-weight:800;
                 color:#111827;
-            ">{valor}</div>{delta_html}
-        </div>""",
+                line-height:1.2;">{valor}</div>{delta_html}<div style="
+                height:4px;
+                width:50px;
+                background:{cor};
+                margin:16px auto 0 auto;
+                border-radius:3px;"></div></div>""",
         unsafe_allow_html=True
     )
 
 
+
 def card_impacto_orcamentario_md(valor_exercicio, empenhado):
-    diferenca = valor_exercicio - empenhado
 
-    # ============================
-    # 🔴 REFORÇO NECESSÁRIO
-    # ============================
-    if diferenca > 0:
-        st.markdown(
-            f"""
-            <div style="
-                background-color:#fde2e2;
-                padding:14px;
-                border-radius:6px;
-                border-left:4px solid #dc2626;
-                text-align:center;
-            ">
-                <div style="font-size:14px; font-weight:600; color:#7f1d1d;">
-                    🚨 Reforço necessário
-                </div>
-                <div style="font-size:20px; font-weight:700; margin-top:4px; color:#7f1d1d;">
-                    {formatar(diferenca)}
-                </div>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
-
-    # ============================
-    # 🟢 ANULAÇÃO POSSÍVEL
-    # ============================
-    elif diferenca < 0:
-        st.markdown(
-            f"""
-            <div style="
-                background-color:#ecfdf5;
-                padding:12px;
-                border-radius:6px;
-                border-left:4px solid #16a34a;
-            ">
-                <div style="
-                    font-size:14px;
-                    font-weight:600;
-                    color:#065f46;
-                ">
-                    🟢 Anulação possível
-                </div>
-                <div style="
-                    font-size:20px;
-                    font-weight:700;
-                    margin-top:4px;
-                    color:#065f46;
-                ">
-                    {formatar(abs(diferenca))}
-                </div>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
-
-
-    # ============================
-    # ⚪ EQUILÍBRIO
-    # ============================
-    else:
-        st.markdown(
-        """
-            <div style="
-                background-color:#f9fafb;
-                padding:12px;
-                border-radius:6px;
-                border-left:4px solid #9ca3af;
-            ">
-                <div style="
-                    font-size:14px;
-                    font-weight:600;
-                    color:#374151;
-                ">
-                    ⚪ Execução equilibrada
-                </div>
-                <div style="
-                    font-size:18px;
-                    font-weight:700;
-                    margin-top:4px;
-                    color:#374151;
-                ">
-                    R$ 0,00
-                </div>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
-def card_situacao_orcamentaria(valor_exercicio, empenhado):
     diferenca = valor_exercicio - empenhado
 
     if diferenca > 0:
-        titulo = "Reforço necessário"
+        titulo = "Necessidade de Reforço Orçamentário"
         valor = formatar(diferenca)
         cor = "#dc2626"
+        fundo = "#fef2f2"
+
     elif diferenca < 0:
-        titulo = "Saldo passível de anulação"
+        titulo = "Saldo Passível de Realocação"
         valor = formatar(abs(diferenca))
         cor = "#16a34a"
+        fundo = "#f0fdf4"
+
     else:
-        titulo = "Execução equilibrada"
+        titulo = "Execução Orçamentária Equilibrada"
         valor = "R$ 0,00"
         cor = "#6b7280"
+        fundo = "#f9fafb"
 
     st.markdown(
         f"""
         <div style="
-            background:#f9fafb;
-            padding:14px;
-            border-radius:8px;
-            border-left:5px solid {cor};
+            background:{fundo};
+            padding:32px 28px;
+            border-radius:16px;
+            border:1px solid #e5e7eb;
+            box-shadow:0 6px 20px rgba(0,0,0,0.06);
             text-align:center;
-        ">
-            <div style="font-size:14px; font-weight:600;">
-                {titulo}
-            </div>
-            <div style="font-size:22px; font-weight:700; margin-top:4px;">
-                {valor}
-            </div>
-        </div>
+            margin:20px 0;
+        "><div style="
+                font-size:13px;
+                letter-spacing:0.6px;
+                text-transform:uppercase;
+                font-weight:700;
+                color:{cor};
+                margin-bottom:12px;
+            ">{titulo}
+            </div><div style="
+                font-size:36px;
+                font-weight:900;
+                color:{cor};
+                line-height:1.1;
+            ">{valor}
+            </div><div style="
+                margin-top:16px;
+                font-size:13px;
+                color:#6b7280;">
+                Diferença entre o valor previsto para o exercício e o total empenhado.
+            </div></div>
         """,
         unsafe_allow_html=True
     )
@@ -277,160 +295,593 @@ if valor_empenhado_anterior > 0:
 else:
     tendencia_execucao = 0
 
+st.markdown(f"""
+<div style="
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+">
+    <div>
+        <div style="
+            font-size:28px;
+            font-weight:800;
+        ">
+            Dashboard Gerencial de Contratos
+        </div>
+        <div style="
+            font-size:14px;
+            color:#6b7280;
+            margin-top:4px;
+        ">
+            Atualizado em {datetime.now().strftime("%d/%m/%Y")}
+        </div>
+    </div>
+</div>
+""", unsafe_allow_html=True)
 
-st.markdown(f"# 📊 Painel Estratégico de Contratos")
-st.markdown(f"### Exercício {ano_referencia}")
 
-st.divider()
+if pagina == "📊 Painel Executivo":
 
-# =========================================================
-# 1️⃣ PANORAMA GERAL
-# =========================================================
-st.markdown("## 🔷 Panorama Geral")
+    st.markdown("#### Status Geral")
 
-p1, p2, p3, p4 = st.columns(4)
+    # =====================================================
+    # 🔹 1️⃣ INDICADOR SÍNTESE (GRANDE)
+    # =====================================================
 
-with p1:
-    card_institucional(
-        "Contratos Ativos",
-        len(df),
-        cor="#1f3c88"
-    )
+    f1, f2, f3, f4 = st.columns(4)
 
-with p2:
-    card_institucional(
-        "Impacto Contratual no Exercício",
-        formatar(valor_exercicio_total),
-        cor="#1e40af"
-    )
+    with f1:
+        card_institucional("Impacto do Exercício", formatar(valor_exercicio_total))
 
-with p3:
-    card_institucional(
-        "Empenhado no Exercício",
-        formatar(valor_empenhado_total),
-        cor="#2563eb"
-    )
+    with f2:
+        card_institucional("Empenhado", formatar(valor_empenhado_total))
 
-with p4:
-    card_institucional(
-        "Execução Financeira",
-        f"{percentual_execucao:.1f}%",
-        cor="#0f766e"
-    )
+    with f3:
+        card_institucional("Pago", formatar(valor_liquidado_total))
 
-st.divider()
+    with f4:
+        card_institucional(
+            "Execução Financeira",
+            f"{percentual_execucao:.1f}%"
+        )
 
-# =========================================================
-# 2️⃣ SITUAÇÃO ORÇAMENTÁRIA
-# =========================================================
-st.markdown("## 💰 Situação Orçamentária")
-
-o1, o2 = st.columns([2, 1])
-
-with o1:
-    card_situacao_orcamentaria(
+    st.markdown("")
+    card_impacto_orcamentario_md(
         valor_exercicio_total,
         valor_empenhado_total
     )
+    st.markdown("")
+    col1, col2 = st.columns(2)
 
-with o2:
-    card_institucional(
-        "Saldo Total Anulável",
-        formatar(valor_anulacao_total),
-        cor="#16a34a"
+    with col1:
+        card_institucional(
+            "Contratos com necessidade de reforço",
+            len(df_reforco)
+        )
+        st.caption(f"Total necessário: {formatar(valor_reforco_total)}")
+
+    with col2:
+        card_institucional(
+            "Contratos com saldo anulável",
+            len(df_anulacao)
+        )
+        st.caption(f"Possível realocação: {formatar(valor_anulacao_total)}")
+
+    st.markdown("---")
+
+    st.markdown("### Situação Contratual")
+
+    c1, c2, c3 = st.columns(3)
+
+    with c1:
+        card_institucional("Contratos Ativos", len(df))
+
+    with c2:
+        card_institucional("Repactuados", qtd_repactuados)
+
+    with c3:
+        card_institucional("Sem Empenho", qtd_sem_empenho)
+
+    st.markdown("#### Fim de Vigência")
+
+    r1, r2 = st.columns(2)
+
+    with r1:
+        card_institucional("Críticos (≤30d)", len(contratos_criticos))
+
+    with r2:
+        card_institucional("Alerta (≤60d)", len(contratos_alerta))
+
+    
+
+if pagina == "💰 Orçamento e Prioridades":
+
+    st.markdown("## 💰 Análise Orçamentária Estratégica")
+
+    # =====================================================
+    # 1️⃣ DIAGNÓSTICO DE CONCENTRAÇÃO
+    # =====================================================
+
+    top5 = df.sort_values("Valor exercício", ascending=False).head(5)
+    percentual_top5 = (
+        top5["Valor exercício"].sum() / valor_exercicio_total
+    ) * 100
+
+    top10 = df.sort_values("Valor exercício", ascending=False).head(10)
+    percentual_top10 = (
+        top10["Valor exercício"].sum() / valor_exercicio_total
+    ) * 100
+
+    c1, c2 = st.columns(2)
+
+    with c1:
+        card_institucional(
+            "Concentração nos 5 maiores contratos",
+            f"{percentual_top5:.1f}%"
+        )
+
+    with c2:
+        card_institucional(
+            "Concentração nos 10 maiores contratos",
+            f"{percentual_top10:.1f}%"
+        )
+
+    st.markdown("---")
+
+    # =====================================================
+    # 2️⃣ MAIOR IMPACTO
+    # =====================================================
+
+    st.markdown("### 🔝 Contratos de Maior Impacto")
+
+    top_impacto = (
+        df.sort_values("Valor exercício", ascending=False)
+        .head(10)
+        .copy()
     )
 
-st.divider()
+    top_impacto["Ranking"] = range(1, len(top_impacto) + 1)
+    top_impacto["% do orçamento"] = (
+        top_impacto["Valor exercício"] / valor_exercicio_total
+    ) * 100
 
-# =========================================================
-# 3️⃣ RISCO ORÇAMENTÁRIO
-# =========================================================
-st.markdown("## ⚠️ Risco Orçamentário")
+    top_impacto["Valor exercício"] = top_impacto["Valor exercício"].apply(formatar)
+    top_impacto["% do orçamento"] = top_impacto["% do orçamento"].round(1)
 
-r1, r2 = st.columns(2)
+    colunas = [
+        "Ranking",
+        "Contrato",
+        "Fornecedor",
+        "Valor exercício",
+        "% do orçamento"
+    ]
 
-with r1:
-    card_institucional(
-        "Contratos com necessidade de reforço",
-        len(df_reforco),
-        cor="#dc2626"
-    )
-    st.caption(f"Valor necessário: {formatar(valor_reforco_total)}")
+    gb = GridOptionsBuilder.from_dataframe(top_impacto[colunas])
 
-with r2:
-    card_institucional(
-        "Contratos com saldo anulável",
-        len(df_anulacao),
-        cor="#16a34a"
-    )
-    st.caption(f"Valor possível de realocação: {formatar(valor_anulacao_total)}")
-
-st.divider()
-
-# =========================================================
-# 4️⃣ DINÂMICA CONTRATUAL
-# =========================================================
-st.markdown("## 🔄 Dinâmica Contratual do Exercício")
-
-d1, d2, d3 = st.columns(3)
-
-with d1:
-    card_institucional(
-        "Contratos Repactuados",
-        qtd_repactuados,
-        cor="#b45309"
+    gb.configure_default_column(
+        sortable=False,
+        filter=False,
+        resizable=True
     )
 
-with d2:
-    card_institucional(
-        "Contratos sem empenho",
-        qtd_sem_empenho,
-        cor="#991b1b"
+    gb.configure_column("Ranking", width=90)
+    gb.configure_column("Valor exercício", width=160)
+    gb.configure_column("% do orçamento", width=150)
+
+    # Destaque top 3
+    gb.configure_column(
+        "Ranking",
+        cellStyle=JsCode("""
+            function(params) {
+                if (params.value <= 3) {
+                    return {
+                        'backgroundColor': 'rgba(59,130,246,0.12)',
+                        'fontWeight': '700'
+                    }
+                }
+            }
+        """)
     )
 
-with d3:
-    card_institucional(
-        "Contratos vencidos",
-        len(contratos_vencidos),
-        cor="#6b7280"
+    grid_options = gb.build()
+
+    AgGrid(
+        top_impacto[colunas],
+        gridOptions=grid_options,
+        theme="alpine",
+        height=350,
+        fit_columns_on_grid_load=True,
+        allow_unsafe_jscode=True
     )
 
-st.divider()
+    # =====================================================
+    # 3️⃣ MENOR EXECUÇÃO
+    # =====================================================
 
-# =========================================================
-# 5️⃣ GESTÃO DE VIGÊNCIA
-# =========================================================
-st.markdown("## 📅 Gestão de Vigência")
+    st.markdown("### ⚠️ Menor Execução Financeira")
 
-v1, v2 = st.columns(2)
+    df_execucao = df[df["Empenhado"] > 0].copy()
 
-with v1:
-    card_institucional(
-        "Críticos (≤ 30 dias)",
-        len(contratos_criticos),
-        cor="#f59e0b"
+    df_execucao["% Execução"] = (
+        df_execucao["Liquidado + Pago"] / df_execucao["Empenhado"]
+    ) * 100
+
+    menor_execucao = (
+        df_execucao.sort_values("% Execução")
+        .head(10)
+        .copy()
     )
 
-with v2:
-    card_institucional(
-        "Alerta (≤ 60 dias)",
-        len(contratos_alerta),
-        cor="#2563eb"
+    menor_execucao["Ranking"] = range(1, len(menor_execucao) + 1)
+    menor_execucao["% Execução"] = menor_execucao["% Execução"].round(1)
+
+    colunas_exec = [
+        "Ranking",
+        "Contrato",
+        "Fornecedor",
+        "% Execução"
+    ]
+
+    gb2 = GridOptionsBuilder.from_dataframe(menor_execucao[colunas_exec])
+
+    gb2.configure_default_column(
+        sortable=False,
+        filter=False,
+        resizable=True
     )
 
-if len(contratos_criticos) > 0:
-    st.error(
-        f"🚨 {len(contratos_criticos)} contrato(s) encerram em até 30 dias."
+    # Destaque risco
+    gb2.configure_column(
+        "% Execução",
+        cellStyle=JsCode("""
+            function(params) {
+                if (params.value < 50) {
+                    return {
+                        'backgroundColor': 'rgba(220,38,38,0.12)',
+                        'fontWeight': '700'
+                    }
+                }
+            }
+        """)
     )
 
-elif len(contratos_alerta) > 0:
-    st.warning(
-        f"⚠️ {len(contratos_alerta)} contrato(s) encerram em até 60 dias."
+    grid_options2 = gb2.build()
+
+    AgGrid(
+        menor_execucao[colunas_exec],
+        gridOptions=grid_options2,
+        theme="alpine",
+        height=350,
+        fit_columns_on_grid_load=True,
+        allow_unsafe_jscode=True
     )
 
-else:
-    st.success("🟢 Nenhum contrato com risco imediato de vencimento.")
+    # =====================================================
+    # 4️⃣ SÍNTESE EXECUTIVA
+    # =====================================================
 
+    media_execucao = df_execucao["% Execução"].mean()
+
+    st.markdown("### 📊 Síntese de Eficiência Orçamentária")
+
+    st.metric(
+        "Execução média da carteira",
+        f"{media_execucao:.1f}%"
+    )
+
+
+
+if pagina == "⚠️ Riscos e Continuidade":
+
+    st.markdown("## ⚠️ Continuidade dos Serviços Contratados")
+
+    # =====================================================
+    # 1️⃣ DIAGNÓSTICO GERAL
+    # =====================================================
+
+    total_contratos = len(df)
+
+    percentual_criticos = (len(contratos_criticos) / total_contratos) * 100 if total_contratos > 0 else 0
+    percentual_alerta = (len(contratos_alerta) / total_contratos) * 100 if total_contratos > 0 else 0
+
+    if len(contratos_criticos) > 0:
+        status = "🔴 Risco Imediato de Descontinuidade"
+        cor_status = "#dc2626"
+    elif len(contratos_alerta) > 0:
+        status = "🟡 Atenção à Continuidade"
+        cor_status = "#f59e0b"
+    else:
+        status = "🟢 Situação Estável"
+        cor_status = "#16a34a"
+
+    st.markdown(f"""
+        <div style="
+            background:white;
+            padding:26px;
+            border-radius:14px;
+            border-left:8px solid {cor_status};
+            box-shadow:0 4px 12px rgba(0,0,0,0.05);
+            margin-bottom:25px;
+        ">
+            <div style="font-size:13px; color:#6b7280;">
+                Diagnóstico de Continuidade
+            </div>
+            <div style="font-size:24px; font-weight:800; margin-top:6px;">
+                {status}
+            </div>
+        </div>
+    """, unsafe_allow_html=True)
+
+    # =====================================================
+    # 2️⃣ INDICADORES NUMÉRICOS
+    # =====================================================
+
+    r1, r2, r3 = st.columns(3)
+
+    with r1:
+        card_institucional("Vencidos", len(contratos_vencidos))
+
+    with r2:
+        card_institucional(
+            "Críticos (≤30d)",
+            f"{len(contratos_criticos)} ({percentual_criticos:.1f}%)"
+        )
+
+    with r3:
+        card_institucional(
+            "Alerta (≤60d)",
+            f"{len(contratos_alerta)} ({percentual_alerta:.1f}%)"
+        )
+
+    st.markdown("---")
+
+    # =====================================================
+    # 3️⃣ LISTA PRIORITÁRIA (AGRID)
+    # =====================================================
+
+    st.markdown("### 📋 Contratos Prioritários")
+
+    df_risco = df[
+        (df["Dias para encerrar"] <= 60)
+    ].sort_values("Dias para encerrar")
+
+    if df_risco.empty:
+        st.success("Nenhum contrato com risco de vigência nos próximos 60 dias.")
+    else:
+        df_risco["Prioridade"] = range(1, len(df_risco) + 1)
+
+        from st_aggrid import AgGrid, GridOptionsBuilder, JsCode
+
+        gb = GridOptionsBuilder.from_dataframe(
+            df_risco[["Prioridade", "Contrato", "Fornecedor", "Dias para encerrar"]]
+        )
+
+        gb.configure_default_column(resizable=True)
+
+        # destaque visual
+        gb.configure_column(
+            "Dias para encerrar",
+            cellStyle=JsCode("""
+                function(params) {
+                    if (params.value <= 30) {
+                        return {
+                            'backgroundColor': 'rgba(220,38,38,0.15)',
+                            'fontWeight': '700'
+                        }
+                    }
+                    if (params.value <= 60) {
+                        return {
+                            'backgroundColor': 'rgba(245,158,11,0.15)'
+                        }
+                    }
+                }
+            """)
+        )
+
+        grid_options = gb.build()
+
+        AgGrid(
+            df_risco[["Prioridade", "Contrato", "Fornecedor", "Dias para encerrar"]],
+            gridOptions=grid_options,
+            theme="alpine",
+            height=400,
+            fit_columns_on_grid_load=True,
+            allow_unsafe_jscode=True
+        )
+
+    
+
+    st.markdown("### 📅 Distribuição de Vencimentos por Mês")
+
+    df_vigencia = df.copy()
+
+    df_vigencia["Vigência fim"] = pd.to_datetime(
+        df_vigencia["Vigência fim"],
+        errors="coerce"
+    )
+
+    df_vigencia = df_vigencia[df_vigencia["Vigência fim"].notnull()]
+
+    df_vigencia["Ano"] = df_vigencia["Vigência fim"].dt.year
+    df_vigencia["Mês"] = df_vigencia["Vigência fim"].dt.month
+
+    # opcional: apenas contratos ainda vigentes
+    df_vigencia = df_vigencia[df_vigencia["Dias para encerrar"] >= 0]
+
+    df_mes = (
+        df_vigencia
+        .groupby(["Ano", "Mês"])
+        .size()
+        .reset_index(name="Quantidade")
+    )
+
+    if not df_mes.empty:
+
+        df_mes["Label"] = (
+            df_mes["Mês"].astype(str).str.zfill(2) + "/" +
+            df_mes["Ano"].astype(str)
+        )
+
+        fig_mes = px.bar(
+            df_mes,
+            x="Label",
+            y="Quantidade",
+            labels={
+                "Label": "Mês/Ano de Vencimento",
+                "Quantidade": "Quantidade de Contratos"
+            }
+        )
+
+        fig_mes.update_layout(
+            height=420,
+            xaxis_tickangle=-45,
+            showlegend=False
+        )
+
+        st.plotly_chart(fig_mes, use_container_width=True)
+
+    else:
+        st.info("Não há contratos com vigência registrada.")
+
+    st.markdown("### 📊 Linha do Tempo – Vencimentos por Trimestre")
+
+    df_trimestre = df_vigencia.copy()
+
+    df_trimestre["Trimestre"] = (
+        "T" + df_trimestre["Vigência fim"].dt.quarter.astype(str)
+    )
+
+    df_trimestre["Ano"] = df_trimestre["Vigência fim"].dt.year
+
+    df_tri = (
+        df_trimestre
+        .groupby(["Ano", "Trimestre"])
+        .size()
+        .reset_index(name="Quantidade")
+    )
+
+    if not df_tri.empty:
+
+        df_tri["Label"] = df_tri["Trimestre"] + "/" + df_tri["Ano"].astype(str)
+
+        fig_tri = px.line(
+            df_tri,
+            x="Label",
+            y="Quantidade",
+            markers=True,
+            labels={
+                "Label": "Trimestre",
+                "Quantidade": "Contratos que vencem"
+            }
+        )
+
+        fig_tri.update_layout(
+            height=420
+        )
+
+        st.plotly_chart(fig_tri, use_container_width=True)
+
+    else:
+        st.info("Sem dados suficientes para linha do tempo.")
+
+
+
+if pagina == "📈 Inteligência e Tendências":
+
+    st.markdown("## 📈 Inteligência da Carteira Contratual")
+
+    total_contratos = len(df)
+    total_categorias = df["Categoria"].nunique()
+    total_fornecedores = df["Fornecedor"].nunique()
+
+    c1, c2, c3 = st.columns(3)
+
+    with c1:
+        card_institucional("Contratos Ativos", total_contratos)
+
+    with c2:
+        card_institucional("Categorias Ativas", total_categorias)
+
+    with c3:
+        card_institucional("Fornecedores Ativos", total_fornecedores)
+
+    st.markdown("---")
+
+    st.markdown("### 📊 Distribuição por Categoria")
+
+    df_cat = (
+        df.groupby("Categoria")
+        .size()
+        .reset_index(name="Quantidade")
+        .sort_values("Quantidade", ascending=False)
+    )
+
+    fig_cat = px.bar(
+        df_cat,
+        x="Categoria",
+        y="Quantidade",
+        text="Quantidade"
+    )
+
+    fig_cat.update_layout(
+        height=420,
+        showlegend=False,
+        xaxis_tickangle=-30
+    )
+
+    st.plotly_chart(fig_cat, use_container_width=True)
+
+    st.markdown("### 🏢 Concentração por Fornecedor")
+
+    df_forn = (
+        df.groupby("Fornecedor")
+        .size()
+        .reset_index(name="Contratos")
+        .sort_values("Contratos", ascending=False)
+        .head(10)
+    )
+
+    fig_forn = px.bar(
+        df_forn,
+        x="Fornecedor",
+        y="Contratos",
+        text="Contratos"
+    )
+
+    fig_forn.update_layout(
+        height=420,
+        xaxis_tickangle=-45,
+        showlegend=False
+    )
+
+    st.plotly_chart(fig_forn, use_container_width=True)
+
+    st.markdown("### 💰 Tendência de Empenho")
+
+    df_tendencia = pd.DataFrame({
+        "Exercício": [ano_referencia - 1, ano_referencia],
+        "Empenhado": [
+            valor_empenhado_anterior,
+            valor_empenhado_total
+        ]
+    })
+
+    fig_tend = px.bar(
+        df_tendencia,
+        x="Exercício",
+        y="Empenhado",
+        text="Empenhado"
+    )
+
+    fig_tend.update_layout(height=380, showlegend=False)
+
+    st.plotly_chart(fig_tend, use_container_width=True)
+
+    st.metric(
+        "Variação em relação ao exercício anterior",
+        f"{tendencia_execucao:.1f}%"
+    )
 
 
 # ================= TABELA =================
@@ -453,7 +904,6 @@ def obter_historico_local(contrato_id, historicos):
 
     return df
 
-import requests
 
 def obter_faturas_contrato_api(contrato_obj):
     """
@@ -722,425 +1172,513 @@ def card_contador(titulo, valor):
             unsafe_allow_html=True
         )
 
+if pagina == "📄 Carteira Detalhada":
+
+    st.markdown("## Carteira de Contratos")
 
 
-@st.dialog("📄 Contrato — Visão detalhada", width="large")
-def modal_contrato(contrato_row):
-    """
-    contrato_row: Series ou dict com os dados do contrato selecionado
-    """
+    @st.dialog("📄 Contrato — Visão detalhada", width="large")
+    def modal_contrato(contrato_row):
+        """
+        contrato_row: Series ou dict com os dados do contrato selecionado
+        """
 
-    # ================= HEADER =================
-    st.markdown(f"### 📄 Dados do contrato - {contrato_row['Contrato']}")
+        # ================= HEADER =================
+        st.markdown(f"### 📄 Dados do contrato - {contrato_row['Contrato']}")
 
-    grid1, grid2= st.columns(2)
+        grid1, grid2= st.columns(2)
 
-    with grid1:
-        st.caption(f"Contrato: {contrato_row['Contrato']}")
-        st.caption(f"Processo: {contrato_row.get('Processo', '—')}")
-        st.caption(f"Categoria: {contrato_row.get('Categoria', '—')}")
-        st.caption(f"Objeto: {contrato_row.get('Objeto', '—')}")
-        st.caption(
-            f"Vigência: {formatar_data(contrato_row.get('Vigência inicio', '—'))} "
-            f"a {formatar_data(contrato_row.get('Vigência fim', '—'))}"
-        )
-
-    with grid2:
-        st.caption(f"Fornecedor: {contrato_row['Fornecedor']}")
-        st.caption(f"CNPJ: {contrato_row.get('Cnpj', '—')}")
-        st.caption(f"Modalidade: {contrato_row.get('modalidade', '—')}")
-        st.caption(f"Valor global: {contrato_row.get('Valor global', 0)}")
-        st.caption(f"Valor da parcela: {contrato_row.get('valor_parcela', 0)}")
-
-    if contrato_row.get("Repactuação/Reajuste") == "Sim":
-        st.warning(
-            f"🔁 Repactuação/Reajuste no exercício "
-            f"({contrato_row.get('Qtd. repactuações', 1)}x)"
-        )
-    else:
-        st.info("Sem repactuação no exercício")
-
-    st.divider()
-
-    # ================= ABAS =================
-    tab_resumo, tab_faturas, tab_historico = st.tabs(
-        ["📌 Resumo", "📄 Faturas", "🕓 Histórico"]
-    )
-
-    # =========================================================
-    # 📌 ABA 1 — RESUMO
-    # =========================================================
-    with tab_resumo:
-        # =====================================================
-        # 🔹 EMPENHOS FILTRADOS
-        # =====================================================
-        df_empenhos = obter_empenhos_contrato(
-            contrato_row["ID"],
-            empenhos_base
-        )
-
-        df_empenhos["ano"] = pd.to_datetime(
-            df_empenhos["data_emissao"],
-            errors="coerce"
-        ).dt.year
-
-        # fallback: ano pela própria NE (ex: 2019NE800152)
-        df_empenhos["ano"] = df_empenhos["ano"].fillna(
-            df_empenhos["numero"].str[:4].astype("float")
-        )
-
-        # =====================================================
-        # 🔹 CONTEXTO TEMPORAL
-        # =====================================================
-        st.markdown("### 🗓️ Exercício")
-
-        anos_disponiveis = sorted(
-            df_empenhos["ano"].dropna().unique().astype(int)
-        )
-
-        anos_selecionados = st.multiselect(
-            "Exercício",
-            anos_disponiveis,
-            default=[ano_referencia] if ano_referencia in anos_disponiveis else anos_disponiveis
-        )
-
-        if anos_selecionados:
-            df_empenhos = df_empenhos[df_empenhos["ano"].isin(anos_selecionados)]
-
-        
-        # =====================================================
-        # 🔹 CARDS — VISÃO FINANCEIRA
-        # =====================================================
-        st.markdown("### 💰 Visão financeira consolidada")
-        
-        # =========================
-        # 💰 VISÃO FINANCEIRA (HIERÁRQUICA)
-        # =========================
-
-        # 🔹 Linha 1 — Comparação principal
-        c1, c2 = st.columns(2)
-
-        with c1:
-            card_financeiro(
-                "Valor do exercício",
-                contrato_row["Valor exercício"],
+        with grid1:
+            st.caption(f"Contrato: {contrato_row['Contrato']}")
+            st.caption(f"Processo: {contrato_row.get('Processo', '—')}")
+            st.caption(f"Categoria: {contrato_row.get('Categoria', '—')}")
+            st.caption(f"Objeto: {contrato_row.get('Objeto', '—')}")
+            st.caption(
+                f"Vigência: {formatar_data(contrato_row.get('Vigência inicio', '—'))} "
+                f"a {formatar_data(contrato_row.get('Vigência fim', '—'))}"
             )
 
-        with c2:
-            card_financeiro(
-                "Empenhado",
-                contrato_row["Empenhado"],
+        with grid2:
+            st.caption(f"Fornecedor: {contrato_row['Fornecedor']}")
+            st.caption(f"CNPJ: {contrato_row.get('Cnpj', '—')}")
+            st.caption(f"Modalidade: {contrato_row.get('modalidade', '—')}")
+            st.caption(f"Valor global: {contrato_row.get('Valor global', 0)}")
+            st.caption(f"Valor da parcela: {contrato_row.get('valor_parcela', 0)}")
+
+        if contrato_row.get("Repactuação/Reajuste") == "Sim":
+            st.warning(
+                f"🔁 Repactuação/Reajuste no exercício "
+                f"({contrato_row.get('Qtd. repactuações', 1)}x)"
+            )
+        else:
+            st.info("Sem repactuação no exercício")
+
+        st.divider()
+
+        # ================= ABAS =================
+        tab_resumo, tab_faturas, tab_historico = st.tabs(
+            ["📌 Resumo", "📄 Faturas", "🕓 Histórico"]
+        )
+
+        # =========================================================
+        # 📌 ABA 1 — RESUMO
+        # =========================================================
+        with tab_resumo:
+            # =====================================================
+            # 🔹 EMPENHOS FILTRADOS
+            # =====================================================
+            df_empenhos = obter_empenhos_contrato(
+                contrato_row["ID"],
+                empenhos_base
             )
 
-        # 🔹 Linha 2 — Execução
-        c3, c4 = st.columns(2)
+            df_empenhos["ano"] = pd.to_datetime(
+                df_empenhos["data_emissao"],
+                errors="coerce"
+            ).dt.year
 
-        with c3:
-            card_financeiro(
-                "Pago",
-                contrato_row["Liquidado + Pago"],
+            # fallback: ano pela própria NE (ex: 2019NE800152)
+            df_empenhos["ano"] = df_empenhos["ano"].fillna(
+                df_empenhos["numero"].str[:4].astype("float")
             )
 
-        with c4:
-            card_financeiro(
-                "A liquidar",
-                contrato_row["A liquidar"],
+            # =====================================================
+            # 🔹 CONTEXTO TEMPORAL
+            # =====================================================
+            st.markdown("### 🗓️ Exercício")
+
+            anos_disponiveis = sorted(
+                df_empenhos["ano"].dropna().unique().astype(int)
             )
 
-        # 🔹 Linha 3 — Decisão (CENTRAL)
-        c_left, c_center, c_right = st.columns([1, 2, 1])
+            anos_selecionados = st.multiselect(
+                "Exercício",
+                anos_disponiveis,
+                default=[ano_referencia] if ano_referencia in anos_disponiveis else anos_disponiveis
+            )
 
-        with c_center:
-            with st.container():
-                card_impacto_orcamentario_md(
+            if anos_selecionados:
+                df_empenhos = df_empenhos[df_empenhos["ano"].isin(anos_selecionados)]
+
+            
+            # =====================================================
+            # 🔹 CARDS — VISÃO FINANCEIRA
+            # =====================================================
+            st.markdown("### 💰 Visão financeira consolidada")
+            
+            # =========================
+            # 💰 VISÃO FINANCEIRA (HIERÁRQUICA)
+            # =========================
+
+            # 🔹 Linha 1 — Comparação principal
+            c1, c2 = st.columns(2)
+
+            with c1:
+                card_financeiro(
+                    "Valor do exercício",
                     contrato_row["Valor exercício"],
-                    contrato_row["Empenhado"]
                 )
 
+            with c2:
+                card_financeiro(
+                    "Empenhado",
+                    contrato_row["Empenhado"],
+                )
+
+            # 🔹 Linha 2 — Execução
+            c3, c4 = st.columns(2)
+
+            with c3:
+                card_financeiro(
+                    "Pago",
+                    contrato_row["Liquidado + Pago"],
+                )
+
+            with c4:
+                card_financeiro(
+                    "A liquidar",
+                    contrato_row["A liquidar"],
+                )
+
+            # 🔹 Linha 3 — Decisão (CENTRAL)
+            c_left, c_center, c_right = st.columns([1, 2, 1])
+
+            with c_center:
+                with st.container():
+                    card_impacto_orcamentario_md(
+                        contrato_row["Valor exercício"],
+                        contrato_row["Empenhado"]
+                    )
 
 
 
-        st.markdown("### 📄 Notas de empenho")
 
-        if df_empenhos.empty:
-            st.info("Nenhuma nota de empenho encontrada para o período selecionado.")
-        else:
-            # Cards em grid (2 por linha)
-            cols = st.columns(2)
+            st.markdown("### 📄 Notas de empenho")
 
-            for i, (_, row) in enumerate(df_empenhos.iterrows()):
-                with cols[i % 2]:
-                    card_empenho(row)
+            if df_empenhos.empty:
+                st.info("Nenhuma nota de empenho encontrada para o período selecionado.")
+            else:
+                # Cards em grid (2 por linha)
+                cols = st.columns(2)
 
-
-
+                for i, (_, row) in enumerate(df_empenhos.iterrows()):
+                    with cols[i % 2]:
+                        card_empenho(row)
 
 
-    # =========================================================
-    # 📄 ABA 2 — FATURAS
-    # =========================================================
-    with tab_faturas:
-        
-        st.markdown("### 📄 Faturas do contrato")
 
-        with st.spinner("Buscando faturas..."):
-            df_faturas = carregar_faturas_contrato_cache(
-                contrato_row["Contrato"],
-                contratos
-            )
 
-        if df_faturas.empty:
-            st.info("Nenhuma fatura encontrada para este contrato.")
-            st.stop()
-
-        # ==============================
-        # NORMALIZAÇÃO
-        # ==============================
-        df_faturas["valor_float"] = df_faturas["valor"].apply(to_float)
-        df_faturas["valor_liquido_float"] = df_faturas["valorliquido"].apply(to_float)
-        df_faturas["juros_float"] = df_faturas["juros"].apply(to_float)
-        df_faturas["multa_float"] = df_faturas["multa"].apply(to_float)
-        df_faturas["glosa_float"] = df_faturas["glosa"].apply(to_float)
-
-        df_faturas["ano"] = pd.to_datetime(df_faturas["emissao"], errors="coerce").dt.year
-        df_faturas["mes"] = pd.to_datetime(df_faturas["emissao"], errors="coerce").dt.month
-
-        # ==============================
-        # FILTROS
-        # ==============================
-        colf1, colf2 = st.columns(2)
-
-        anos = sorted(df_faturas["ano"].dropna().unique().astype(int).tolist())
-        anos_sel = colf1.multiselect(
-            "Ano de emissão",
-            anos,
-            default=anos
-        )
-
-        if anos_sel:
-            df_faturas = df_faturas[df_faturas["ano"].isin(anos_sel)]
-
-        # ==============================
-        # KPIs
-        # ==============================
-        total_faturas = len(df_faturas)
-        total_liquido = df_faturas["valor_liquido_float"].sum()
-        total_glosa = df_faturas["glosa_float"].sum()
-        qtd_repact = (df_faturas["repactuacao"] == "Sim").sum()
-
-        # =========================
-        # 📊 RESUMO DAS FATURAS
-        # =========================
-
-        r1, r2 = st.columns(2)
-
-        with r1:
-            card_contador("Qtd. faturas", total_faturas)
-
-        with r2:
-            card_financeiro(
-                "Valor líquido",
-                total_liquido
-            )
-
-        r3, r4 = st.columns(2)
-
-        with r3:
-            card_financeiro(
-                "Glosas",
-                total_glosa
-            )
-
-        with r4:
-            card_contador("Repactuadas", qtd_repact)
-
-        st.markdown("---")
-
-        # ==============================
-        # SUB-ABAS
-        # ==============================
-        tab_lista, tab_graficos = st.tabs(["📋 Lista", "📊 Gráficos"])
 
         # =========================================================
-        # 📋 LISTA DE FATURAS
+        # 📄 ABA 2 — FATURAS
         # =========================================================
-        with tab_lista:
-            for _, f in df_faturas.sort_values("emissao", ascending=False).iterrows():
+        with tab_faturas:
+            
+            st.markdown("### 📄 Faturas do contrato")
 
-                valor = formatar(f["valor_liquido_float"])
-                liquidada = "🟢 Liquidada" if f["data_liquidacao"] else "🟡 Pendente"
+            with st.spinner("Buscando faturas..."):
+                df_faturas = carregar_faturas_contrato_cache(
+                    contrato_row["Contrato"],
+                    contratos
+                )
 
-                empenhos = f.get("dados_empenho", [])
-                empenhos_str = " / ".join(
-                    e["numero_empenho"] for e in empenhos
-                ) if empenhos else "—"
+            if df_faturas.empty:
+                st.info("Nenhuma fatura encontrada para este contrato.")
+                st.stop()
 
-                badge_rep = ""
-                if f.get("repactuacao") == "Sim":
-                    badge_rep = """<span style="
-                        background-color:#fde68a;
-                            color:#92400e;
-                            padding:4px 8px;
+            # ==============================
+            # NORMALIZAÇÃO
+            # ==============================
+            df_faturas["valor_float"] = df_faturas["valor"].apply(to_float)
+            df_faturas["valor_liquido_float"] = df_faturas["valorliquido"].apply(to_float)
+            df_faturas["juros_float"] = df_faturas["juros"].apply(to_float)
+            df_faturas["multa_float"] = df_faturas["multa"].apply(to_float)
+            df_faturas["glosa_float"] = df_faturas["glosa"].apply(to_float)
+
+            df_faturas["ano"] = pd.to_datetime(df_faturas["emissao"], errors="coerce").dt.year
+            df_faturas["mes"] = pd.to_datetime(df_faturas["emissao"], errors="coerce").dt.month
+
+            # ==============================
+            # FILTROS
+            # ==============================
+            colf1, colf2 = st.columns(2)
+
+            anos = sorted(df_faturas["ano"].dropna().unique().astype(int).tolist())
+            anos_sel = colf1.multiselect(
+                "Ano de emissão",
+                anos,
+                default=anos
+            )
+
+            if anos_sel:
+                df_faturas = df_faturas[df_faturas["ano"].isin(anos_sel)]
+
+            # ==============================
+            # KPIs
+            # ==============================
+            total_faturas = len(df_faturas)
+            total_liquido = df_faturas["valor_liquido_float"].sum()
+            total_glosa = df_faturas["glosa_float"].sum()
+            qtd_repact = (df_faturas["repactuacao"] == "Sim").sum()
+
+            # =========================
+            # 📊 RESUMO DAS FATURAS
+            # =========================
+
+            r1, r2 = st.columns(2)
+
+            with r1:
+                card_contador("Qtd. faturas", total_faturas)
+
+            with r2:
+                card_financeiro(
+                    "Valor líquido",
+                    total_liquido
+                )
+
+            r3, r4 = st.columns(2)
+
+            with r3:
+                card_financeiro(
+                    "Glosas",
+                    total_glosa
+                )
+
+            with r4:
+                card_contador("Repactuadas", qtd_repact)
+
+            st.markdown("---")
+
+            # ==============================
+            # SUB-ABAS
+            # ==============================
+            tab_lista, tab_graficos = st.tabs(["📋 Lista", "📊 Gráficos"])
+
+            # =========================================================
+            # 📋 LISTA DE FATURAS
+            # =========================================================
+            with tab_lista:
+                for _, f in df_faturas.sort_values("emissao", ascending=False).iterrows():
+
+                    valor = formatar(f["valor_liquido_float"])
+                    liquidada = "🟢 Liquidada" if f["data_liquidacao"] else "🟡 Pendente"
+
+                    empenhos = f.get("dados_empenho", [])
+                    empenhos_str = " / ".join(
+                        e["numero_empenho"] for e in empenhos
+                    ) if empenhos else "—"
+
+                    badge_rep = ""
+                    if f.get("repactuacao") == "Sim":
+                        badge_rep = """<span style="
+                            background-color:#fde68a;
+                                color:#92400e;
+                                padding:4px 8px;
+                                border-radius:6px;
+                                font-size:0.75rem;
+                                font-weight:600;
+                                vertical-align:middle;
+                            ">Repactuação</span>
+                        """
+
+
+                    with st.container(border=True):
+                        competencia = competencia_fatura(f)
+                        st.markdown(f"""<div style="
+                                display:flex;
+                                align-items:center;
+                                diferenca:8px;
+                                margin-bottom:6px;
+                            "><strong>Competência:</strong>
+                                <span>{competencia}</span>
+                                {badge_rep}</div>
+                            """,
+                            unsafe_allow_html=True
+                        )
+
+                        st.markdown(
+                            f"""   
+                            **Valor líquido:** **{valor}**  
+                            **Situação:** {liquidada}  
+                            **Empenho:** {empenhos_str}
+                            """,
+                            unsafe_allow_html=True
+                        )
+
+                        # ALERTAS FORA DO EXPANDER
+                        if f["glosa_float"] > 0:
+                            st.error(f"Glosa aplicada: {formatar(f['glosa_float'])}")
+
+                        if f["juros_float"] > 0 or f["multa_float"] > 0:
+                            st.warning(
+                                f"Encargos — Juros: {formatar(f['juros_float'])} | "
+                                f"Multa: {formatar(f['multa_float'])}"
+                            )
+
+                        with st.expander("🔍 Detalhes da fatura"):
+                            col1, col2 = st.columns(2)
+
+                            with col1:
+                                st.markdown(f"""
+                                **Nota Fiscal:** {f["numero"]} / Série {f["numero_serie"]}  
+                                **Emissão:** {fmt_data(f["emissao"])}  
+                                **Vencimento:** {fmt_data(f["vencimento"])}  
+                                **Liquidação:** {fmt_data(f["data_liquidacao"])}  
+                                **Processo:** {f.get("processo", "—")}
+                                """)
+
+                            with col2:
+                                st.markdown(f"""
+                                **Fonte:** {f.get("fonte_recurso", "—")}  
+                                **Plano interno:** {f.get("planointerno", "—")}  
+                                **Natureza:** {f.get("naturezadespesa", "—")}  
+                                **Ateste:** {fmt_data(f.get("ateste"))}
+                                """)
+
+            # =========================================================
+            # 📊 GRÁFICOS
+            # =========================================================
+            with tab_graficos:
+                st.markdown("### 📊 Evolução do faturamento")
+
+                df_chart = (
+                    df_faturas
+                    .groupby(["ano", "mes"], as_index=False)
+                    .agg(valor=("valor_liquido_float", "sum"))
+                )
+
+                if not df_chart.empty:
+                    st.line_chart(
+                        df_chart.pivot(index="mes", columns="ano", values="valor")
+                    )
+                else:
+                    st.info("Sem dados suficientes para gráfico.")
+
+
+        # =========================================================
+        # 🕓 ABA 4 — HISTÓRICO
+        # =========================================================
+        with tab_historico:
+            
+            df_hist = obter_historico_local(
+                contrato_row["ID"],
+                historicos
+            )
+
+            if df_hist.empty:
+                st.info("Nenhum histórico registrado para este contrato.")
+                st.stop()
+
+            df_hist["data_evento"] = pd.to_datetime(
+            df_hist.get("data_assinatura", df_hist.get("data_publicacao")),
+            errors="coerce"
+            )
+
+            # ==============================
+            # NORMALIZAÇÃO
+            # ==============================
+
+            df_hist["ano"] = df_hist["data_evento"].dt.year
+            df_hist["tipo_evento"] = df_hist["tipo"].fillna("Outro")
+
+            df_hist = df_hist.sort_values("data_evento" , ascending=False)
+
+            tipos = ["Todos"] + sorted(df_hist["tipo_evento"].unique().tolist())
+
+            tipo_sel = st.selectbox(
+                "Filtrar por tipo de evento",
+                tipos
+            )
+
+            df_sint = df_hist.copy()
+            if tipo_sel != "Todos":
+                df_sint = df_sint[df_sint["tipo_evento"] == tipo_sel]
+
+            # ==============================
+            # LINHA DO TEMPO AGRUPADA POR ANO
+            # ==============================
+            tab_sintetica, tab_analitica = st.tabs(
+                ["🧭 Linha do tempo", "📚 Detalhada"]
+            )
+
+            with tab_sintetica:
+                st.markdown("### 🧭 Linha do tempo contratual (síntese)")
+
+                st.markdown("---")
+                anos_ordenados = sorted(df_sint["ano"].dropna().unique(), reverse=True)
+
+                # 🔹 AGRUPAMENTO POR ANO
+                for ano in anos_ordenados:
+                    st.markdown(f"## 🗓️ {int(ano)}")
+                    grupo_ano = df_sint[df_sint["ano"] == ano]
+                    for _, h in grupo_ano.iterrows():
+                        data_fmt = (
+                            h["data_evento"].strftime("%d/%m/%Y")
+                            if not pd.isna(h["data_evento"])
+                            else "—"
+                        )
+
+                        # Valor de impacto (se houver)
+                        valor = "—"
+                        if h.get("novo_valor_global") and h["novo_valor_global"] != "0,00":
+                            valor = h["novo_valor_global"]
+                        elif h.get("valor_global") and h["valor_global"] != "0,00":
+                            valor = h["valor_global"]
+
+                        badge_impacto = ""
+                        if valor != "—":
+                            badge_impacto = """
+                            <span style="
+                                background:#fee2e2;
+                                color:#991b1b;
+                                padding:3px 8px;
+                                border-radius:6px;
+                                font-size:0.7rem;
+                                font-weight:600;
+                            ">
+                                Impacto financeiro
+                            </span>
+                            """
+
+                            st.markdown(
+                            f"""
+                            <style>
+                            /* Layout padrão (desktop) */
+                            .linha-timeline {{
+                                display: grid;
+                                grid-template-columns: 110px 160px 1fr auto;
+                                diferenca: 12px;
+                                padding: 8px 0;
+                                border-bottom: 1px solid #e5e7eb;
+                                align-items: center;
+                            }}
+
+                            /* Ajuste para telas pequenas */
+                            @media (max-width: 768px) {{
+                                .linha-timeline {{
+                                    grid-template-columns: 1fr;
+                                    diferenca: 4px;
+                                }}
+
+                                .linha-timeline div {{
+                                    font-size: 0.85rem;
+                                }}
+
+                                .linha-timeline .valor {{
+                                    font-weight: 600;
+                                }}
+                            }}
+                            </style>
+
+                            <div class="linha-timeline">
+                                <div><strong>{data_fmt}</strong></div>
+                                <div>{h["tipo_evento"]}</div>
+                                <div>{badge_impacto}</div>
+                                <div class="valor"><strong>{valor}</strong></div>
+                            </div>
+                            """,
+                            unsafe_allow_html=True
+                        )
+
+
+
+            with tab_analitica:
+                st.markdown("### 📚 Histórico detalhado")
+                anos_ordenados = sorted(df_sint["ano"].dropna().unique(), reverse=True)
+
+                for ano in anos_ordenados:
+                    st.markdown(f"## 🗓️ {int(ano)}")
+                    grupo_ano = df_sint[df_sint["ano"] == ano]
+                    for _, h in grupo_ano.iterrows():
+                        data_fmt = (
+                            h["data_evento"].strftime("%d/%m/%Y")
+                            if not pd.isna(h["data_evento"])
+                            else "—"
+                        )
+
+                        # BADGES DE CONTEXTO
+                        badge_tipo = f"""
+                        <span style="
+                            background-color: rgba(59, 130, 246, 0.15);
+                            color: var(--text-color);
+                            padding:3px 8px;
                             border-radius:6px;
                             font-size:0.75rem;
                             font-weight:600;
-                            vertical-align:middle;
-                        ">Repactuação</span>
-                    """
+                        ">
+                            {h['tipo_evento']}
+                        </span>
+                        """
 
-
-                with st.container(border=True):
-                    competencia = competencia_fatura(f)
-                    st.markdown(f"""<div style="
-                            display:flex;
-                            align-items:center;
-                            diferenca:8px;
-                            margin-bottom:6px;
-                        "><strong>Competência:</strong>
-                            <span>{competencia}</span>
-                            {badge_rep}</div>
-                        """,
-                        unsafe_allow_html=True
-                    )
-
-                    st.markdown(
-                        f"""   
-                        **Valor líquido:** **{valor}**  
-                        **Situação:** {liquidada}  
-                        **Empenho:** {empenhos_str}
-                        """,
-                        unsafe_allow_html=True
-                    )
-
-                    # ALERTAS FORA DO EXPANDER
-                    if f["glosa_float"] > 0:
-                        st.error(f"Glosa aplicada: {formatar(f['glosa_float'])}")
-
-                    if f["juros_float"] > 0 or f["multa_float"] > 0:
-                        st.warning(
-                            f"Encargos — Juros: {formatar(f['juros_float'])} | "
-                            f"Multa: {formatar(f['multa_float'])}"
-                        )
-
-                    with st.expander("🔍 Detalhes da fatura"):
-                        col1, col2 = st.columns(2)
-
-                        with col1:
-                            st.markdown(f"""
-                            **Nota Fiscal:** {f["numero"]} / Série {f["numero_serie"]}  
-                            **Emissão:** {fmt_data(f["emissao"])}  
-                            **Vencimento:** {fmt_data(f["vencimento"])}  
-                            **Liquidação:** {fmt_data(f["data_liquidacao"])}  
-                            **Processo:** {f.get("processo", "—")}
-                            """)
-
-                        with col2:
-                            st.markdown(f"""
-                            **Fonte:** {f.get("fonte_recurso", "—")}  
-                            **Plano interno:** {f.get("planointerno", "—")}  
-                            **Natureza:** {f.get("naturezadespesa", "—")}  
-                            **Ateste:** {fmt_data(f.get("ateste"))}
-                            """)
-
-        # =========================================================
-        # 📊 GRÁFICOS
-        # =========================================================
-        with tab_graficos:
-            st.markdown("### 📊 Evolução do faturamento")
-
-            df_chart = (
-                df_faturas
-                .groupby(["ano", "mes"], as_index=False)
-                .agg(valor=("valor_liquido_float", "sum"))
-            )
-
-            if not df_chart.empty:
-                st.line_chart(
-                    df_chart.pivot(index="mes", columns="ano", values="valor")
-                )
-            else:
-                st.info("Sem dados suficientes para gráfico.")
-
-
-    # =========================================================
-    # 🕓 ABA 4 — HISTÓRICO
-    # =========================================================
-    with tab_historico:
-        
-        df_hist = obter_historico_local(
-            contrato_row["ID"],
-            historicos
-        )
-
-        if df_hist.empty:
-            st.info("Nenhum histórico registrado para este contrato.")
-            st.stop()
-
-        df_hist["data_evento"] = pd.to_datetime(
-        df_hist.get("data_assinatura", df_hist.get("data_publicacao")),
-        errors="coerce"
-        )
-
-        # ==============================
-        # NORMALIZAÇÃO
-        # ==============================
-
-        df_hist["ano"] = df_hist["data_evento"].dt.year
-        df_hist["tipo_evento"] = df_hist["tipo"].fillna("Outro")
-
-        df_hist = df_hist.sort_values("data_evento" , ascending=False)
-
-        tipos = ["Todos"] + sorted(df_hist["tipo_evento"].unique().tolist())
-
-        tipo_sel = st.selectbox(
-            "Filtrar por tipo de evento",
-            tipos
-        )
-
-        df_sint = df_hist.copy()
-        if tipo_sel != "Todos":
-            df_sint = df_sint[df_sint["tipo_evento"] == tipo_sel]
-
-        # ==============================
-        # LINHA DO TEMPO AGRUPADA POR ANO
-        # ==============================
-        tab_sintetica, tab_analitica = st.tabs(
-            ["🧭 Linha do tempo", "📚 Detalhada"]
-        )
-
-        with tab_sintetica:
-            st.markdown("### 🧭 Linha do tempo contratual (síntese)")
-
-            st.markdown("---")
-            anos_ordenados = sorted(df_sint["ano"].dropna().unique(), reverse=True)
-
-            # 🔹 AGRUPAMENTO POR ANO
-            for ano in anos_ordenados:
-                st.markdown(f"## 🗓️ {int(ano)}")
-                grupo_ano = df_sint[df_sint["ano"] == ano]
-                for _, h in grupo_ano.iterrows():
-                    data_fmt = (
-                        h["data_evento"].strftime("%d/%m/%Y")
-                        if not pd.isna(h["data_evento"])
-                        else "—"
-                    )
-
-                    # Valor de impacto (se houver)
-                    valor = "—"
-                    if h.get("novo_valor_global") and h["novo_valor_global"] != "0,00":
-                        valor = h["novo_valor_global"]
-                    elif h.get("valor_global") and h["valor_global"] != "0,00":
-                        valor = h["valor_global"]
-
-                    badge_impacto = ""
-                    if valor != "—":
-                        badge_impacto = """
+                        badge_impacto = ""
+                        if h.get("novo_valor_global") and h["novo_valor_global"] != "0,00":
+                            badge_impacto = """
                         <span style="
-                            background:#fee2e2;
-                            color:#991b1b;
+                            background-color: rgba(239, 68, 68, 0.15);
+                            color: var(--text-color);
                             padding:3px 8px;
                             border-radius:6px;
-                            font-size:0.7rem;
+                            font-size:0.75rem;
                             font-weight:600;
                         ">
                             Impacto financeiro
@@ -1149,383 +1687,255 @@ def modal_contrato(contrato_row):
 
                         st.markdown(
                         f"""
-                        <style>
-                        /* Layout padrão (desktop) */
-                        .linha-timeline {{
-                            display: grid;
-                            grid-template-columns: 110px 160px 1fr auto;
-                            diferenca: 12px;
-                            padding: 8px 0;
-                            border-bottom: 1px solid #e5e7eb;
-                            align-items: center;
-                        }}
-
-                        /* Ajuste para telas pequenas */
-                        @media (max-width: 768px) {{
-                            .linha-timeline {{
-                                grid-template-columns: 1fr;
-                                diferenca: 4px;
-                            }}
-
-                            .linha-timeline div {{
-                                font-size: 0.85rem;
-                            }}
-
-                            .linha-timeline .valor {{
-                                font-weight: 600;
-                            }}
-                        }}
-                        </style>
-
-                        <div class="linha-timeline">
-                            <div><strong>{data_fmt}</strong></div>
-                            <div>{h["tipo_evento"]}</div>
-                            <div>{badge_impacto}</div>
-                            <div class="valor"><strong>{valor}</strong></div>
+                        <div style="margin-bottom:10px;">
+                            <strong>{data_fmt}</strong>
+                            {badge_tipo}
+                            {badge_impacto}
                         </div>
                         """,
-                        unsafe_allow_html=True
-                    )
+                            unsafe_allow_html=True
+                        )
+
+                        with st.container(border=True):
+                            st.markdown(f"""
+                            **Documento:** {h.get("numero", "—")}  
+                            **Resumo:** {h.get("observacao", "—")[:200]}{'...' if h.get("observacao") and len(h.get("observacao")) > 200 else ''}
+                            """)
+
+                            with st.expander("🔍 Ver detalhes completos"):
+                                col1, col2 = st.columns(2)
+
+                                with col1:
+                                    st.markdown(f"""
+                                    **Tipo:** {h.get("tipo", "—")}  
+                                    **Assinatura:** {fmt_data(h.get("data_assinatura"))}  
+                                    **Publicação:** {fmt_data(h.get("data_publicacao"))}  
+                                    """)
+
+                                with col2:
+                                    st.markdown(f"""
+                                    **Valor inicial:** {h.get("valor_inicial", "—")}  
+                                    **Valor global:** {h.get("valor_global", "—")}  
+                                    **Novo valor:** {h.get("novo_valor_global", "—")}  
+                                    **Vigência fim:** {fmt_data(h.get("vigencia_fim"))}  
+                                    """)
+
+                                if h.get("observacao"):
+                                    st.markdown("**Observação completa:**")
+                                    st.write(h["observacao"])
 
 
-
-        with tab_analitica:
-            st.markdown("### 📚 Histórico detalhado")
-            anos_ordenados = sorted(df_sint["ano"].dropna().unique(), reverse=True)
-
-            for ano in anos_ordenados:
-                st.markdown(f"## 🗓️ {int(ano)}")
-                grupo_ano = df_sint[df_sint["ano"] == ano]
-                for _, h in grupo_ano.iterrows():
-                    data_fmt = (
-                        h["data_evento"].strftime("%d/%m/%Y")
-                        if not pd.isna(h["data_evento"])
-                        else "—"
-                    )
-
-                    # BADGES DE CONTEXTO
-                    badge_tipo = f"""
-                    <span style="
-                        background-color: rgba(59, 130, 246, 0.15);
-                        color: var(--text-color);
-                        padding:3px 8px;
-                        border-radius:6px;
-                        font-size:0.75rem;
-                        font-weight:600;
-                    ">
-                        {h['tipo_evento']}
-                    </span>
-                    """
-
-                    badge_impacto = ""
-                    if h.get("novo_valor_global") and h["novo_valor_global"] != "0,00":
-                        badge_impacto = """
-                    <span style="
-                        background-color: rgba(239, 68, 68, 0.15);
-                        color: var(--text-color);
-                        padding:3px 8px;
-                        border-radius:6px;
-                        font-size:0.75rem;
-                        font-weight:600;
-                    ">
-                        Impacto financeiro
-                    </span>
-                    """
-
-                    st.markdown(
-                    f"""
-                    <div style="margin-bottom:10px;">
-                        <strong>{data_fmt}</strong>
-                        {badge_tipo}
-                        {badge_impacto}
-                    </div>
-                    """,
-                        unsafe_allow_html=True
-                    )
-
-                    with st.container(border=True):
-                        st.markdown(f"""
-                        **Documento:** {h.get("numero", "—")}  
-                        **Resumo:** {h.get("observacao", "—")[:200]}{'...' if h.get("observacao") and len(h.get("observacao")) > 200 else ''}
-                        """)
-
-                        with st.expander("🔍 Ver detalhes completos"):
-                            col1, col2 = st.columns(2)
-
-                            with col1:
-                                st.markdown(f"""
-                                **Tipo:** {h.get("tipo", "—")}  
-                                **Assinatura:** {fmt_data(h.get("data_assinatura"))}  
-                                **Publicação:** {fmt_data(h.get("data_publicacao"))}  
-                                """)
-
-                            with col2:
-                                st.markdown(f"""
-                                **Valor inicial:** {h.get("valor_inicial", "—")}  
-                                **Valor global:** {h.get("valor_global", "—")}  
-                                **Novo valor:** {h.get("novo_valor_global", "—")}  
-                                **Vigência fim:** {fmt_data(h.get("vigencia_fim"))}  
-                                """)
-
-                            if h.get("observacao"):
-                                st.markdown("**Observação completa:**")
-                                st.write(h["observacao"])
-
-
-    # ================= FOOTER =================
-    st.divider()
+        # ================= FOOTER =================
+        st.divider()
 
 
 
 
 
 
-st.subheader("📑 Visão financeira dos contratos")
+    st.subheader("📑 Visão financeira dos contratos")
 
-col_f1, col_f2 = st.columns(2)
+    col_f1, col_f2 = st.columns(2)
 
-filtro_risco = col_f1.selectbox(
-    "Filtro rápido",
-    ["Todos", "Com diferenca negativo", "Sem empenho"]
-)
+    filtro_risco = col_f1.selectbox(
+        "Filtro rápido",
+        ["Todos", "Com diferenca negativo", "Sem empenho"]
+    )
 
-filtro_fornecedor = col_f2.text_input(
-    "Buscar por fornecedor",
-    placeholder="Digite parte do nome"
-)
+    filtro_fornecedor = col_f2.text_input(
+        "Buscar por fornecedor",
+        placeholder="Digite parte do nome"
+    )
 
 
 
-df_filtrado = df_base.copy()
+    df_filtrado = df_base.copy()
 
-faixa_diferenca = col_f1.selectbox(
-    "Faixa de diferenca",
-    [
-        "Todos",
-        "diferenca negativo",
-        "diferenca até R$ 10 mil",
-        "diferenca acima de R$ 50 mil"
-    ]
-)
+    faixa_diferenca = col_f1.selectbox(
+        "Faixa de diferenca",
+        [
+            "Todos",
+            "diferenca negativo",
+            "diferenca até R$ 10 mil",
+            "diferenca acima de R$ 50 mil"
+        ]
+    )
 
-if faixa_diferenca == "diferenca negativo":
-    df_filtrado = df_filtrado[df_filtrado["Diferenca"] < 0]
+    if faixa_diferenca == "diferenca negativo":
+        df_filtrado = df_filtrado[df_filtrado["Diferenca"] < 0]
 
-elif faixa_diferenca == "diferenca até R$ 10 mil":
-    df_filtrado = df_filtrado[
-        (df_filtrado["Diferenca"] < 0) &
-        (df_filtrado["Diferenca"] >= -10_000)
+    elif faixa_diferenca == "diferenca até R$ 10 mil":
+        df_filtrado = df_filtrado[
+            (df_filtrado["Diferenca"] < 0) &
+            (df_filtrado["Diferenca"] >= -10_000)
+        ]
+
+    elif faixa_diferenca == "diferenca acima de R$ 50 mil":
+        df_filtrado = df_filtrado[df_filtrado["Diferenca"] < -50_000]
+
+
+    tipo_execucao = st.multiselect(
+        "Situação financeira",
+        ["Empenhado < Exercício", "Sem pagamento", "Totalmente pago"]
+    )
+
+    if "Empenhado < Exercício" in tipo_execucao:
+        df_filtrado = df_filtrado[df_filtrado["Empenhado"] < df_filtrado["Valor exercício"]]
+
+    if "Sem pagamento" in tipo_execucao:
+        df_filtrado = df_filtrado[df_filtrado["Liquidado + Pago"] == 0]
+
+    if "Totalmente pago" in tipo_execucao:
+        df_filtrado = df_filtrado[
+            df_filtrado["Liquidado + Pago"] >= df_filtrado["Valor exercício"]
+        ]
+
+
+    if filtro_risco == "Com diferenca negativo":
+        df_filtrado = df_filtrado[df_filtrado["Diferenca"] < 0]
+
+    elif filtro_risco == "Sem empenho":
+        df_filtrado = df_filtrado[df_filtrado["Empenhado"] == 0]
+
+    if filtro_fornecedor:
+        df_filtrado = df_filtrado[
+            df_filtrado["Fornecedor"]
+            .str.contains(filtro_fornecedor, case=False, na=False)
+        ]
+
+    if df_filtrado.empty:
+        st.warning("Nenhum contrato encontrado com os filtros aplicados.")
+
+    COLUNAS_TABELA_PRINCIPAL = [
+        "ID",
+        "Contrato",
+        "Fornecedor",
+        "Categoria",
+        "Nota(s) de empenho",
+        "Valor anual",
+        "Valor exercício",
+        "Empenhado",
+        "Liquidado + Pago",
+        "Situação",
+        "Diferenca",
+        "Repactuação/Reajuste",
     ]
 
-elif faixa_diferenca == "diferenca acima de R$ 50 mil":
-    df_filtrado = df_filtrado[df_filtrado["Diferenca"] < -50_000]
+    df_exibicao = df_filtrado[COLUNAS_TABELA_PRINCIPAL].copy()
 
 
-tipo_execucao = st.multiselect(
-    "Situação financeira",
-    ["Empenhado < Exercício", "Sem pagamento", "Totalmente pago"]
-)
+    for col in [
+        "Valor anual",
+        "Valor exercício",
+        "Empenhado",
+        "Liquidado + Pago",
+        "Diferenca"
+    ]:
+        df_exibicao[col] = df_exibicao[col].apply(formatar)
 
-if "Empenhado < Exercício" in tipo_execucao:
-    df_filtrado = df_filtrado[df_filtrado["Empenhado"] < df_filtrado["Valor exercício"]]
+    gb = GridOptionsBuilder.from_dataframe(df_exibicao)
 
-if "Sem pagamento" in tipo_execucao:
-    df_filtrado = df_filtrado[df_filtrado["Liquidado + Pago"] == 0]
-
-if "Totalmente pago" in tipo_execucao:
-    df_filtrado = df_filtrado[
-        df_filtrado["Liquidado + Pago"] >= df_filtrado["Valor exercício"]
-    ]
-
-
-if filtro_risco == "Com diferenca negativo":
-    df_filtrado = df_filtrado[df_filtrado["Diferenca"] < 0]
-
-elif filtro_risco == "Sem empenho":
-    df_filtrado = df_filtrado[df_filtrado["Empenhado"] == 0]
-
-if filtro_fornecedor:
-    df_filtrado = df_filtrado[
-        df_filtrado["Fornecedor"]
-        .str.contains(filtro_fornecedor, case=False, na=False)
-    ]
-
-if df_filtrado.empty:
-    st.warning("Nenhum contrato encontrado com os filtros aplicados.")
-
-COLUNAS_TABELA_PRINCIPAL = [
-    "ID",
-    "Contrato",
-    "Fornecedor",
-    "Categoria",
-    "Nota(s) de empenho",
-    "Valor anual",
-    "Valor exercício",
-    "Empenhado",
-    "Liquidado + Pago",
-    "Situação",
-    "Diferenca",
-    "Repactuação/Reajuste",
-]
-
-df_exibicao = df_filtrado[COLUNAS_TABELA_PRINCIPAL].copy()
+    gb.configure_default_column(
+        sortable=True,
+        filter=True,
+        resizable=True,
+        minWidth=120
+    )
+    gb.configure_column("Contrato", pinned="left", width=150)
+    gb.configure_column("Fornecedor", pinned="left", width=260)
+    gb.configure_column("Categoria", width=160)
+    gb.configure_column("Nota(s) de empenho", width=220, autoHeight=True)
+    gb.configure_column("Valor exercício", width=150)
+    gb.configure_column("Valor exercício", width=150)
+    gb.configure_column("Empenhado", width=140)
+    gb.configure_column("Liquidado + Pago", width=160)
+    gb.configure_column("Situação", width=160)
+    gb.configure_column("Diferenca", width=120)
+    gb.configure_column("Repactuação/Reajuste", width=160)
+    gb.configure_column("ID", hide=True)
 
 
-for col in [
-    "Valor anual",
-    "Valor exercício",
-    "Empenhado",
-    "Liquidado + Pago",
-    "Diferenca"
-]:
-    df_exibicao[col] = df_exibicao[col].apply(formatar)
+    gb.configure_selection(
+        selection_mode="single",
+        use_checkbox=False
+    )
 
-gb = GridOptionsBuilder.from_dataframe(df_exibicao)
-
-gb.configure_default_column(
-    sortable=True,
-    filter=True,
-    resizable=True,
-    minWidth=120
-)
-gb.configure_column("Contrato", pinned="left", width=150)
-gb.configure_column("Fornecedor", pinned="left", width=260)
-gb.configure_column("Categoria", width=160)
-gb.configure_column("Nota(s) de empenho", width=220, autoHeight=True)
-gb.configure_column("Valor exercício", width=150)
-gb.configure_column("Valor exercício", width=150)
-gb.configure_column("Empenhado", width=140)
-gb.configure_column("Liquidado + Pago", width=160)
-gb.configure_column("Situação", width=160)
-gb.configure_column("Diferença", width=120)
-gb.configure_column("Repactuação/Reajuste", width=160)
-gb.configure_column("ID", hide=True)
-
-
-gb.configure_selection(
-    selection_mode="single",
-    use_checkbox=False
-)
-
-gb.configure_grid_options(
-    rowHeight=42,
-    headerHeight=45
-)
-# Destaque visual sutil para risco
-gb.configure_column(
-    "Diferenca",
-    cellStyle=JsCode("""
-        function(params) {
-            if (params.value && params.value.startsWith("R$ -")) {
-                return { 'backgroundColor': '#fee2e2' };
+    gb.configure_grid_options(
+        rowHeight=42,
+        headerHeight=45
+    )
+    # Destaque visual sutil para risco
+    gb.configure_column(
+        "Diferenca",
+        cellStyle=JsCode("""
+            function(params) {
+                if (params.value && params.value.startsWith("R$ -")) {
+                    return { 'backgroundColor': 'rgba(59, 130, 246, 0.15)' };
+                }
             }
-        }
-    """)
-)
-
-# Ordenação automática por risco (diferenca)
-gb.configure_grid_options(
-    suppressSizeToFit=True,          # 🔑 ESSENCIAL p/ mobile
-    suppressHorizontalScroll=False,  # permite scroll lateral
-    headerHeight=40,
-    rowHeight=38
-)
-
-
-grid_options = gb.build()
-
-
-st.markdown("""
-<style>
-/* Fundo do container do Streamlit que envolve o AgGrid */
-div[data-testid="stAgGrid"] {
-    background-color: var(--background-color) !important;
-}
-
-/* Fundo real do grid */
-.ag-root-wrapper {
-    background-color: var(--background-color) !important;
-}
-</style>
-""", unsafe_allow_html=True)
-
-
-grid_response = AgGrid(
-    df_exibicao,
-    gridOptions=grid_options,
-    update_mode=GridUpdateMode.SELECTION_CHANGED,
-    theme="alpine",  
-    height=520,
-    fit_columns_on_grid_load=False,
-    allow_unsafe_jscode=True,   # 👈 ESSENCIAL
-)
-
-selected = grid_response.get("selected_rows")
-
-
-
-if selected is not None and not selected.empty:
-    st.caption(
-        f"Contrato selecionado: {selected.iloc[0]['Contrato']}"
-    )
-    contrato_num = selected.iloc[0]["Contrato"]
-    contrato_row = df_base[df_base["Contrato"] == contrato_num].iloc[0]
-    if st.session_state.get("contrato_modal_aberto") != contrato_row["Contrato"]:
-        st.session_state["contrato_modal_aberto"] = contrato_row["Contrato"]
-        st.session_state["abrir_modal"] = True
-        st.session_state["contrato_row"] = contrato_row
-
-if st.session_state.get("abrir_modal"):
-    modal_contrato(st.session_state["contrato_row"])
-    st.session_state["abrir_modal"] = False
-
-
-
-
-# ================= AGENDA DE GESTÃO =================
-
-st.subheader("⏳ Contratos que exigem ação")
-
-df_risco = df[
-    df["Dias para encerrar"].notnull() &
-    (df["Dias para encerrar"] <= 60)
-].sort_values("Dias para encerrar")
-
-if df_risco.empty:
-    st.success("Nenhum contrato em risco de prazo.")
-else:
-    st.dataframe(
-        df_risco[[
-            "Contrato",
-            "Fornecedor",
-            "Categoria",
-            "Dias para encerrar"
-        ]],
-        use_container_width=True,
-        hide_index=True
+        """)
     )
 
-st.divider()
-
-# ================= PERFIL DA CARTEIRA =================
-
-st.subheader("📌 Perfil Contratual")
-
-col1, col2 = st.columns(2)
-
-with col1:
-    st.caption("Contratos ativos por categoria")
-    st.bar_chart(
-        df.groupby("Categoria").size().sort_values(ascending=False)
+    # Ordenação automática por risco (diferenca)
+    gb.configure_grid_options(
+        suppressSizeToFit=True,          # 🔑 ESSENCIAL p/ mobile
+        suppressHorizontalScroll=False,  # permite scroll lateral
+        headerHeight=40,
+        rowHeight=38
     )
 
-with col2:
-    st.caption("Top 10 fornecedores (contratos ativos)")
-    st.bar_chart(
-        df.groupby("Fornecedor").size().sort_values(ascending=False).head(10)
+
+    grid_options = gb.build()
+
+
+    st.markdown("""
+    <style>
+    /* Fundo do container do Streamlit que envolve o AgGrid */
+    div[data-testid="stAgGrid"] {
+        background-color: var(--background-color) !important;
+    }
+
+    /* Fundo real do grid */
+    .ag-root-wrapper {
+        background-color: var(--background-color) !important;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+
+    grid_response = AgGrid(
+        df_exibicao,
+        gridOptions=grid_options,
+        update_mode=GridUpdateMode.SELECTION_CHANGED,
+        theme="alpine",  
+        height=520,
+        fit_columns_on_grid_load=False,
+        allow_unsafe_jscode=True,   # 👈 ESSENCIAL
     )
 
-st.divider()
+    selected = grid_response.get("selected_rows")
+
+
+
+    if selected is not None and not selected.empty:
+        st.caption(
+            f"Contrato selecionado: {selected.iloc[0]['Contrato']}"
+        )
+        contrato_num = selected.iloc[0]["Contrato"]
+        contrato_row = df_base[df_base["Contrato"] == contrato_num].iloc[0]
+        if st.session_state.get("contrato_modal_aberto") != contrato_row["Contrato"]:
+            st.session_state["contrato_modal_aberto"] = contrato_row["Contrato"]
+            st.session_state["abrir_modal"] = True
+            st.session_state["contrato_row"] = contrato_row
+
+    if st.session_state.get("abrir_modal"):
+        modal_contrato(st.session_state["contrato_row"])
+        st.session_state["abrir_modal"] = False
+
+
+
+
+
 
 
 
