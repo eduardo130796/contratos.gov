@@ -64,7 +64,7 @@ def montar_tabela_contratos(
     contratos,
     historicos,
     empenhos,
-    ano
+    ano,df_base_anterior=None
 ):
 
     linhas = []
@@ -73,14 +73,21 @@ def montar_tabela_contratos(
 
     for c in contratos:
 
-        vigencia_fim = parse_data(c.get("vigencia_fim"))
-        if not vigencia_fim:
-            continue
+        vigencia_fim_raw = c.get("vigencia_fim")
+        vigencia_fim = parse_data(vigencia_fim_raw)
 
-        # ---------------------------------------------
-        # FILTRO: SOMENTE ATIVOS
-        # ---------------------------------------------
-        if vigencia_fim < hoje:
+        vigencia_indeterminada = False
+
+        # Caso 1 — Vigência indeterminada (null)
+        if vigencia_fim_raw is None:
+            vigencia_indeterminada = True
+
+        # Caso 2 — Vigência com data válida mas já vencida
+        elif vigencia_fim and vigencia_fim < hoje:
+            continue  # contrato vencido → exclui
+
+        # Caso 3 — Data inválida inesperada
+        elif not vigencia_fim:
             continue
 
         cid = str(c["id"])
@@ -93,6 +100,39 @@ def montar_tabela_contratos(
             historico,
             ano
         )
+
+        # -----------------------------
+        # PROJEÇÃO REALISTA
+        # -----------------------------
+
+        valor_exercicio_teorico = valor_exercicio
+
+        valor_exercicio_ajustado = valor_exercicio_teorico
+
+        if df_base_anterior is not None:
+
+            contrato_num = c["numero"]
+
+            linha_anterior = df_base_anterior[
+                df_base_anterior["Contrato"] == contrato_num
+            ]
+
+            if not linha_anterior.empty:
+
+                valor_ex_ant = linha_anterior.iloc[0]["Valor exercício"]
+                pago_ant = linha_anterior.iloc[0]["Liquidado + Pago"]
+
+                if valor_ex_ant > 0:
+                    indice = pago_ant / valor_ex_ant
+
+                    # limitar distorção extrema
+                    indice = max(0.6, min(indice, 1.2))
+
+                    valor_exercicio_ajustado = (
+                        valor_exercicio_teorico * indice
+                    )
+
+
 
         repactuado = houve_repactuacao_no_ano(
             contrato_id=c["id"],
@@ -109,17 +149,22 @@ def montar_tabela_contratos(
         valor_parcela_float = moeda_para_float(c.get("valor_parcela"))
         valor_anual = valor_parcela_float * 12
 
-        dias_encerrar = dias_para_encerrar(c.get("vigencia_fim"))
-        if dias_encerrar is None:
-            risco_vigencia = "—"
-        elif dias_encerrar <= 30:
-            risco_vigencia = "🔴 Crítico"
-        elif dias_encerrar <= 60:
-            risco_vigencia = "🟡 Atenção"
-        elif dias_encerrar <= 90:
-            risco_vigencia = "🔵 Monitorar"
+        if vigencia_indeterminada:
+            dias_encerrar = None
+            risco_vigencia = "⚫ Indeterminada"
         else:
-            risco_vigencia = "🟢 Regular"
+            dias_encerrar = dias_para_encerrar(c.get("vigencia_fim"))
+
+            if dias_encerrar is None:
+                risco_vigencia = "—"
+            elif dias_encerrar <= 30:
+                risco_vigencia = "🔴 Crítico"
+            elif dias_encerrar <= 60:
+                risco_vigencia = "🟡 Atenção"
+            elif dias_encerrar <= 90:
+                risco_vigencia = "🔵 Monitorar"
+            else:
+                risco_vigencia = "🟢 Regular"
 
 
         empenhado, pago_liq, aliquidar = somar_empenhos_do_ano(
@@ -127,7 +172,8 @@ def montar_tabela_contratos(
             ano
         )
 
-        diferenca = valor_exercicio - empenhado
+        diferenca = valor_exercicio_ajustado - empenhado
+
 
         if diferenca > 1:
             reforco = diferenca
@@ -157,7 +203,7 @@ def montar_tabela_contratos(
             "valor_parcela": c["valor_parcela"],
             "Valor anual": valor_anual,
             "Nota(s) de empenho": empenhos_str if empenhos_str else "—",
-            "Valor exercício": valor_exercicio,
+            "Valor exercício": valor_exercicio_ajustado,
             "Empenhado": empenhado,
             "Liquidado + Pago": pago_liq,
             "A liquidar": aliquidar,
