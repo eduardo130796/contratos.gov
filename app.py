@@ -105,16 +105,9 @@ with open("data/raw/historicos.json", encoding="utf-8") as f:
     historicos = json.load(f)
 
 
-@st.cache_data(show_spinner=False)
-def carregar_df_base():
-    return montar_tabela_contratos(
-        contratos,
-        historicos,
-        empenhos_base,
-        ano_referencia
-    )
 
-df_base = carregar_df_base()
+
+
 
 @st.cache_data(show_spinner=False)
 def carregar_df_base_anterior():
@@ -127,6 +120,16 @@ def carregar_df_base_anterior():
 
 df_base_anterior = carregar_df_base_anterior()
 
+
+@st.cache_data(show_spinner=False)
+def carregar_df_base():
+    return montar_tabela_contratos(
+        contratos,
+        historicos,
+        empenhos_base,
+        ano_referencia,df_base_anterior
+    )
+df_base = carregar_df_base()
 
 # ================= KPIs =================
 df = df_base.copy()
@@ -654,7 +657,7 @@ if pagina == "⚠️ Riscos e Continuidade":
         from st_aggrid import AgGrid, GridOptionsBuilder, JsCode
 
         gb = GridOptionsBuilder.from_dataframe(
-            df_risco[["Prioridade", "Contrato", "Fornecedor", "Dias para encerrar"]]
+            df_risco[["Prioridade", "Contrato", "Processo","Objeto","Fornecedor", "Dias para encerrar"]]
         )
 
         gb.configure_default_column(resizable=True)
@@ -682,7 +685,7 @@ if pagina == "⚠️ Riscos e Continuidade":
         grid_options = gb.build()
 
         AgGrid(
-            df_risco[["Prioridade", "Contrato", "Fornecedor", "Dias para encerrar"]],
+            df_risco[["Prioridade", "Contrato", "Processo","Objeto", "Fornecedor", "Dias para encerrar"]],
             gridOptions=grid_options,
             theme="alpine",
             height=400,
